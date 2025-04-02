@@ -1,30 +1,26 @@
 import pandas as pd
 import numpy as np
-from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error
 
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-# Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-# Dataset bisa diunduh dari https://grouplens.org/datasets/movielens/
-ratings = pd.read_csv('ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
-print(ratings.head())
+ratings = pd.read_csv("ratings.csv")
+train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
 
 # ----------------------------
 # 2. Buat user-item matrix dari training data
 # ----------------------------
-R_df = ratings.pivot(index='userId', columns='itemId', values='rating')
-R = R_df.fillna(0).values  # missing values diisi dengan 0
+R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
+R = R_df.values  # biarkan NaN untuk masking
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
 
-# Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 50  # latent factors
-alpha = 0.01  # learning rate
-beta = 0.005    # regularization parameter
+k = 50
+alpha = 0.01
+beta = 0.005
 epochs = 100
 
 # ----------------------------
@@ -54,7 +50,6 @@ def get_metrics(R, U, V):
 # ----------------------------
 # 5. Fungsi training MF (SGD)
 # ----------------------------
-# Fungsi loss + training Matrix Factorization (SGD)
 def train_mf(R, U, V, alpha, beta, epochs):
     for epoch in range(epochs):
         for i in range(len(R)):
@@ -70,12 +65,72 @@ def train_mf(R, U, V, alpha, beta, epochs):
         print(f"Epoch {epoch + 1}/{epochs}, MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}")
     return U, V
 
-# Training
+# ----------------------------
+# 6. Training
+# ----------------------------
 U, V = train_mf(R, U, V, alpha, beta, epochs)
-
-# Matrix prediksi akhir
 R_pred = U.dot(V.T)
 
+# ----------------------------
+# 7. Evaluasi pada data test
+# ----------------------------
+def evaluate_on_test(test_df, user_ids, item_ids, U, V):
+    y_true, y_pred = [], []
+    user_map = {uid: idx for idx, uid in enumerate(user_ids)}
+    item_map = {iid: idx for idx, iid in enumerate(item_ids)}
+
+    for row in test_df.itertuples():
+        u_id, i_id, r = row.userId, row.itemId, row.rating
+        if u_id in user_map and i_id in item_map:
+            u_idx = user_map[u_id]
+            i_idx = item_map[i_id]
+            pred = np.dot(U[u_idx], V[i_idx])
+            y_true.append(r)
+            y_pred.append(pred)
+
+    mae = mean_absolute_error(y_true, y_pred)
+    mse = mean_squared_error(y_true, y_pred)
+    rmse = root_mean_squared_error(y_true, y_pred)
+    return mae, mse, rmse
+
+test_mae, test_mse, test_rmse = evaluate_on_test(test_data, user_ids, item_ids, U, V)
+print("\nEvaluasi pada Data Test:")
+print(f"MAE:  {test_mae:.4f}")
+print(f"MSE:  {test_mse:.4f}")
+print(f"RMSE: {test_rmse:.4f}")
+
+# ----------------------------
+# 8. Simpan prediksi ke CSV
+# ----------------------------
+# Buat lookup rating dari dataset asli
+# Update loop prediksi
+rating_lookup = ratings.set_index(['userId', 'itemId'])['rating'].to_dict()
+
+predictions = []
+for user_index in range(num_users):
+    for item_index in range(num_items):
+        u_id = user_ids[user_index]
+        i_id = item_ids[item_index]
+        pred_rating = R_pred[user_index][item_index]
+
+        # Cari rating aktual dari dataset asli
+        actual = rating_lookup.get((u_id, i_id), None)
+
+        predictions.append({
+            'userId': u_id,
+            'itemId': i_id,
+            'actual_rating': actual,
+            'predicted_rating': pred_rating
+        })
+
+# Buat DataFrame dan simpan
+predictions_df = pd.DataFrame(predictions)
+predictions_df.to_csv("a_mf_rating.csv", index=False)
+print("\n✅ Hasil prediksi disimpan di a_mf_rating.csv")
+
+# ----------------------------
+# 9. Contoh Otomatis prediksi
+# ----------------------------
 # Gunakan R_pred sebagai fitur tambahan dalam model machine learning
 # Hasil akhir dari proses Matrix Factorization (faktor U × Vᵗ), 
 # yaitu prediksi sistem terhadap semua kombinasi user dan item, termasuk yang belum pernah diberi rating.
@@ -113,7 +168,11 @@ for user_index in range(num_users):
 result_df = pd.concat(rows, ignore_index=False)
 print(result_df)
 
-result_df.to_csv("prediksi_rating.csv", index=False)
+result_df.to_csv("a_mf_rating.csv", index=False)
+
+# ----------------------------
+# 10. Contoh prediksi manual
+# ----------------------------
 # Contoh prediksi rating user ke-0 terhadap movie ke-10
 # Fungsi ini untuk mengecek saecara maunual terhadap user dan item.
 #    Apa maksud R[0][1]?
@@ -122,5 +181,5 @@ result_df.to_csv("prediksi_rating.csv", index=False)
 #    R[0][1] artinya:
 #      Rating aktual dari user ke-0 terhadap item ke-1 (berdasarkan posisi, bukan ID asli)
 print("\nContoh prediksi rating user 0 terhadap movie 1:")
-print(f"Rating aktual: {R[0][10]}")
-print(f"Rating prediksi: {R_pred[0][10]:.2f}")
+print(f"Rating aktual: {R[0][1]}")
+print(f"Rating prediksi: {R_pred[0][1]:.2f}")
