@@ -9,15 +9,17 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_s
 # ----------------------------
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
 # Dataset bisa diunduh dari https://grouplens.org/datasets/movielens/
-ratings = pd.read_csv('ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 print(ratings.head())
-test_data = train_test_split(ratings, test_size=0.2, random_state=42)
+train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
 
 # ----------------------------
 # 2. Buat user-item matrix dari training data
 # ----------------------------
-R_df = ratings.pivot(index='userId', columns='itemId', values='rating')
-R = R_df.fillna(0).values  # missing values diisi dengan 0
+# R_df = ratings.pivot(index='userId', columns='itemId', values='rating')
+R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
+# R = R_df.fillna(0).values  # missing values diisi dengan 0
+R = R_df.values  # biarkan NaN tetap NaN
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
 
@@ -125,15 +127,29 @@ for user_index in range(num_users):
             'userId': user_ids[user_index],
             'itemId': item_ids[item_index],
             'actual_rating': R[user_index][item_index],
-            'predicted_rating': R_pred[user_index][item_index]
+            'mf_predicted_rating': R_pred[user_index][item_index]
         })
 
 predictions_df = pd.DataFrame(predictions)
 
 # ----------------------------
-# 9. Simpan prediksi ke CSV
+# 9. Contoh prediksi manual
 # ----------------------------
-print("Total prediksi:", len(predictions_df))
+# Contoh prediksi rating user ke-0 terhadap item ke-10
+# Fungsi ini untuk mengecek saecara maunual terhadap user dan item.
+#    Apa maksud R[0][1]?
+#    Ini adalah 2D numpy array dari pivot userId vs itemId.
+#      R[0] artinya baris pertama dari matrix R → ini adalah rating dari user pertama (index ke-0) terhadap semua item.
+#    R[0][1] artinya:
+#      Rating aktual dari user ke-0 terhadap item ke-1 (berdasarkan posisi, bukan ID asli)
+print("\nContoh prediksi rating user 0 terhadap item 1:")
+print(f"Rating aktual: {R[0][1]}")
+print(f"Rating prediksi: {R_pred[0][1]:.2f}")
+
+# ----------------------------
+# 10. Simpan prediksi ke CSV
+# ----------------------------
+print("\nTotal prediksi:", len(predictions_df))
 print(f"Total user: {num_users}")
 print(f"Total item: {num_items}")
 rows = []
@@ -151,18 +167,7 @@ for user_index in range(num_users):
 result_df = pd.concat(rows, ignore_index=False)
 print(result_df)
 
-result_df.to_csv("prediksi_rating.csv", index=False)
+output_path = "a_mf_ratings.csv"
+result_df.to_csv(output_path, index=False)
 
-# ----------------------------
-# 10. Contoh prediksi manual
-# ----------------------------
-# Contoh prediksi rating user ke-0 terhadap movie ke-10
-# Fungsi ini untuk mengecek saecara maunual terhadap user dan item.
-#    Apa maksud R[0][1]?
-#    Ini adalah 2D numpy array dari pivot userId vs itemId.
-#      R[0] artinya baris pertama dari matrix R → ini adalah rating dari user pertama (index ke-0) terhadap semua item.
-#    R[0][1] artinya:
-#      Rating aktual dari user ke-0 terhadap item ke-1 (berdasarkan posisi, bukan ID asli)
-print("\nContoh prediksi rating user 0 terhadap movie 1:")
-print(f"Rating aktual: {R[0][1]}")
-print(f"Rating prediksi: {R_pred[0][1]:.2f}")
+print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
