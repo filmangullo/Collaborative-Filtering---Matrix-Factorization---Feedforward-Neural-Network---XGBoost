@@ -7,9 +7,12 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_s
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-# Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-# Dataset bisa diunduh dari https://grouplens.org/datasets/movielens/
+
+# Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+# Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
+# ratings = pd.read_csv('dataset_movielens/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+
 print(ratings.head())
 train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
 
@@ -18,17 +21,17 @@ train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42
 # ----------------------------
 # R_df = ratings.pivot(index='userId', columns='itemId', values='rating')
 R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
-# R = R_df.fillna(0).values  # missing values diisi dengan 0
-R = R_df.values  # biarkan NaN tetap NaN
+R = R_df.fillna(0).values  # missing values diisi dengan 0
+# R = R_df.values  # biarkan NaN tetap NaN
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
 k = 50  # latent factors
-alpha = 0.01  # learning rate
-beta = 0.005    # regularization parameter
-epochs = 100
+alpha = 0.001  # learning rate
+beta = 0.05    # regularization parameter
+epochs = 5
 
 # ----------------------------
 # 3. Inisialisasi latent factor U dan V
@@ -69,8 +72,20 @@ def train_mf(R, U, V, alpha, beta, epochs):
                     # Update U dan V
                     U[i, :] += alpha * (eij * V[j, :] - beta * U[i, :])
                     V[j, :] += alpha * (eij * U[i, :] - beta * V[j, :])
+
+                    # Clipping
+                    U[i, :] = np.clip(U[i, :], -5, 5)
+                    V[j, :] = np.clip(V[j, :], -5, 5)
+
+        # ✅ Cek apakah ada NaN setelah 1 epoch
+        if np.isnan(U).any() or np.isnan(V).any():
+            print(f"❌ NaN detected at epoch {epoch + 1} — menghentikan training.")
+            break
+
+        # Evaluasi
         mae, mse, rmse = get_metrics(R, U, V)
         print(f"Epoch {epoch + 1}/{epochs}, MAE: {mae:.4f}, MSE: {mse:.4f}, RMSE: {rmse:.4f}")
+
     return U, V
 
 
