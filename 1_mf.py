@@ -9,9 +9,9 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_s
 # ----------------------------
 
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
-ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+# ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-# ratings = pd.read_csv('dataset_movielens/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 
 print(ratings.head())
 train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)

@@ -29,8 +29,19 @@ test_data = ratings
 # ----------------------------
 # 2. Create User-Item Matrix
 # ----------------------------
+# Buat pivot standar (userId x itemId)
 R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
-R = R_df.fillna(np.nan).values
+
+# Pastikan semua item (termasuk yang belum pernah dirating) ada di pivot
+all_item_ids = items['id'].unique()     # seluruh ID item dari items.csv
+R_df = R_df.reindex(columns=all_item_ids)
+
+# Jika mau memaksa item tak ber-rating dianggap rating=0, isi NaN dengan 0
+# (Jika ingin menandai "tidak ada rating", lebih baik biarkan NaN saja.)
+R_df = R_df.fillna(0)
+
+# Lanjutkan seperti biasa
+R = R_df.values
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
 num_users, num_items = R.shape
@@ -38,10 +49,10 @@ num_users, num_items = R.shape
 # ----------------------------
 # 3. Matrix Factorization
 # ----------------------------
-k = 50  # latent factors
-alpha = 0.01  # learning rate
-beta = 0.005    # regularization parameter
-epochs = 100
+k = 88     # latent factors
+alpha = 0.01     # learning rate
+beta = 0.01     # regularization parameter
+epochs = 10     #early stopping
 
 np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))
@@ -61,7 +72,7 @@ for epoch in range(epochs):
 # ----------------------------
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
-genre_dim = feature_dummies.shape[1]
+feature_dim = feature_dummies.shape[1]
 
 X_mlp, y_mlp = [], []
 
@@ -70,12 +81,12 @@ for row in train_data.itertuples():
     if uid in user_map and iid in item_map:
         u_idx = user_map[uid]
         i_idx = item_map[iid]
-        genre_row = item_with_features[item_with_features['id'] == iid]
-        if genre_row.empty:
-            genre_vec = np.zeros(genre_dim)
+        feature_row = item_with_features[item_with_features['id'] == iid]
+        if feature_row.empty:
+            feature_vec = np.zeros(feature_dim)
         else:
-            genre_vec = genre_row.drop(columns='id').values[0]
-        x_input = np.concatenate([U[u_idx], V[i_idx], genre_vec])
+            feature_vec = feature_row.drop(columns='id').values[0]
+        x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_mlp.append(x_input)
         y_mlp.append(rating)
 
@@ -88,7 +99,7 @@ y_mlp = np.array(y_mlp)
 def swish(x):
     return x * K.sigmoid(x)
 
-input_layer = Input(shape=(2*k + genre_dim,))
+input_layer = Input(shape=(2*k + feature_dim,))
 hidden1 = Dense(128)(input_layer)
 act1 = Lambda(swish)(hidden1)
 hidden2 = Dense(64)(act1)
@@ -122,14 +133,14 @@ for row in all_combinations.itertuples():
         u_idx = user_map[uid]
         i_idx = item_map[iid]
         
-        # Ambil fitur genre
-        genre_row = item_with_features[item_with_features['id'] == iid]
-        if genre_row.empty:
-            genre_vec = np.zeros(genre_dim)
+        # Ambil fitur feature
+        feature_row = item_with_features[item_with_features['id'] == iid]
+        if feature_row.empty:
+            feature_vec = np.zeros(feature_dim)
         else:
-            genre_vec = genre_row.drop(columns='id').values[0]
+            feature_vec = feature_row.drop(columns='id').values[0]
 
-        x_input = np.concatenate([U[u_idx], V[i_idx], genre_vec])
+        x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_test.append(x_input)
 
         # Cek apakah ada rating aktual
@@ -157,7 +168,7 @@ mae = mean_absolute_error(y_test_valid, y_pred_valid)
 mse = mean_squared_error(y_test_valid, y_pred_valid)
 rmse = np.sqrt(mse)
 
-print("\n📊 Evaluasi Model MLP (MF + Genre + Swish):")
+print("\n📊 Evaluasi Model MLP (MF + feature + Swish):")
 print(f"MAE : {mae:.4f}")
 print(f"MSE : {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
