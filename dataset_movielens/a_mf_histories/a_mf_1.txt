@@ -1,0 +1,28 @@
+----------------------------------------------------------------
+   Matrix Factorization via Stochastic Gradient Descent (SGD)
+----------------------------------------------------------------
+Train Data Presentation: 90.00%
+Test Data Presentation : 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 64
+Learning rate                 : 0.1
+Regularization parameter      : 0.1
+Jumlah epoch / training       : 5
+
+
+Epoch 1/5, MAE: 418.7544, MSE: 351374.7185, RMSE: 592.7687
+Epoch 2/5, MAE: 537.3027, MSE: 476970.9933, RMSE: 690.6309
+Epoch 3/5, MAE: 536.9467, MSE: 478033.8448, RMSE: 691.3999
+Epoch 4/5, MAE: 539.5213, MSE: 479731.2780, RMSE: 692.6264
+Epoch 5/5, MAE: 539.3039, MSE: 479586.5059, RMSE: 692.5218
+
+Evaluasi pada Data Test:
+MAE : 538.3875
+MSE : 475231.9036
+RMSE: 689.3707
+
+Total prediksi: 5721190
+Total user: 610
+Total item: 9379

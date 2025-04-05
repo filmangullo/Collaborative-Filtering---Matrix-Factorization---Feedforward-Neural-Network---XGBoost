@@ -1,4 +1,14 @@
 import os
+# Disable oneDNN verbose logs
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+import tensorflow as tf
+import logging
+
+# Matikan warning dari Python logger TensorFlow
+tf.get_logger().setLevel(logging.ERROR)
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -10,21 +20,37 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from tensorflow.keras.callbacks import EarlyStopping
 from itertools import product
 
-# Disable oneDNN verbose logs
-os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
-os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+# ----------------------------
+# 0. Program Title
+# ----------------------------
+print(f"----------------------------------------------------------------")
+print(f"   Matrix Factorization Feed-forward Neural Network -> MLP   ")
+print(f"----------------------------------------------------------------")
 
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-items = pd.read_csv("dataset_movielens/test_1_percent/items.csv")
+items = pd.read_csv("dataset_dummy/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_movielens/test_1_percent/ratings.csv')
-# train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
-train_data = ratings
-test_data = ratings
+ratings = pd.read_csv('dataset_dummy/ratings.csv')
+train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
+# train_data = ratings
+# test_data = ratings
+
+# Menghitung total jumlah data
+total_data = len(ratings)
+
+# Menghitung persentase data latih dan data uji
+persentase_train = (len(train_data) / total_data) * 100
+persentase_test = (len(test_data) / total_data) * 100
+
+# Mencetak hasil
+print(f"Persentase data latih: {persentase_train:.2f}%")
+print(f"Persentase data uji  : {persentase_test:.2f}%")
+print(f"\n")
 
 # ----------------------------
 # 2. Create User-Item Matrix
@@ -53,6 +79,13 @@ k = 128     # latent factors
 alpha = 0.05     # learning rate
 beta = 0.1      # regularization parameter
 epochs = 50     #early stopping
+
+print("Hyperparameter Matrix Factorization:")
+print(f"Latent factors / Dimensi laten: {k}")
+print(f"Learning rate                 : {alpha}")
+print(f"Regularization parameter      : {beta}")
+print(f"Jumlah epoch / training       : {beta}")
+print(f"\n")
 
 np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))

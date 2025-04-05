@@ -19,7 +19,7 @@ print(f"----------------------------------------------------------------")
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-ratings = pd.read_csv('dataset_movielens/test_10_percent/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_movielens/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
@@ -32,8 +32,8 @@ persentase_train = (len(train_data) / total_data) * 100
 persentase_test = (len(test_data) / total_data) * 100
 
 # Mencetak hasil
-print(f"Persentase data latih: {persentase_train:.2f}%")
-print(f"Persentase data uji  : {persentase_test:.2f}%")
+print(f"Train Data Presentation: {persentase_train:.2f}%")
+print(f"Test Data Presentation: {persentase_test:.2f}%")
 print(f"\n")
 
 # ----------------------------
@@ -46,7 +46,7 @@ item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 64     # latent factors
+k = 128     # latent factors
 alpha = 0.005     # learning rate
 beta = 0.02     # regularization parameter
 epochs = 88     #early stopping
@@ -55,7 +55,7 @@ print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
 print(f"Learning rate                 : {alpha}")
 print(f"Regularization parameter      : {beta}")
-print(f"Jumlah epoch / training       : {beta}")
+print(f"Jumlah epoch / training       : {epochs}")
 print(f"\n")
 # ----------------------------
 # 3. Inisialisasi latent factor U dan V

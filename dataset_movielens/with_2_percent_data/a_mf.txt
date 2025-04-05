@@ -1,0 +1,139 @@
+----------------------------------------------------------------
+   Matrix Factorization via Stochastic Gradient Descent (SGD)
+----------------------------------------------------------------
+Train Data Presentation: 90.00%
+Test Data Presentation : 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 128
+Learning rate                 : 0.005
+Regularization parameter      : 0.1
+Jumlah epoch / training       : 100
+
+
+Epoch 1/100, MAE: 3.5224, MSE: 13.4766, RMSE: 3.6711
+Epoch 2/100, MAE: 3.5221, MSE: 13.4743, RMSE: 3.6707
+Epoch 3/100, MAE: 3.5217, MSE: 13.4715, RMSE: 3.6704
+Epoch 4/100, MAE: 3.5212, MSE: 13.4675, RMSE: 3.6698
+Epoch 5/100, MAE: 3.5204, MSE: 13.4615, RMSE: 3.6690
+Epoch 6/100, MAE: 3.5191, MSE: 13.4517, RMSE: 3.6677
+Epoch 7/100, MAE: 3.5169, MSE: 13.4350, RMSE: 3.6654
+Epoch 8/100, MAE: 3.5131, MSE: 13.4056, RMSE: 3.6614
+Epoch 9/100, MAE: 3.5061, MSE: 13.3530, RMSE: 3.6542
+Epoch 10/100, MAE: 3.4934, MSE: 13.2580, RMSE: 3.6412
+Epoch 11/100, MAE: 3.4704, MSE: 13.0875, RMSE: 3.6177
+Epoch 12/100, MAE: 3.4291, MSE: 12.7883, RMSE: 3.5761
+Epoch 13/100, MAE: 3.3574, MSE: 12.2882, RMSE: 3.5055
+Epoch 14/100, MAE: 3.2400, MSE: 11.5203, RMSE: 3.3942
+Epoch 15/100, MAE: 3.0660, MSE: 10.4817, RMSE: 3.2375
+Epoch 16/100, MAE: 2.8421, MSE: 9.2827, RMSE: 3.0468
+Epoch 17/100, MAE: 2.5998, MSE: 8.0947, RMSE: 2.8451
+Epoch 18/100, MAE: 2.3729, MSE: 7.0349, RMSE: 2.6523
+Epoch 19/100, MAE: 2.1704, MSE: 6.1347, RMSE: 2.4768
+Epoch 20/100, MAE: 1.9938, MSE: 5.3834, RMSE: 2.3202
+Epoch 21/100, MAE: 1.8417, MSE: 4.7613, RMSE: 2.1820
+Epoch 22/100, MAE: 1.7097, MSE: 4.2478, RMSE: 2.0610
+Epoch 23/100, MAE: 1.5970, MSE: 3.8230, RMSE: 1.9552
+Epoch 24/100, MAE: 1.4992, MSE: 3.4689, RMSE: 1.8625
+Epoch 25/100, MAE: 1.4149, MSE: 3.1706, RMSE: 1.7806
+Epoch 26/100, MAE: 1.3440, MSE: 2.9163, RMSE: 1.7077
+Epoch 27/100, MAE: 1.2818, MSE: 2.6973, RMSE: 1.6423
+Epoch 28/100, MAE: 1.2271, MSE: 2.5065, RMSE: 1.5832
+Epoch 29/100, MAE: 1.1788, MSE: 2.3389, RMSE: 1.5294
+Epoch 30/100, MAE: 1.1355, MSE: 2.1906, RMSE: 1.4801
+Epoch 31/100, MAE: 1.0963, MSE: 2.0584, RMSE: 1.4347
+Epoch 32/100, MAE: 1.0611, MSE: 1.9400, RMSE: 1.3928
+Epoch 33/100, MAE: 1.0290, MSE: 1.8333, RMSE: 1.3540
+Epoch 34/100, MAE: 0.9992, MSE: 1.7367, RMSE: 1.3178
+Epoch 35/100, MAE: 0.9720, MSE: 1.6489, RMSE: 1.2841
+Epoch 36/100, MAE: 0.9466, MSE: 1.5687, RMSE: 1.2525
+Epoch 37/100, MAE: 0.9230, MSE: 1.4954, RMSE: 1.2228
+Epoch 38/100, MAE: 0.9012, MSE: 1.4279, RMSE: 1.1950
+Epoch 39/100, MAE: 0.8807, MSE: 1.3657, RMSE: 1.1687
+Epoch 40/100, MAE: 0.8614, MSE: 1.3083, RMSE: 1.1438
+Epoch 41/100, MAE: 0.8432, MSE: 1.2549, RMSE: 1.1202
+Epoch 42/100, MAE: 0.8260, MSE: 1.2054, RMSE: 1.0979
+Epoch 43/100, MAE: 0.8098, MSE: 1.1591, RMSE: 1.0766
+Epoch 44/100, MAE: 0.7945, MSE: 1.1160, RMSE: 1.0564
+Epoch 45/100, MAE: 0.7801, MSE: 1.0755, RMSE: 1.0371
+Epoch 46/100, MAE: 0.7664, MSE: 1.0376, RMSE: 1.0186
+Epoch 47/100, MAE: 0.7534, MSE: 1.0019, RMSE: 1.0009
+Epoch 48/100, MAE: 0.7410, MSE: 0.9683, RMSE: 0.9840
+Epoch 49/100, MAE: 0.7292, MSE: 0.9365, RMSE: 0.9678
+Epoch 50/100, MAE: 0.7180, MSE: 0.9066, RMSE: 0.9521
+Epoch 51/100, MAE: 0.7073, MSE: 0.8782, RMSE: 0.9371
+Epoch 52/100, MAE: 0.6970, MSE: 0.8513, RMSE: 0.9226
+Epoch 53/100, MAE: 0.6872, MSE: 0.8257, RMSE: 0.9087
+Epoch 54/100, MAE: 0.6777, MSE: 0.8014, RMSE: 0.8952
+Epoch 55/100, MAE: 0.6687, MSE: 0.7783, RMSE: 0.8822
+Epoch 56/100, MAE: 0.6600, MSE: 0.7563, RMSE: 0.8696
+Epoch 57/100, MAE: 0.6515, MSE: 0.7352, RMSE: 0.8575
+Epoch 58/100, MAE: 0.6433, MSE: 0.7152, RMSE: 0.8457
+Epoch 59/100, MAE: 0.6354, MSE: 0.6960, RMSE: 0.8342
+Epoch 60/100, MAE: 0.6278, MSE: 0.6776, RMSE: 0.8232
+Epoch 61/100, MAE: 0.6203, MSE: 0.6600, RMSE: 0.8124
+Epoch 62/100, MAE: 0.6130, MSE: 0.6431, RMSE: 0.8020
+Epoch 63/100, MAE: 0.6059, MSE: 0.6269, RMSE: 0.7918
+Epoch 64/100, MAE: 0.5989, MSE: 0.6114, RMSE: 0.7819
+Epoch 65/100, MAE: 0.5922, MSE: 0.5965, RMSE: 0.7723
+Epoch 66/100, MAE: 0.5856, MSE: 0.5821, RMSE: 0.7629
+Epoch 67/100, MAE: 0.5792, MSE: 0.5683, RMSE: 0.7538
+Epoch 68/100, MAE: 0.5730, MSE: 0.5549, RMSE: 0.7449
+Epoch 69/100, MAE: 0.5669, MSE: 0.5421, RMSE: 0.7363
+Epoch 70/100, MAE: 0.5610, MSE: 0.5297, RMSE: 0.7278
+Epoch 71/100, MAE: 0.5553, MSE: 0.5178, RMSE: 0.7196
+Epoch 72/100, MAE: 0.5497, MSE: 0.5063, RMSE: 0.7115
+Epoch 73/100, MAE: 0.5442, MSE: 0.4952, RMSE: 0.7037
+Epoch 74/100, MAE: 0.5388, MSE: 0.4844, RMSE: 0.6960
+Epoch 75/100, MAE: 0.5336, MSE: 0.4740, RMSE: 0.6885
+Epoch 76/100, MAE: 0.5284, MSE: 0.4640, RMSE: 0.6812
+Epoch 77/100, MAE: 0.5234, MSE: 0.4543, RMSE: 0.6740
+Epoch 78/100, MAE: 0.5184, MSE: 0.4449, RMSE: 0.6670
+Epoch 79/100, MAE: 0.5135, MSE: 0.4358, RMSE: 0.6601
+Epoch 80/100, MAE: 0.5087, MSE: 0.4269, RMSE: 0.6534
+Epoch 81/100, MAE: 0.5040, MSE: 0.4184, RMSE: 0.6468
+Epoch 82/100, MAE: 0.4994, MSE: 0.4101, RMSE: 0.6404
+Epoch 83/100, MAE: 0.4949, MSE: 0.4021, RMSE: 0.6341
+Epoch 84/100, MAE: 0.4905, MSE: 0.3943, RMSE: 0.6279
+Epoch 85/100, MAE: 0.4862, MSE: 0.3868, RMSE: 0.6219
+Epoch 86/100, MAE: 0.4819, MSE: 0.3794, RMSE: 0.6160
+Epoch 87/100, MAE: 0.4777, MSE: 0.3723, RMSE: 0.6102
+Epoch 88/100, MAE: 0.4736, MSE: 0.3654, RMSE: 0.6045
+Epoch 89/100, MAE: 0.4696, MSE: 0.3587, RMSE: 0.5989
+Epoch 90/100, MAE: 0.4656, MSE: 0.3522, RMSE: 0.5935
+Epoch 91/100, MAE: 0.4617, MSE: 0.3459, RMSE: 0.5881
+Epoch 92/100, MAE: 0.4578, MSE: 0.3398, RMSE: 0.5829
+Epoch 93/100, MAE: 0.4540, MSE: 0.3338, RMSE: 0.5777
+Epoch 94/100, MAE: 0.4503, MSE: 0.3280, RMSE: 0.5727
+Epoch 95/100, MAE: 0.4467, MSE: 0.3223, RMSE: 0.5678
+Epoch 96/100, MAE: 0.4431, MSE: 0.3169, RMSE: 0.5629
+Epoch 97/100, MAE: 0.4396, MSE: 0.3115, RMSE: 0.5581
+Epoch 98/100, MAE: 0.4361, MSE: 0.3063, RMSE: 0.5535
+Epoch 99/100, MAE: 0.4326, MSE: 0.3013, RMSE: 0.5489
+Epoch 100/100, MAE: 0.4293, MSE: 0.2963, RMSE: 0.5444
+
+Evaluasi pada Data Test:
+MAE : 0.8658
+MSE : 1.3909
+RMSE: 1.1793
+
+Total prediksi: 76201
+Total user: 421
+Total item: 181
+       userId  itemId  actual_rating  mf_predicted_rating
+0           1      11            0.0                  2.9
+1           1      43            0.0                  3.1
+2           1      55            0.0                  2.0
+3           1     105            0.0                  2.8
+4           1     108            0.0                  2.1
+...       ...     ...            ...                  ...
+76196     610  161830            0.0                  0.7
+76197     610  162478            0.0                  3.6
+76198     610  162590            0.0                  0.6
+76199     610  173235            0.0                  2.9
+76200     610  177593            0.0                  5.3
+
+[76201 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: a_mf_ratings.csv
