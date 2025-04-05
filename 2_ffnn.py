@@ -17,11 +17,11 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-items = pd.read_csv("dataset_dummy/items.csv")
+items = pd.read_csv("dataset_movielens/test_1_percent/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_dummy/ratings.csv')
+ratings = pd.read_csv('dataset_movielens/test_1_percent/ratings.csv')
 # train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
 train_data = ratings
 test_data = ratings
@@ -49,10 +49,10 @@ num_users, num_items = R.shape
 # ----------------------------
 # 3. Matrix Factorization
 # ----------------------------
-k = 88     # latent factors
-alpha = 0.01     # learning rate
-beta = 0.01     # regularization parameter
-epochs = 10     #early stopping
+k = 128     # latent factors
+alpha = 0.05     # learning rate
+beta = 0.1      # regularization parameter
+epochs = 50     #early stopping
 
 np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))
@@ -112,8 +112,9 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # ----------------------------
 # 6. Training MLP
 # ----------------------------
-early_stop = EarlyStopping(patience=3, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=100, batch_size=256, validation_split=0.1, callbacks=[early_stop], verbose=1)
+# patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
+early_stop = EarlyStopping(patience=5, restore_best_weights=True)
+model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=256, validation_split=0.2, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
 # 7. Evaluasi Model pada Data Test (versi diperbaiki)
@@ -177,22 +178,13 @@ print(f"Diproses oleh model            : {len(y_pred_list)}")
 print(f"Memiliki rating aktual         : {len(y_test_valid)}")
 
 # ----------------------------
-# 9. Print Prediksi dalam Format Lengkap
-# ----------------------------
-print("userId,itemId,actual_rating,ffnn_predicted_rating")
-for idx, (uid, iid, actual) in enumerate(y_pred_list):
-    pred_score = y_pred[idx]
-    actual_str = f"{actual:.1f}" if not np.isnan(actual) else "0.0"
-    print(f"{uid},{iid},{actual_str},{pred_score:.4f}")
-
-
-# ----------------------------
-# 10. Simpan ke CSV
+# 9. Simpan ke CSV
 # ----------------------------
 pred_df = pd.DataFrame([
-    {"userId": uid, "itemId": iid, "actual_rating": actual if not np.isnan(actual) else 0.0, "ffnn_predicted_rating": y_pred[idx]}
+    {"userId": uid, "itemId": iid, "actual_rating": actual if not np.isnan(actual) else 0.0, "ffnn_predicted_rating":  round(y_pred[idx], 1)}
     for idx, (uid, iid, actual) in enumerate(y_pred_list)
 ])
+print(pred_df)
 
 # Simpan ke file
 output_path = "b_ffnn_ratings.csv"

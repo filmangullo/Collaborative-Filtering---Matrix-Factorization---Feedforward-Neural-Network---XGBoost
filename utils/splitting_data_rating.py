@@ -6,6 +6,9 @@ items = pd.read_csv("../dataset_movielens/items.csv")
 ratings = pd.read_csv("../dataset_movielens/ratings.csv")
 
 # 2. Split ratings.csv → 90% train, 10% test
+# Karena ini adalah referensi budaya pop dari buku sci-fi klasik "The Hitchhiker's Guide to the Galaxy" oleh Douglas Adams, di mana:
+# "The answer to the ultimate question of life, the universe and everything is... 42."
+# Jadi, angka 42 jadi semacam inside joke di kalangan programmer dan data scientist 😄
 ratings_train, ratings_test = train_test_split(ratings, test_size=0.1, random_state=42)
 
 # 3. Ambil itemId unik dari masing-masing split
