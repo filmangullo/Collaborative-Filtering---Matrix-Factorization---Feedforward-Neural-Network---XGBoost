@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+from tqdm import tqdm
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error
@@ -18,10 +19,10 @@ print(f"----------------------------------------------------------------")
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-ratings = pd.read_csv('dataset_movielens/test_3_percent/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_movielens/test_8_percent/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
-train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
+train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 
 # Menghitung total jumlah data
 total_data = len(ratings)
@@ -45,10 +46,10 @@ item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 128     # latent factors
+k = 64     # latent factors
 alpha = 0.005     # learning rate
-beta = 0.1     # regularization parameter
-epochs = 100     #early stopping
+beta = 0.02     # regularization parameter
+epochs = 88     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
@@ -183,14 +184,19 @@ print(f"Total user: {num_users}")
 print(f"Total item: {num_items}")
 rows = []
 
-for user_index in range(num_users):
-    for item_index in range(num_items):
-        row = predictions_df[
-            (predictions_df['userId'] == user_ids[user_index]) &
-            (predictions_df['itemId'] == item_ids[item_index])
-        ]
-        if not row.empty:
-            rows.append(row)
+total_iterations = num_users * num_items
+
+# Progress bar untuk loop besar
+with tqdm(total=total_iterations, desc="🔄 Menggabungkan hasil prediksi", unit="pair") as pbar:
+    for user_index in range(num_users):
+        for item_index in range(num_items):
+            row = predictions_df[
+                (predictions_df['userId'] == user_ids[user_index]) &
+                (predictions_df['itemId'] == item_ids[item_index])
+            ]
+            if not row.empty:
+                rows.append(row)
+            pbar.update(1)  # update setiap kali 1 pasangan user-item diproses
 
 # Gabung semua hasil ke satu DataFrame
 result_df = pd.concat(rows, ignore_index=False)
