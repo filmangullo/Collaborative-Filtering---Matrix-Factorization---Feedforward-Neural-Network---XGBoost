@@ -39,17 +39,17 @@ print(f"\n")
 # ----------------------------
 # 2. Buat user-item matrix dari training data
 # ----------------------------
-R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
+R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='mean')
 R = R_df.fillna(0).values  # Mengisi NaN dengan 0
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 128     # latent factors
+k = 64     # latent factors
 alpha = 0.005     # learning rate
 beta = 0.02     # regularization parameter
-epochs = 88     #early stopping
+epochs = 50     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
