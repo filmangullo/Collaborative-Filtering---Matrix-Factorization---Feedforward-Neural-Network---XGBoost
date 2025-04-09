@@ -46,10 +46,10 @@ item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 64     # latent factors
+k = 128     # latent factors
 alpha = 0.005     # learning rate
 beta = 0.02     # regularization parameter
-epochs = 50     #early stopping
+epochs = 88     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
