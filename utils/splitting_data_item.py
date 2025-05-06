@@ -2,15 +2,15 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 # 1. Baca file item dan rating
-items = pd.read_csv("../dataset_hotels/test_items.csv")
-ratings = pd.read_csv("../dataset_hotels/test_ratings.csv")
+items = pd.read_csv("../dataset_hotels/items.csv")
+ratings = pd.read_csv("../dataset_hotels/ratings.csv")
 
 # 2. Split items.csv → 90% training, 10% testing
 # Karena ini adalah referensi budaya pop dari buku sci-fi klasik "The Hitchhiker's Guide to the Galaxy" oleh Douglas Adams, di mana:
 # "The answer to the ultimate question of life, the universe and everything is... 42."
 # Jadi, angka 42 jadi semacam inside joke di kalangan programmer dan data scientist 😄
 
-items_train, items_test = train_test_split(items, test_size=0.5, random_state=42)
+items_train, items_test = train_test_split(items, test_size=0.02, random_state=42)
 
 # 3. Ambil itemId dari masing-masing split
 train_item_ids = items_train['id'].tolist()

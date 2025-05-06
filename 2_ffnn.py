@@ -6,6 +6,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 import tensorflow as tf
 import logging
+import time
 
 # Matikan warning dari Python logger TensorFlow
 tf.get_logger().setLevel(logging.ERROR)
@@ -31,12 +32,13 @@ print(f"----------------------------------------------------------------")
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-items = pd.read_csv("dataset_dummy/items.csv")
+start_time = time.time()
+items = pd.read_csv("dataset_hotels/with_2_percent_data/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_dummy/ratings.csv')
-train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
+ratings = pd.read_csv('dataset_hotels/with_2_percent_data/ratings.csv')
+train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
 
@@ -77,14 +79,14 @@ num_users, num_items = R.shape
 # ----------------------------
 k = 128     # latent factors
 alpha = 0.05     # learning rate
-beta = 0.1      # regularization parameter
-epochs = 50     #early stopping
+beta = 0.01      # regularization parameter
+epochs = 100     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
 print(f"Learning rate                 : {alpha}")
 print(f"Regularization parameter      : {beta}")
-print(f"Jumlah epoch / training       : {beta}")
+print(f"Jumlah epoch / training       : {epochs}")
 print(f"\n")
 
 np.random.seed(42)
@@ -146,7 +148,7 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # 6. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
-early_stop = EarlyStopping(patience=5, restore_best_weights=True)
+early_stop = EarlyStopping(patience=20, restore_best_weights=True)
 model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=256, validation_split=0.2, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
@@ -217,9 +219,12 @@ pred_df = pd.DataFrame([
     {"userId": uid, "itemId": iid, "actual_rating": actual if not np.isnan(actual) else 0.0, "ffnn_predicted_rating":  round(y_pred[idx], 1)}
     for idx, (uid, iid, actual) in enumerate(y_pred_list)
 ])
+end_time = time.time()
+elapsed_time = end_time - start_time
 print(pred_df)
 
 # Simpan ke file
 output_path = "b_ffnn_ratings.csv"
 pred_df.to_csv(output_path, index=False)
 print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+print(f"⏱️ Waktu yang dibutuhkan: {elapsed_time:.2f} detik")
