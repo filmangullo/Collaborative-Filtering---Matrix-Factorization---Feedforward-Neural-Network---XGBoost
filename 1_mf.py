@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
+import time
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error
@@ -19,7 +20,7 @@ print(f"----------------------------------------------------------------")
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_hotels/with_2_percent_data/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
@@ -46,7 +47,7 @@ item_ids = R_df.columns.tolist()
 
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
-k = 128     # latent factors
+k = 42     # latent factors
 alpha = 0.005     # learning rate
 beta = 0.02     # regularization parameter
 epochs = 1     #early stopping
@@ -116,6 +117,7 @@ R_pred = U.dot(V.T)
 # ----------------------------
 # 7. Evaluasi pada data test
 # ----------------------------
+print("\n")
 def evaluate_on_test(test_df, user_ids, item_ids, U, V):
     y_true, y_pred = [], []
     user_map = {uid: idx for idx, uid in enumerate(user_ids)}
@@ -130,13 +132,17 @@ def evaluate_on_test(test_df, user_ids, item_ids, U, V):
             y_true.append(r)
             y_pred.append(pred)
 
+    if len(y_true) == 0 or len(y_pred) == 0:
+        print("⚠️ Tidak ada data test yang cocok dengan user/item di matriks training.")
+        return float("nan"), float("nan"), float("nan")
+
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
     rmse = root_mean_squared_error(y_true, y_pred)
     return mae, mse, rmse
 
 test_mae, test_mse, test_rmse = evaluate_on_test(test_data, user_ids, item_ids, U, V) #menggunakan test_data
-print("\nEvaluasi pada Data Test:")
+print("Evaluasi pada Data Test:")
 print(f"MAE : {test_mae:.4f}")
 print(f"MSE : {test_mse:.4f}")
 print(f"RMSE: {test_rmse:.4f}")
@@ -182,27 +188,64 @@ predictions_df = pd.DataFrame(predictions)
 print("\nTotal prediksi:", len(predictions_df))
 print(f"Total user: {num_users}")
 print(f"Total item: {num_items}")
-rows = []
+# =========================================
+# Pendekatan 1: Filtering Vektorisasi
+# =========================================
+start_time_vect = time.time()
 
-total_iterations = num_users * num_items
+# Menggunakan filtering vektorisasi untuk memilih baris yang sesuai
+result_df_vect = predictions_df[
+    predictions_df['userId'].isin(user_ids) & predictions_df['itemId'].isin(item_ids)
+].copy()
 
-# Progress bar untuk loop besar
-with tqdm(total=total_iterations, desc="🔄 Menggabungkan hasil prediksi", unit="pair") as pbar:
-    for user_index in range(num_users):
-        for item_index in range(num_items):
-            row = predictions_df[
-                (predictions_df['userId'] == user_ids[user_index]) &
-                (predictions_df['itemId'] == item_ids[item_index])
-            ]
-            if not row.empty:
-                rows.append(row)
-            pbar.update(1)  # update setiap kali 1 pasangan user-item diproses
+end_time_vect = time.time()
+elapsed_time_vect = end_time_vect - start_time_vect
 
-# Gabung semua hasil ke satu DataFrame
-result_df = pd.concat(rows, ignore_index=False)
-print(result_df)
+print("\nHasil dengan filtering vektorisasi:")
+print(result_df_vect)
 
-output_path = "a_mf_ratings.csv"
-result_df.to_csv(output_path, index=False)
+output_path_vect = "a_mf_ratings_vectorized.csv"
+result_df_vect.to_csv(output_path_vect, index=False)
+print(f"\n📁 Hasil prediksi disimpan ke: {output_path_vect}")
+print(f"Total waktu eksekusi (vectorized): {elapsed_time_vect:.2f} detik.")
 
-print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+
+# # =========================================
+# # Pendekatan 2: Nested Loop dengan Progress Bar
+# # =========================================
+# rows = []
+# total_iterations = num_users * num_items
+# update_interval = 8  # update progress bar setiap 8 iterasi
+# counter = 0
+
+# start_time_loop = time.time()
+
+# with tqdm(total=total_iterations, desc="🔄 Menggabungkan hasil prediksi", unit="pair") as pbar:
+#     for user_index in range(num_users):
+#         for item_index in range(num_items):
+#             # Melakukan seleksi baris berdasarkan kombinasi userId dan itemId
+#             row = predictions_df[
+#                 (predictions_df['userId'] == user_ids[user_index]) &
+#                 (predictions_df['itemId'] == item_ids[item_index])
+#             ]
+#             if not row.empty:
+#                 rows.append(row)
+#             counter += 1
+#             if counter % update_interval == 0:
+#                 pbar.update(update_interval)
+#     # Update sisa iterasi apabila ada
+#     remainder = counter % update_interval
+#     if remainder:
+#         pbar.update(remainder)
+
+# end_time_loop = time.time()
+# elapsed_time_loop = end_time_loop - start_time_loop
+
+# result_df_loop = pd.concat(rows, ignore_index=False)
+# print("\nHasil dengan nested loop:")
+# print(result_df_loop)
+
+# output_path_loop = "a_mf_ratings_loop.csv"
+# result_df_loop.to_csv(output_path_loop, index=False)
+# print(f"\n📁 Hasil prediksi disimpan ke: {output_path_loop}")
+# print(f"Total waktu eksekusi (nested loop): {elapsed_time_loop:.2f} detik.")
