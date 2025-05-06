@@ -78,9 +78,9 @@ num_users, num_items = R.shape
 # 3. Matrix Factorization
 # ----------------------------
 k = 128     # latent factors
-alpha = 0.05     # learning rate
-beta = 0.01      # regularization parameter
-epochs = 100     #early stopping
+alpha = 0.005     # learning rate
+beta = 0.03      # regularization parameter
+epochs = 88     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")

@@ -10,7 +10,7 @@ ratings = pd.read_csv("../dataset_hotels/ratings.csv")
 # "The answer to the ultimate question of life, the universe and everything is... 42."
 # Jadi, angka 42 jadi semacam inside joke di kalangan programmer dan data scientist 😄
 
-items_train, items_test = train_test_split(items, test_size=0.02, random_state=42)
+items_train, items_test = train_test_split(items, test_size=0.03, random_state=42)
 
 # 3. Ambil itemId dari masing-masing split
 train_item_ids = items_train['id'].tolist()
