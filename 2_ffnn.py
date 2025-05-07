@@ -33,11 +33,11 @@ print(f"----------------------------------------------------------------")
 # 1. Load Data
 # ----------------------------
 start_time = time.time()
-items = pd.read_csv("dataset_hotels/with_2_percent_data/items.csv")
+items = pd.read_csv("dataset_dummy/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_hotels/with_2_percent_data/ratings.csv')
+ratings = pd.read_csv('dataset_dummy/ratings.csv')
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings

@@ -1,0 +1,89 @@
+----------------------------------------------------------------
+   Matrix Factorization via Stochastic Gradient Descent (SGD)   
+----------------------------------------------------------------
+Train Data Presentation: 88.89%
+Test Data Presentation: 11.11%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 42
+Learning rate                 : 0.005
+Regularization parameter      : 0.02
+Jumlah epoch / training       : 50
+
+
+Epoch 1/50, MAE: 3.4975, MSE: 13.9876, RMSE: 3.7400
+Epoch 2/50, MAE: 3.4965, MSE: 13.9801, RMSE: 3.7390
+Epoch 3/50, MAE: 3.4955, MSE: 13.9724, RMSE: 3.7380
+Epoch 4/50, MAE: 3.4945, MSE: 13.9644, RMSE: 3.7369
+Epoch 5/50, MAE: 3.4934, MSE: 13.9560, RMSE: 3.7358
+Epoch 6/50, MAE: 3.4923, MSE: 13.9472, RMSE: 3.7346
+Epoch 7/50, MAE: 3.4911, MSE: 13.9379, RMSE: 3.7333
+Epoch 8/50, MAE: 3.4898, MSE: 13.9279, RMSE: 3.7320
+Epoch 9/50, MAE: 3.4884, MSE: 13.9172, RMSE: 3.7306
+Epoch 10/50, MAE: 3.4869, MSE: 13.9056, RMSE: 3.7290
+Epoch 11/50, MAE: 3.4853, MSE: 13.8931, RMSE: 3.7273
+Epoch 12/50, MAE: 3.4835, MSE: 13.8794, RMSE: 3.7255
+Epoch 13/50, MAE: 3.4816, MSE: 13.8646, RMSE: 3.7235
+Epoch 14/50, MAE: 3.4795, MSE: 13.8483, RMSE: 3.7213
+Epoch 15/50, MAE: 3.4772, MSE: 13.8306, RMSE: 3.7189
+Epoch 16/50, MAE: 3.4746, MSE: 13.8110, RMSE: 3.7163
+Epoch 17/50, MAE: 3.4719, MSE: 13.7896, RMSE: 3.7134
+Epoch 18/50, MAE: 3.4688, MSE: 13.7661, RMSE: 3.7103
+Epoch 19/50, MAE: 3.4654, MSE: 13.7402, RMSE: 3.7068
+Epoch 20/50, MAE: 3.4617, MSE: 13.7117, RMSE: 3.7029
+Epoch 21/50, MAE: 3.4577, MSE: 13.6803, RMSE: 3.6987
+Epoch 22/50, MAE: 3.4532, MSE: 13.6457, RMSE: 3.6940
+Epoch 23/50, MAE: 3.4482, MSE: 13.6076, RMSE: 3.6888
+Epoch 24/50, MAE: 3.4428, MSE: 13.5656, RMSE: 3.6832
+Epoch 25/50, MAE: 3.4367, MSE: 13.5194, RMSE: 3.6769
+Epoch 26/50, MAE: 3.4301, MSE: 13.4685, RMSE: 3.6699
+Epoch 27/50, MAE: 3.4228, MSE: 13.4125, RMSE: 3.6623
+Epoch 28/50, MAE: 3.4147, MSE: 13.3509, RMSE: 3.6539
+Epoch 29/50, MAE: 3.4058, MSE: 13.2831, RMSE: 3.6446
+Epoch 30/50, MAE: 3.3960, MSE: 13.2086, RMSE: 3.6344
+Epoch 31/50, MAE: 3.3852, MSE: 13.1269, RMSE: 3.6231
+Epoch 32/50, MAE: 3.3733, MSE: 13.0372, RMSE: 3.6107
+Epoch 33/50, MAE: 3.3603, MSE: 12.9388, RMSE: 3.5971
+Epoch 34/50, MAE: 3.3460, MSE: 12.8312, RMSE: 3.5821
+Epoch 35/50, MAE: 3.3302, MSE: 12.7135, RMSE: 3.5656
+Epoch 36/50, MAE: 3.3129, MSE: 12.5849, RMSE: 3.5475
+Epoch 37/50, MAE: 3.2940, MSE: 12.4447, RMSE: 3.5277
+Epoch 38/50, MAE: 3.2732, MSE: 12.2920, RMSE: 3.5060
+Epoch 39/50, MAE: 3.2506, MSE: 12.1261, RMSE: 3.4823
+Epoch 40/50, MAE: 3.2258, MSE: 11.9462, RMSE: 3.4563
+Epoch 41/50, MAE: 3.1987, MSE: 11.7515, RMSE: 3.4280
+Epoch 42/50, MAE: 3.1693, MSE: 11.5412, RMSE: 3.3972
+Epoch 43/50, MAE: 3.1373, MSE: 11.3148, RMSE: 3.3638
+Epoch 44/50, MAE: 3.1026, MSE: 11.0717, RMSE: 3.3274
+Epoch 45/50, MAE: 3.0649, MSE: 10.8114, RMSE: 3.2881
+Epoch 46/50, MAE: 3.0243, MSE: 10.5336, RMSE: 3.2456
+Epoch 47/50, MAE: 2.9805, MSE: 10.2384, RMSE: 3.1997
+Epoch 48/50, MAE: 2.9333, MSE: 9.9256, RMSE: 3.1505
+Epoch 49/50, MAE: 2.8828, MSE: 9.5958, RMSE: 3.0977
+Epoch 50/50, MAE: 2.8287, MSE: 9.2495, RMSE: 3.0413
+
+
+Evaluasi pada Data Test:
+MAE : 0.7724
+MSE : 0.5966
+RMSE: 0.7724
+
+Total prediksi: 9
+Total user: 3
+Total item: 3
+
+Hasil dengan filtering vektorisasi:
+   userId  itemId  actual_rating  mf_predicted_rating
+0      11       1            4.0                  0.8
+1      11       2            4.0                  0.6
+2      11       3            5.0                  1.0
+3      12       1            4.0                  0.7
+4      12       2            2.0                  0.5
+5      12       3            5.0                  0.9
+6      13       1            1.0                  0.3
+7      13       2            0.0                  0.2
+8      13       3            3.0                  0.5
+
+📁 Hasil prediksi disimpan ke: a_mf_ratings_vectorized.csv
+Total waktu eksekusi (vectorized): 0.00 detik.

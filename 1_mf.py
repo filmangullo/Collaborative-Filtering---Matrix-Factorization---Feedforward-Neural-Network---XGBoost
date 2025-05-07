@@ -20,7 +20,7 @@ print(f"----------------------------------------------------------------")
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-ratings = pd.read_csv('dataset_hotels/with_3_percent_data/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
