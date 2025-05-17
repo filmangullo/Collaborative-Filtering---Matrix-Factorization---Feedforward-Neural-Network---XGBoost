@@ -33,11 +33,11 @@ print(f"----------------------------------------------------------------")
 # 1. Load Data
 # ----------------------------
 start_time = time.time()
-items = pd.read_csv("dataset_hotels/items.csv")
+items = pd.read_csv("dataset_dummy/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_hotels/ratings.csv')
+ratings = pd.read_csv('dataset_dummy/ratings.csv')
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
@@ -78,7 +78,7 @@ num_users, num_items = R.shape
 # 3. Matrix Factorization
 # ----------------------------
 k = 42     # latent factors
-alpha = 0.005     # learning rate
+alpha = 0.05     # learning rate
 beta = 0.02      # regularization parameter
 epochs = 88     #early stopping
 
@@ -148,8 +148,8 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # 6. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
-early_stop = EarlyStopping(patience=20, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=256, validation_split=0.2, callbacks=[early_stop], verbose=1)
+early_stop = EarlyStopping(patience=10, restore_best_weights=True)
+model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=128, validation_split=0.15, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
 # 7. Evaluasi Model pada Data Test (versi diperbaiki)
