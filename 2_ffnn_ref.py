@@ -82,8 +82,8 @@ alpha = 0.05     # learning rate
 beta = 0.02      # regularization parameter
 epochs = 88     #early stopping
 
-val_valid_corrected = 0.1
-val_final = False
+val_valid_corrected = 0.2
+val_final = True
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
