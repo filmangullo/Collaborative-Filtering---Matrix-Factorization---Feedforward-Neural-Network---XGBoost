@@ -201,6 +201,15 @@ X_test = np.array(X_test)
 y_test = np.array(y_test)
 y_pred = model.predict(X_test).flatten()
 
+
+# 1. Bulatkan ke integer terdekat,
+# 2. Pastikan minimal 1 dan maksimal 5
+y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
+
+# (jika Anda mau pakai float: 
+# y_pred_discrete = y_pred_discrete.astype(float) 
+# sebenarnya round+clip sudah menghasilkan floats)
+
 # ----------------------------
 # 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
