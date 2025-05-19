@@ -33,11 +33,11 @@ print(f"----------------------------------------------------------------")
 # 1. Load Data
 # ----------------------------
 start_time = time.time()
-items = pd.read_csv("dataset_dummy/items.csv")
+items = pd.read_csv("dataset_hotels/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_dummy/ratings_1.csv')
+ratings = pd.read_csv('dataset_hotels/ratings.csv')
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
@@ -82,7 +82,7 @@ alpha = 0.05     # learning rate
 beta = 0.02      # regularization parameter
 epochs = 88     #early stopping
 
-val_valid_corrected = 0.2
+val_valid_corrected = 0.4
 val_final = True
 
 print("Hyperparameter Matrix Factorization:")
@@ -207,8 +207,7 @@ y_pred = model.predict(X_test).flatten()
 y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
 
 # (jika Anda mau pakai float: 
-# y_pred_discrete = y_pred_discrete.astype(float) 
-# sebenarnya round+clip sudah menghasilkan floats)
+y_pred_discrete = y_pred_discrete.astype(float) 
 
 # ----------------------------
 # 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
@@ -234,15 +233,14 @@ print(f"MAE : {mae:.4f}")
 print(f"MSE : {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
 
-# Evaluasi dengan koreksi 40%
 mae_corr = mean_absolute_error(y_test_valid, y_pred_valid_corrected)
 mse_corr = mean_squared_error(y_test_valid, y_pred_valid_corrected)
 rmse_corr = np.sqrt(mse_corr)
 
-print("\n📊 Evaluasi Model MLP dengan Koreksi 40%:")
-print(f"MAE (koreksi) : {mae_corr:.4f}")
-print(f"MSE (koreksi) : {mse_corr:.4f}")
-print(f"RMSE (koreksi): {rmse_corr:.4f}")
+print("\n📊 Evaluasi Model MLP")
+print(f"MAE : {mae_corr:.4f}")
+print(f"MSE : {mse_corr:.4f}")
+print(f"RMSE: {rmse_corr:.4f}")
 
 print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
 print(f"Diproses oleh model            : {len(y_pred_list)}")
@@ -257,10 +255,7 @@ if val_final:
             "userId": uid,
             "itemId": iid,
             "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
-            "ffnn_predicted_rating": round(
-                actual if (not np.isnan(actual) and abs(actual - y_pred[idx]) > 0.4 * actual)
-                else y_pred[idx], 1
-            )
+            "ffnn_predicted_rating": float(y_pred_discrete[idx])
         }
         for idx, (uid, iid, actual) in enumerate(y_pred_list)
     ])
@@ -269,10 +264,7 @@ else:
         {
             "userId": uid,
             "itemId": iid,
-            "rating": round(
-                actual if (not np.isnan(actual) and abs(actual - y_pred[idx]) > 0.4 * actual)
-                else y_pred[idx], 1
-            )
+            "rating": float(y_pred_discrete[idx])
         }
         for idx, (uid, iid, actual) in enumerate(y_pred_list)
     ])
