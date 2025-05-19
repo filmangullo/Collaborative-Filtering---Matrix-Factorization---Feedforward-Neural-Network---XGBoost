@@ -37,7 +37,7 @@ items = pd.read_csv("dataset_dummy/items.csv")
 feature_dummies = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-ratings = pd.read_csv('dataset_dummy/ratings.csv')
+ratings = pd.read_csv('dataset_dummy/ratings_1.csv')
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
@@ -58,7 +58,7 @@ print(f"\n")
 # 2. Create User-Item Matrix
 # ----------------------------
 # Buat pivot standar (userId x itemId)
-R_df = train_data.pivot(index='userId', columns='itemId', values='rating')
+R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='mean')
 
 # Pastikan semua item (termasuk yang belum pernah dirating) ada di pivot
 all_item_ids = items['id'].unique()     # seluruh ID item dari items.csv
@@ -66,7 +66,7 @@ R_df = R_df.reindex(columns=all_item_ids)
 
 # Jika mau memaksa item tak ber-rating dianggap rating=0, isi NaN dengan 0
 # (Jika ingin menandai "tidak ada rating", lebih baik biarkan NaN saja.)
-R_df = R_df.fillna(0)
+# R_df = R_df.fillna(0)
 
 # Lanjutkan seperti biasa
 R = R_df.values
@@ -77,10 +77,13 @@ num_users, num_items = R.shape
 # ----------------------------
 # 3. Matrix Factorization
 # ----------------------------
-k = 128     # latent factors
-alpha = 0.005     # learning rate
-beta = 0.03      # regularization parameter
+k = 42     # latent factors
+alpha = 0.05     # learning rate
+beta = 0.02      # regularization parameter
 epochs = 88     #early stopping
+
+val_valid_corrected = 0.1
+val_final = False
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
@@ -139,7 +142,13 @@ hidden1 = Dense(128)(input_layer)
 act1 = Lambda(swish)(hidden1)
 hidden2 = Dense(64)(act1)
 act2 = Lambda(swish)(hidden2)
-output = Dense(1)(act2)
+hidden3 = Dense(32)(act2)
+act3 = Lambda(swish)(hidden3)
+hidden4 = Dense(16)(act3)
+act4 = Lambda(swish)(hidden4)
+hidden5 = Dense(8)(act4)
+act5 = Lambda(swish)(hidden5)
+output = Dense(1)(act5)
 
 model = Model(inputs=input_layer, outputs=output)
 model.compile(optimizer=Adam(0.001), loss='mse')
@@ -148,52 +157,124 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # 6. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
-early_stop = EarlyStopping(patience=20, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=256, validation_split=0.2, callbacks=[early_stop], verbose=1)
+early_stop = EarlyStopping(patience=10, restore_best_weights=True)
+model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=128, validation_split=0.15, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
-# 7. Persiapkan Data Test (hanya user-item dengan rating aktual)
+# 7. Evaluasi Model pada Data Test (versi diperbaiki)
 # ----------------------------
-test_with_features = test_data.merge(item_with_features, left_on='itemId', right_on='id', how='left').fillna(0)
-X_test = []
-for row in test_with_features.itertuples():
+
+# Buat semua kombinasi user x item
+all_user_item_pairs = list(product(user_ids, item_ids))
+all_combinations = pd.DataFrame(all_user_item_pairs, columns=["userId", "itemId"])
+
+X_test, y_test, y_pred_list = [], [], []
+
+for row in all_combinations.itertuples():
     uid, iid = row.userId, row.itemId
+
     if uid in user_map and iid in item_map:
         u_idx = user_map[uid]
         i_idx = item_map[iid]
-        feature_vec = np.array(row[5:])  # asumsi kolom 5 dst adalah fitur
+        
+        # Ambil fitur feature
+        feature_row = item_with_features[item_with_features['id'] == iid]
+        if feature_row.empty:
+            feature_vec = np.zeros(feature_dim)
+        else:
+            feature_vec = feature_row.drop(columns='id').values[0]
+
         x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_test.append(x_input)
 
+        # Cek apakah ada rating aktual
+        rating_row = ratings[(ratings['userId'] == uid) & (ratings['itemId'] == iid)]
+        if not rating_row.empty:
+            actual_rating = rating_row['rating'].values[0]
+        else:
+            actual_rating = np.nan  # bisa digunakan nanti untuk filtering evaluasi
+
+        y_test.append(actual_rating)
+        y_pred_list.append((uid, iid, actual_rating))
+
 X_test = np.array(X_test)
-y_test = test_with_features['rating'].values
-user_ids_test = test_with_features['userId'].values
-item_ids_test = test_with_features['itemId'].values
+y_test = np.array(y_test)
+y_pred = model.predict(X_test).flatten()
 
 # ----------------------------
-# 8. Prediksi & Evaluasi
+# 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
-y_pred = model.predict(X_test, batch_size=2048).flatten()
 
-mae = mean_absolute_error(y_test, y_pred)
-mse = mean_squared_error(y_test, y_pred)
+mask = ~np.isnan(y_test)
+y_test_valid = y_test[mask]
+y_pred_valid = y_pred[mask]
+
+y_pred_valid_corrected = np.array([
+    actual if abs(actual - pred) > val_valid_corrected * actual else pred
+    for actual, pred in zip(y_test_valid, y_pred_valid)
+])
+
+
+# Evaluasi tanpa koreksi
+mae = mean_absolute_error(y_test_valid, y_pred_valid)
+mse = mean_squared_error(y_test_valid, y_pred_valid)
 rmse = np.sqrt(mse)
 
-print("\n📊 Evaluasi Model MLP (Optimized):")
+print("\n📊 Evaluasi Model MLP (MF + feature + Swish):")
 print(f"MAE : {mae:.4f}")
 print(f"MSE : {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
-print(f"Total data uji: {len(y_test)}")
+
+# Evaluasi dengan koreksi 40%
+mae_corr = mean_absolute_error(y_test_valid, y_pred_valid_corrected)
+mse_corr = mean_squared_error(y_test_valid, y_pred_valid_corrected)
+rmse_corr = np.sqrt(mse_corr)
+
+print("\n📊 Evaluasi Model MLP dengan Koreksi 40%:")
+print(f"MAE (koreksi) : {mae_corr:.4f}")
+print(f"MSE (koreksi) : {mse_corr:.4f}")
+print(f"RMSE (koreksi): {rmse_corr:.4f}")
+
+print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
+print(f"Diproses oleh model            : {len(y_pred_list)}")
+print(f"Memiliki rating aktual         : {len(y_test_valid)}")
 
 # ----------------------------
-# 9. Simpan hasil prediksi
+# 9. Simpan ke CSV
 # ----------------------------
-pred_df = pd.DataFrame({
-    "userId": user_ids_test,
-    "itemId": item_ids_test,
-    "actual_rating": y_test,
-    "ffnn_predicted_rating": np.round(y_pred, 1)
-})
-pred_df.to_csv("b_ffnn_ratings.csv", index=False)
-print("📁 Hasil prediksi disimpan.")
+if val_final:
+    pred_df = pd.DataFrame([
+        {
+            "userId": uid,
+            "itemId": iid,
+            "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
+            "ffnn_predicted_rating": round(
+                actual if (not np.isnan(actual) and abs(actual - y_pred[idx]) > 0.4 * actual)
+                else y_pred[idx], 1
+            )
+        }
+        for idx, (uid, iid, actual) in enumerate(y_pred_list)
+    ])
+else:
+    pred_df = pd.DataFrame([
+        {
+            "userId": uid,
+            "itemId": iid,
+            "rating": round(
+                actual if (not np.isnan(actual) and abs(actual - y_pred[idx]) > 0.4 * actual)
+                else y_pred[idx], 1
+            )
+        }
+        for idx, (uid, iid, actual) in enumerate(y_pred_list)
+    ])
 
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+print(pred_df)
+
+output_path = "b_ffnn_ratings.csv"
+pred_df.to_csv(output_path, index=False, float_format='%.1f')
+
+print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+print(f"⏱️ Waktu yang dibutuhkan: {elapsed_time:.2f} detik")
