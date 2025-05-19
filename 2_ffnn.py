@@ -77,9 +77,9 @@ num_users, num_items = R.shape
 # ----------------------------
 # 3. Matrix Factorization
 # ----------------------------
-k = 42     # latent factors
+k = 42             # latent factors
 alpha = 0.005     # learning rate
-beta = 0.02      # regularization parameter
+beta = 0.03      # regularization parameter
 epochs = 88     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
@@ -139,7 +139,9 @@ hidden1 = Dense(128)(input_layer)
 act1 = Lambda(swish)(hidden1)
 hidden2 = Dense(64)(act1)
 act2 = Lambda(swish)(hidden2)
-output = Dense(1)(act2)
+hidden3 = Dense(32)(act2)
+act3 = Lambda(swish)(hidden3)
+output = Dense(1)(act3)
 
 model = Model(inputs=input_layer, outputs=output)
 model.compile(optimizer=Adam(0.001), loss='mse')
@@ -148,7 +150,7 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # 6. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
-early_stop = EarlyStopping(patience=20, restore_best_weights=True)
+early_stop = EarlyStopping(patience=epochs-5, restore_best_weights=True)
 model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=256, validation_split=0.2, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
