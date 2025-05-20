@@ -7,6 +7,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 import logging
 import time
+import gc
 
 # Matikan warning dari Python logger TensorFlow
 tf.get_logger().setLevel(logging.ERROR)
@@ -80,7 +81,7 @@ num_users, num_items = R.shape
 k = 42     # latent factors
 alpha = 0.05     # learning rate
 beta = 0.02      # regularization parameter
-epochs = 88     #early stopping
+epochs = 50     #early stopping
 
 val_valid_corrected = 0.4
 val_final = True
@@ -104,6 +105,10 @@ for epoch in range(epochs):
                 err = R[i][j] - pred
                 U[i] += alpha * (err * V[j] - beta * U[i])
                 V[j] += alpha * (err * U[i] - beta * V[j])
+
+# Bersihkan variabel besar yang tidak diperlukan lagi untuk menghemat memori
+del R_df
+gc.collect()
 
 # ----------------------------
 # 4. Siapkan data untuk MLP
@@ -138,17 +143,15 @@ def swish(x):
     return x * K.sigmoid(x)
 
 input_layer = Input(shape=(2*k + feature_dim,))
-hidden1 = Dense(128)(input_layer)
+hidden1 = Dense(64)(input_layer)
 act1 = Lambda(swish)(hidden1)
-hidden2 = Dense(64)(act1)
+hidden2 = Dense(32)(act1)
 act2 = Lambda(swish)(hidden2)
-hidden3 = Dense(32)(act2)
+hidden3 = Dense(16)(act2)
 act3 = Lambda(swish)(hidden3)
-hidden4 = Dense(16)(act3)
+hidden4 = Dense(8)(act3)
 act4 = Lambda(swish)(hidden4)
-hidden5 = Dense(8)(act4)
-act5 = Lambda(swish)(hidden5)
-output = Dense(1)(act5)
+output = Dense(1)(act4)
 
 model = Model(inputs=input_layer, outputs=output)
 model.compile(optimizer=Adam(0.001), loss='mse')
@@ -158,7 +161,7 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
 early_stop = EarlyStopping(patience=10, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=128, validation_split=0.15, callbacks=[early_stop], verbose=1)
+model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=32, validation_split=0.15, callbacks=[early_stop], verbose=1)
 
 # ----------------------------
 # 7. Evaluasi Model pada Data Test (versi diperbaiki)
