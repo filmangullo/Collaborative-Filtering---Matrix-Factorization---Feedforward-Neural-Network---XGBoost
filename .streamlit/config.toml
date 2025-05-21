@@ -1,0 +1,3 @@
+[server]
+# ukuran maksimum upload dalam MB
+maxUploadSize = 1024

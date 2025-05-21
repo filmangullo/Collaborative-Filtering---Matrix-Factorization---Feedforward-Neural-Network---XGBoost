@@ -1,0 +1,6 @@
+Total rating : 145
+Total user   : 145
+Total item   : 163
+
+📁 Hasil handcrafted features disimpan ke: c_hf_ratings.csv
+Total waktu eksekusi : 3.91 detik.

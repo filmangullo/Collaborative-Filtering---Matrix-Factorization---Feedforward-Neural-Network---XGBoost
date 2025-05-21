@@ -77,12 +77,12 @@ def compute_features(input_path, output_path, rating_column="actual_rating"):
 
     # 11. Waktu eksekusi
     elapsed = time.time() - start_time
-    print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+    print(f"\n📁 Hasil handcrafted features disimpan ke: {output_path}")
     print(f"Total waktu eksekusi : {elapsed:.2f} detik.")
 
 # Pemanggilan fungsi dinamis
 compute_features(
-    input_path='dataset_dummy/b_ffnn_ratings.csv',
+    input_path='dataset_hotels/with_1_percent_data/b_ffnn_ratings.csv',
     output_path='c_hf_ratings.csv',
-    rating_column='actual_rating'  # Bisa juga 'ffnn_predicted_rating'
+    rating_column='ffnn_predicted_rating'  # Bisa juga 'ffnn_predicted_rating'
 )
