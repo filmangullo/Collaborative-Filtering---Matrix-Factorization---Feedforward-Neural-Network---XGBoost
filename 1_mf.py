@@ -16,7 +16,7 @@ print(f"----------------------------------------------------------------")
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-file_dir = "dataset_hotels/"
+file_dir = "dataset_hotels/with_50_percent_data/"
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
@@ -48,8 +48,8 @@ item_ids = R_df.columns.tolist()
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
 k = 42     # latent factors
-alpha = 0.005     # learning rate
-beta = 0.05     # regularization parameter
+alpha = 0.05     # learning rate
+beta = 0.02     # regularization parameter
 epochs = 50     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
