@@ -82,7 +82,7 @@ def compute_features(input_path, output_path, rating_column="actual_rating"):
 
 # Pemanggilan fungsi dinamis
 compute_features(
-    input_path='dataset_hotels/with_1_percent_data/b_ffnn_ratings.csv',
+    input_path='dataset_movielens/b_ffnn_ratings.csv',
     output_path='c_hf_ratings.csv',
     rating_column='ffnn_predicted_rating'  # Bisa juga 'ffnn_predicted_rating'
 )
