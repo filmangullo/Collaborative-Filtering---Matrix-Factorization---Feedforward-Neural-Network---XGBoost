@@ -16,11 +16,11 @@ print(f"----------------------------------------------------------------")
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-
+file_dir = "dataset_hotels/"
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
-ratings = pd.read_csv('dataset_hotels/with_4_percent_data/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
+ratings = pd.read_csv(file_dir + "ratings.csv")  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
@@ -49,7 +49,7 @@ item_ids = R_df.columns.tolist()
 num_users, num_items = R.shape
 k = 42     # latent factors
 alpha = 0.005     # learning rate
-beta = 0.02     # regularization parameter
+beta = 0.05     # regularization parameter
 epochs = 50     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
@@ -113,6 +113,7 @@ def train_mf(R, U, V, alpha, beta, epochs):
 # ----------------------------
 U, V = train_mf(R, U, V, alpha, beta, epochs)
 R_pred = U.dot(V.T)
+R_pred = np.clip(R_pred, 1.0, 5.0)  # pastikan prediksi di rentang 1-5
 
 # ----------------------------
 # 7. Evaluasi pada data test
@@ -204,7 +205,7 @@ elapsed_time_vect = end_time_vect - start_time_vect
 print("\nHasil dengan filtering vektorisasi:")
 print(result_df_vect)
 
-output_path_vect = "a_mf_ratings_vectorized.csv"
+output_path_vect = file_dir + "a_mf_ratings.csv"
 result_df_vect.to_csv(output_path_vect, index=False)
 print(f"\n📁 Hasil prediksi disimpan ke: {output_path_vect}")
 print(f"Total waktu eksekusi (vectorized): {elapsed_time_vect:.2f} detik.")

@@ -3,11 +3,11 @@ import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 import time
 
-def compute_features(input_path, output_path, rating_column="actual_rating"):
+def compute_features(file_dir, input_path, output_path, rating_column="actual_rating"):
     start_time = time.time()
 
     # 1. Membaca file
-    df = pd.read_csv(input_path)
+    df = pd.read_csv(file_dir + input_path)
 
     # 2. Filter rating valid (>0)
     filtered_df = df[df[rating_column] > 0]
@@ -73,7 +73,7 @@ def compute_features(input_path, output_path, rating_column="actual_rating"):
     df['similar_items_rating'] = df.apply(lambda row: predict_similar_item(row['userId'], row['itemId']), axis=1)
 
     # 10. Simpan hasil
-    df.to_csv(output_path, index=False)
+    df.to_csv(file_dir + output_path, index=False)
 
     # 11. Waktu eksekusi
     elapsed = time.time() - start_time
@@ -82,7 +82,8 @@ def compute_features(input_path, output_path, rating_column="actual_rating"):
 
 # Pemanggilan fungsi dinamis
 compute_features(
-    input_path='dataset_movielens/b_ffnn_ratings.csv',
-    output_path='c_hf_ratings.csv',
+    file_dir = "dataset_dump/",
+    input_path= "b_ffnn_ratings.csv",
+    output_path="c_hf_ratings.csv",
     rating_column='ffnn_predicted_rating'  # Bisa juga 'ffnn_predicted_rating'
 )
