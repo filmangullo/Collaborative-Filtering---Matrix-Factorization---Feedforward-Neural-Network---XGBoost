@@ -1,3 +1,4 @@
 /dataset_movielens/a_mf_ratings.csv
 /dataset_movielens/b_ffnn_ratings.csv
+/dataset_hotels/b_ffnn_ratings.csv
 /tfenv
