@@ -1,0 +1,96 @@
+ python3 2_ffnn_reg.py
+----------------------------------------------------------------
+   Matrix Factorization Feed-forward Neural Network -> MLP   
+----------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 42
+Learning rate                 : 0.05
+Regularization parameter      : 0.02
+Jumlah epoch / training       : 25
+
+
+Epoch 1/25
+405/405 [==============================] - 1s 1ms/step - loss: 3.0269 - val_loss: 2.0541
+Epoch 2/25
+405/405 [==============================] - 0s 1ms/step - loss: 1.9247 - val_loss: 1.9607
+Epoch 3/25
+405/405 [==============================] - 0s 1ms/step - loss: 1.6203 - val_loss: 1.5143
+Epoch 4/25
+405/405 [==============================] - 0s 1ms/step - loss: 1.0252 - val_loss: 1.0321
+Epoch 5/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.7049 - val_loss: 0.8376
+Epoch 6/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.5588 - val_loss: 0.7291
+Epoch 7/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.4633 - val_loss: 0.6493
+Epoch 8/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.3660 - val_loss: 0.5334
+Epoch 9/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.2983 - val_loss: 0.4788
+Epoch 10/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.2538 - val_loss: 0.4375
+Epoch 11/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.2266 - val_loss: 0.4111
+Epoch 12/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.2004 - val_loss: 0.3979
+Epoch 13/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1851 - val_loss: 0.3872
+Epoch 14/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1684 - val_loss: 0.3671
+Epoch 15/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1571 - val_loss: 0.3627
+Epoch 16/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1455 - val_loss: 0.3441
+Epoch 17/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1361 - val_loss: 0.3308
+Epoch 18/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1251 - val_loss: 0.3243
+Epoch 19/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1163 - val_loss: 0.3148
+Epoch 20/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1075 - val_loss: 0.3083
+Epoch 21/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.1009 - val_loss: 0.3019
+Epoch 22/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.0941 - val_loss: 0.2864
+Epoch 23/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.0866 - val_loss: 0.2828
+Epoch 24/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.0818 - val_loss: 0.2667
+Epoch 25/25
+405/405 [==============================] - 0s 1ms/step - loss: 0.0749 - val_loss: 0.2664
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.3957
+MSE : 0.6545
+RMSE: 0.8090
+
+📊 Evaluasi Model MLP
+MAE : 0.1977
+MSE : 0.0769
+RMSE: 0.2774
+
+Total kombinasi user-item diuji : 114956352
+Diproses oleh model            : 114956352
+Memiliki rating aktual         : 16678
+           userId  itemId  actual_rating  ffnn_predicted_rating
+0               1   69602            0.0                    1.0
+1               1   69603            0.0                    2.0
+2               1   69604            0.0                    1.0
+3               1   69605            0.0                    1.0
+4               1   69606            0.0                    1.0
+...           ...     ...            ...                    ...
+114956347    8588   85889            0.0                    1.0
+114956348    8588   85890            0.0                    1.0
+114956349    8588   85891            0.0                    1.0
+114956350    8588   85892            0.0                    1.0
+114956351    8588   85893            0.0                    1.0
+
+[114956352 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 148458.23 detik
