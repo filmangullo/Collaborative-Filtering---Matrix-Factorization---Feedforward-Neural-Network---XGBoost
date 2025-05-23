@@ -1,17 +1,17 @@
+import streamlit as st
 import pandas as pd
 import numpy as np
 from xgboost import XGBRegressor
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
-import streamlit as st
 
 # ------------------------------
 # SECTION 1: Data dan Model
 # ------------------------------
 
 @st.cache_data
-def load_and_train_model(file_path, top_n=2):
+def load_and_train_model(file_path, top_n=8):
     df = pd.read_csv(file_path)
 
     # Pisahkan fitur dan target
@@ -45,10 +45,15 @@ def load_and_train_model(file_path, top_n=2):
 
     # Evaluasi
     y_pred = model.predict(X_test)
+    mae  = mean_absolute_error(y_test, y_pred)
+    mse  = mean_squared_error(y_test, y_pred)
+    rmse = np.sqrt(mse)
+    r2   = r2_score(y_test, y_pred)
     scores = {
-        "RMSE": np.sqrt(mean_squared_error(y_test, y_pred)),
-        "MAE": mean_absolute_error(y_test, y_pred),
-        "R2": r2_score(y_test, y_pred)
+        "MAE": mae,
+        "MSE": mse,
+        "RMSE": rmse,
+        "R2": r2
     }
 
     return top_n_recommendation, scores, df, y_test, y_pred
@@ -73,8 +78,9 @@ if uploaded_file:
     st.table(top_n_recommendation[top_n_recommendation['userId'] == selected_user][['itemId', 'predicted_rating']])
 
     st.subheader("📈 Evaluasi Model")
-    st.write(f"**RMSE** : {scores['RMSE']:.4f}")
     st.write(f"**MAE**  : {scores['MAE']:.4f}")
+    st.write(f"**MSE**  : {scores['MSE']:.4f}")
+    st.write(f"**RMSE** : {scores['RMSE']:.4f}")
     st.write(f"**R²**   : {scores['R2']:.4f}")
 
     # Visualisasi
