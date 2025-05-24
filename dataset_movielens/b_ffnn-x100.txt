@@ -1,0 +1,239 @@
+----------------------------------------------------------------
+   Matrix Factorization via Stochastic Gradient Descent (SGD)   
+----------------------------------------------------------------
+Train Data Presentation: 90.00%
+Test Data Presentation: 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 42
+Learning rate                 : 0.05
+Regularization parameter      : 0.03
+Jumlah epoch / training       : 50
+
+
+Epoch 1/50, MAE: 3.1857, MSE: 12.3458, RMSE: 3.5137
+Epoch 2/50, MAE: 3.1734, MSE: 12.2483, RMSE: 3.4998
+Epoch 3/50, MAE: 3.1494, MSE: 12.0565, RMSE: 3.4722
+Epoch 4/50, MAE: 3.0983, MSE: 11.6488, RMSE: 3.4130
+Epoch 5/50, MAE: 2.9878, MSE: 10.8037, RMSE: 3.2869
+Epoch 6/50, MAE: 2.7679, MSE: 9.2905, RMSE: 3.0480
+Epoch 7/50, MAE: 2.4088, MSE: 7.2319, RMSE: 2.6892
+Epoch 8/50, MAE: 1.9669, MSE: 5.1778, RMSE: 2.2755
+Epoch 9/50, MAE: 1.5452, MSE: 3.5433, RMSE: 1.8824
+Epoch 10/50, MAE: 1.1985, MSE: 2.3837, RMSE: 1.5439
+Epoch 11/50, MAE: 0.9317, MSE: 1.5962, RMSE: 1.2634
+Epoch 12/50, MAE: 0.7294, MSE: 1.0699, RMSE: 1.0344
+Epoch 13/50, MAE: 0.5750, MSE: 0.7252, RMSE: 0.8516
+Epoch 14/50, MAE: 0.4579, MSE: 0.5048, RMSE: 0.7105
+Epoch 15/50, MAE: 0.3699, MSE: 0.3640, RMSE: 0.6033
+Epoch 16/50, MAE: 0.3036, MSE: 0.2711, RMSE: 0.5207
+Epoch 17/50, MAE: 0.2532, MSE: 0.2069, RMSE: 0.4549
+Epoch 18/50, MAE: 0.2142, MSE: 0.1606, RMSE: 0.4008
+Epoch 19/50, MAE: 0.1836, MSE: 0.1264, RMSE: 0.3555
+Epoch 20/50, MAE: 0.1591, MSE: 0.1006, RMSE: 0.3172
+Epoch 21/50, MAE: 0.1395, MSE: 0.0811, RMSE: 0.2848
+Epoch 22/50, MAE: 0.1235, MSE: 0.0662, RMSE: 0.2573
+Epoch 23/50, MAE: 0.1103, MSE: 0.0548, RMSE: 0.2341
+Epoch 24/50, MAE: 0.0995, MSE: 0.0459, RMSE: 0.2143
+Epoch 25/50, MAE: 0.0905, MSE: 0.0389, RMSE: 0.1972
+Epoch 26/50, MAE: 0.0830, MSE: 0.0332, RMSE: 0.1822
+Epoch 27/50, MAE: 0.0767, MSE: 0.0286, RMSE: 0.1690
+Epoch 28/50, MAE: 0.0713, MSE: 0.0247, RMSE: 0.1573
+Epoch 29/50, MAE: 0.0668, MSE: 0.0216, RMSE: 0.1469
+Epoch 30/50, MAE: 0.0629, MSE: 0.0189, RMSE: 0.1377
+Epoch 31/50, MAE: 0.0595, MSE: 0.0168, RMSE: 0.1296
+Epoch 32/50, MAE: 0.0565, MSE: 0.0150, RMSE: 0.1225
+Epoch 33/50, MAE: 0.0540, MSE: 0.0135, RMSE: 0.1162
+Epoch 34/50, MAE: 0.0518, MSE: 0.0123, RMSE: 0.1107
+Epoch 35/50, MAE: 0.0499, MSE: 0.0112, RMSE: 0.1058
+Epoch 36/50, MAE: 0.0482, MSE: 0.0103, RMSE: 0.1014
+Epoch 37/50, MAE: 0.0467, MSE: 0.0095, RMSE: 0.0974
+Epoch 38/50, MAE: 0.0454, MSE: 0.0088, RMSE: 0.0937
+Epoch 39/50, MAE: 0.0442, MSE: 0.0081, RMSE: 0.0902
+Epoch 40/50, MAE: 0.0431, MSE: 0.0076, RMSE: 0.0870
+Epoch 41/50, MAE: 0.0422, MSE: 0.0070, RMSE: 0.0838
+Epoch 42/50, MAE: 0.0413, MSE: 0.0065, RMSE: 0.0808
+Epoch 43/50, MAE: 0.0405, MSE: 0.0061, RMSE: 0.0778
+Epoch 44/50, MAE: 0.0397, MSE: 0.0056, RMSE: 0.0750
+Epoch 45/50, MAE: 0.0391, MSE: 0.0052, RMSE: 0.0722
+Epoch 46/50, MAE: 0.0384, MSE: 0.0048, RMSE: 0.0695
+Epoch 47/50, MAE: 0.0378, MSE: 0.0045, RMSE: 0.0669
+Epoch 48/50, MAE: 0.0373, MSE: 0.0041, RMSE: 0.0644
+Epoch 49/50, MAE: 0.0367, MSE: 0.0038, RMSE: 0.0620
+Epoch 50/50, MAE: 0.0362, MSE: 0.0036, RMSE: 0.0597
+
+
+Evaluasi pada Data Test:
+MAE : 3.0995
+MSE : 12.0552
+RMSE: 3.4721
+
+Total prediksi: 68097456
+Total user: 7056
+Total item: 9651
+
+Hasil dengan filtering vektorisasi:
+          userId  itemId  actual_rating  mf_predicted_rating
+0              1   69602            0.0                  1.0
+1              1   69603            0.0                  1.0
+2              1   69604            0.0                  1.0
+3              1   69606            0.0                  1.0
+4              1   69609            0.0                  1.1
+...          ...     ...            ...                  ...
+68097451    8588   85885            0.0                  1.0
+68097452    8588   85887            0.0                  1.0
+68097453    8588   85888            0.0                  1.0
+68097454    8588   85889            0.0                  1.0
+68097455    8588   85893            0.0                  1.0
+
+[68097456 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_hotels/a_mf_ratings.csv
+Total waktu eksekusi (vectorized): 4.93 detik.
+ITs-iMac:HybridCFMFFNNXGBRec itseindo$ python3 2_ffnn.py
+----------------------------------------------------------------
+   Matrix Factorization Feed-forward Neural Network -> MLP   
+----------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 42
+Learning rate                 : 0.005
+Regularization parameter      : 0.02
+Jumlah epoch / training       : 50
+
+
+Epoch 1/50
+2411/2411 [==============================] - 3s 933us/step - loss: 0.7197 - val_loss: 0.5279
+Epoch 2/50
+2411/2411 [==============================] - 2s 839us/step - loss: 0.4750 - val_loss: 0.4435
+Epoch 3/50
+2411/2411 [==============================] - 2s 724us/step - loss: 0.4057 - val_loss: 0.4050
+Epoch 4/50
+2411/2411 [==============================] - 2s 750us/step - loss: 0.3615 - val_loss: 0.3794
+Epoch 5/50
+2411/2411 [==============================] - 2s 772us/step - loss: 0.3322 - val_loss: 0.3402
+Epoch 6/50
+2411/2411 [==============================] - 2s 732us/step - loss: 0.3108 - val_loss: 0.3111
+Epoch 7/50
+2411/2411 [==============================] - 2s 760us/step - loss: 0.2937 - val_loss: 0.3045
+Epoch 8/50
+2411/2411 [==============================] - 2s 748us/step - loss: 0.2821 - val_loss: 0.2903
+Epoch 9/50
+2411/2411 [==============================] - 2s 743us/step - loss: 0.2732 - val_loss: 0.2969
+Epoch 10/50
+2411/2411 [==============================] - 2s 905us/step - loss: 0.2612 - val_loss: 0.2827
+Epoch 11/50
+2411/2411 [==============================] - 2s 756us/step - loss: 0.2559 - val_loss: 0.2757
+Epoch 12/50
+2411/2411 [==============================] - 2s 810us/step - loss: 0.2473 - val_loss: 0.2714
+Epoch 13/50
+2411/2411 [==============================] - 2s 798us/step - loss: 0.2428 - val_loss: 0.2657
+Epoch 14/50
+2411/2411 [==============================] - 2s 762us/step - loss: 0.2360 - val_loss: 0.2701
+Epoch 15/50
+2411/2411 [==============================] - 2s 803us/step - loss: 0.2329 - val_loss: 0.2472
+Epoch 16/50
+2411/2411 [==============================] - 2s 839us/step - loss: 0.2275 - val_loss: 0.2733
+Epoch 17/50
+2411/2411 [==============================] - 2s 757us/step - loss: 0.2245 - val_loss: 0.2552
+Epoch 18/50
+2411/2411 [==============================] - 2s 734us/step - loss: 0.2211 - val_loss: 0.2594
+Epoch 19/50
+2411/2411 [==============================] - 2s 727us/step - loss: 0.2175 - val_loss: 0.2533
+Epoch 20/50
+2411/2411 [==============================] - 2s 725us/step - loss: 0.2157 - val_loss: 0.2778
+Epoch 21/50
+2411/2411 [==============================] - 2s 738us/step - loss: 0.2131 - val_loss: 0.2721
+Epoch 22/50
+2411/2411 [==============================] - 2s 744us/step - loss: 0.2096 - val_loss: 0.2859
+Epoch 23/50
+2411/2411 [==============================] - 2s 771us/step - loss: 0.2079 - val_loss: 0.2307
+Epoch 24/50
+2411/2411 [==============================] - 2s 783us/step - loss: 0.2049 - val_loss: 0.2288
+Epoch 25/50
+2411/2411 [==============================] - 2s 749us/step - loss: 0.2038 - val_loss: 0.2267
+Epoch 26/50
+2411/2411 [==============================] - 2s 879us/step - loss: 0.2004 - val_loss: 0.2584
+Epoch 27/50
+2411/2411 [==============================] - 2s 795us/step - loss: 0.1999 - val_loss: 0.2263
+Epoch 28/50
+2411/2411 [==============================] - 2s 814us/step - loss: 0.1989 - val_loss: 0.2564
+Epoch 29/50
+2411/2411 [==============================] - 2s 809us/step - loss: 0.1963 - val_loss: 0.2477
+Epoch 30/50
+2411/2411 [==============================] - 2s 727us/step - loss: 0.1938 - val_loss: 0.2327
+Epoch 31/50
+2411/2411 [==============================] - 2s 771us/step - loss: 0.1940 - val_loss: 0.2211
+Epoch 32/50
+2411/2411 [==============================] - 2s 847us/step - loss: 0.1920 - val_loss: 0.2299
+Epoch 33/50
+2411/2411 [==============================] - 2s 730us/step - loss: 0.1897 - val_loss: 0.2344
+Epoch 34/50
+2411/2411 [==============================] - 2s 776us/step - loss: 0.1888 - val_loss: 0.2223
+Epoch 35/50
+2411/2411 [==============================] - 2s 728us/step - loss: 0.1877 - val_loss: 0.2183
+Epoch 36/50
+2411/2411 [==============================] - 2s 742us/step - loss: 0.1875 - val_loss: 0.2160
+Epoch 37/50
+2411/2411 [==============================] - 2s 820us/step - loss: 0.1834 - val_loss: 0.2344
+Epoch 38/50
+2411/2411 [==============================] - 2s 729us/step - loss: 0.1837 - val_loss: 0.2271
+Epoch 39/50
+2411/2411 [==============================] - 2s 745us/step - loss: 0.1834 - val_loss: 0.2147
+Epoch 40/50
+2411/2411 [==============================] - 2s 769us/step - loss: 0.1823 - val_loss: 0.2145
+Epoch 41/50
+2411/2411 [==============================] - 2s 809us/step - loss: 0.1821 - val_loss: 0.2149
+Epoch 42/50
+2411/2411 [==============================] - 2s 785us/step - loss: 0.1794 - val_loss: 0.2176
+Epoch 43/50
+2411/2411 [==============================] - 2s 805us/step - loss: 0.1791 - val_loss: 0.2168
+Epoch 44/50
+2411/2411 [==============================] - 2s 738us/step - loss: 0.1772 - val_loss: 0.2129
+Epoch 45/50
+2411/2411 [==============================] - 2s 749us/step - loss: 0.1754 - val_loss: 0.2135
+Epoch 46/50
+2411/2411 [==============================] - 2s 723us/step - loss: 0.1751 - val_loss: 0.2227
+Epoch 47/50
+2411/2411 [==============================] - 2s 729us/step - loss: 0.1750 - val_loss: 0.2287
+Epoch 48/50
+2411/2411 [==============================] - 2s 903us/step - loss: 0.1736 - val_loss: 0.2164
+Epoch 49/50
+2411/2411 [==============================] - 2s 738us/step - loss: 0.1729 - val_loss: 0.2105
+Epoch 50/50
+2411/2411 [==============================] - 2s 767us/step - loss: 0.1726 - val_loss: 0.2150
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.3579
+MSE : 0.2671
+RMSE: 0.5168
+
+📊 Evaluasi Model MLP
+MAE : 0.2964
+MSE : 0.1585
+RMSE: 0.3981
+
+Total kombinasi user-item diuji : 5942620
+Diproses oleh model            : 5942620
+Memiliki rating aktual         : 100836
+         userId  itemId  actual_rating  ffnn_predicted_rating
+0             1       1            4.0                    3.0
+1             1       2            0.0                    4.0
+2             1       3            4.0                    4.0
+3             1       4            0.0                    3.0
+4             1       5            0.0                    4.0
+...         ...     ...            ...                    ...
+5942615     610  193581            0.0                    3.0
+5942616     610  193583            0.0                    3.0
+5942617     610  193585            0.0                    3.0
+5942618     610  193587            0.0                    3.0
+5942619     610  193609            0.0                    4.0
+
+[5942620 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_movielens/b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 7846.40 detik

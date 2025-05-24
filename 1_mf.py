@@ -2,9 +2,8 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import time
-from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_absolute_error, mean_squared_error, root_mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 # ----------------------------
 # 0. Program Title
@@ -16,7 +15,7 @@ print(f"----------------------------------------------------------------")
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-file_dir = "dataset_hotels/with_50_percent_data/"
+file_dir = "dataset_hotels/"
 # Load dataset Dummy (gunakan file ratings.csv dari Dummny manual)
 # ratings = pd.read_csv('dataset_dummy/ratings.csv')  # pastikan file ratings.csv ada di direktori yang sama
 # Load dataset MovieLens (gunakan file ratings.csv dari MovieLens)
@@ -49,7 +48,7 @@ item_ids = R_df.columns.tolist()
 num_users, num_items = R.shape
 k = 42     # latent factors
 alpha = 0.05     # learning rate
-beta = 0.02     # regularization parameter
+beta = 0.03     # regularization parameter
 epochs = 50     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
@@ -79,7 +78,7 @@ def get_metrics(R, U, V):
 
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
-    rmse = root_mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     return mae, mse, rmse
 
 # ----------------------------
@@ -139,7 +138,7 @@ def evaluate_on_test(test_df, user_ids, item_ids, U, V):
 
     mae = mean_absolute_error(y_true, y_pred)
     mse = mean_squared_error(y_true, y_pred)
-    rmse = root_mean_squared_error(y_true, y_pred)
+    rmse = np.sqrt(mean_squared_error(y_true, y_pred))
     return mae, mse, rmse
 
 test_mae, test_mse, test_rmse = evaluate_on_test(test_data, user_ids, item_ids, U, V) #menggunakan test_data

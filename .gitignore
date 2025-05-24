@@ -3,5 +3,6 @@
 /dataset_movielens/c_hf_ratings.csv
 /dataset_hotels/with_50_percent_data/a_mf_ratings.csv
 /dataset_hotels/with_60_percent_data/a_mf_ratings.csv
+/dataset_hotels/a_mf_ratings.csv
 /dataset_hotels/b_ffnn_ratings.csv
 /tfenv
