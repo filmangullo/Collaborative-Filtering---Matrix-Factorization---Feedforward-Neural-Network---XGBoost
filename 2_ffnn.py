@@ -30,7 +30,6 @@ print(f"----------------------------------------------------------------")
 print(f"   Matrix Factorization Feed-forward Neural Network -> MLP   ")
 print(f"----------------------------------------------------------------")
 
-
 start_time = time.time()
 # ----------------------------
 # 1. Load Data
@@ -83,9 +82,9 @@ num_users, num_items = R.shape
 # 3. Matrix Factorization
 # ----------------------------
 k = 42     # latent factors
-alpha = 0.05     # learning rate
+alpha = 0.005     # learning rate
 beta = 0.02      # regularization parameter
-epochs = 25     #early stopping
+epochs = 50     #early stopping
 
 val_valid_corrected = 0.4
 val_final = True

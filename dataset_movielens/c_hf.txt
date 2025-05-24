@@ -1,6 +1,6 @@
-Total rating : 5923862
+Total rating : 5942620
 Total user   : 610
 Total item   : 9742
 
 📁 Hasil handcrafted features disimpan ke: c_hf_ratings.csv
-Total waktu eksekusi : 3675.57 detik.
+Total waktu eksekusi : 6034.61 detik.
