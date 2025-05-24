@@ -30,17 +30,19 @@ print(f"----------------------------------------------------------------")
 print(f"   Matrix Factorization Feed-forward Neural Network -> MLP   ")
 print(f"----------------------------------------------------------------")
 
-file_dir = "dataset_dump/"
 
+start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-start_time = time.time()
+file_dir = "dataset_movielens/"
 items = pd.read_csv(file_dir + "items.csv")
-feature_dummies = items['features'].str.get_dummies(sep='|')
-item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
-
 ratings = pd.read_csv(file_dir + "ratings.csv")
+
+feature_encoding = items['features'].str.get_dummies(sep='|')
+item_with_features = pd.concat([items[['id']], feature_encoding], axis=1)
+
+
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
@@ -117,7 +119,7 @@ gc.collect()
 # ----------------------------
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
-feature_dim = feature_dummies.shape[1]
+feature_dim = feature_encoding.shape[1]
 
 X_mlp, y_mlp = [], []
 
