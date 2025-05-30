@@ -34,17 +34,14 @@ start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_movielens/"
+file_dir = "dataset_dump/"
 items = pd.read_csv(file_dir + "items.csv")
 ratings = pd.read_csv(file_dir + "ratings.csv")
 
-feature_encoding = items['features'].str.get_dummies(sep='|')
-item_with_features = pd.concat([items[['id']], feature_encoding], axis=1)
-
-
+# ----------------------------
+# 2. Data Splitting
+# ----------------------------
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
-# train_data = ratings
-# test_data = ratings
 
 # Menghitung total jumlah data
 total_data = len(ratings)
@@ -59,10 +56,17 @@ print(f"Persentase data uji  : {persentase_test:.2f}%")
 print(f"\n")
 
 # ----------------------------
+# 3. Data Preparation
+# ----------------------------
+feature_encoding = items['features'].str.get_dummies(sep='|')
+item_with_features = pd.concat([items[['id']], feature_encoding], axis=1)
+
+
+# ----------------------------
 # 2. Create User-Item Matrix
 # ----------------------------
 # Buat pivot standar (userId x itemId)
-R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='mean')
+R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='max')
 
 # Pastikan semua item (termasuk yang belum pernah dirating) ada di pivot
 all_item_ids = items['id'].unique()     # seluruh ID item dari items.csv
