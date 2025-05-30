@@ -30,18 +30,15 @@ print(f"----------------------------------------------------------------")
 print(f"   Matrix Factorization Feed-forward Neural Network -> MLP   ")
 print(f"----------------------------------------------------------------")
 
-start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_movielens/"
-items = pd.read_csv(file_dir + "items.csv")
-ratings = pd.read_csv(file_dir + "ratings.csv")
+start_time = time.time()
+items = pd.read_csv("dataset_hotels/with_1_percent_data/items.csv")
+feature_dummies = items['features'].str.get_dummies(sep='|')
+item_with_features = pd.concat([items[['id']], feature_dummies], axis=1)
 
-feature_encoding = items['features'].str.get_dummies(sep='|')
-item_with_features = pd.concat([items[['id']], feature_encoding], axis=1)
-
-
+ratings = pd.read_csv('dataset_hotels/with_1_percent_data/ratings.csv')
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 # train_data = ratings
 # test_data = ratings
@@ -62,7 +59,7 @@ print(f"\n")
 # 2. Create User-Item Matrix
 # ----------------------------
 # Buat pivot standar (userId x itemId)
-R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='max')
+R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='mean')
 
 # Pastikan semua item (termasuk yang belum pernah dirating) ada di pivot
 all_item_ids = items['id'].unique()     # seluruh ID item dari items.csv
@@ -82,9 +79,9 @@ num_users, num_items = R.shape
 # 3. Matrix Factorization
 # ----------------------------
 k = 42     # latent factors
-alpha = 0.005     # learning rate
+alpha = 0.05     # learning rate
 beta = 0.02      # regularization parameter
-epochs = 50     #early stopping
+epochs = 25     #early stopping
 
 val_valid_corrected = 0.4
 val_final = True
@@ -118,7 +115,7 @@ gc.collect()
 # ----------------------------
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
-feature_dim = feature_encoding.shape[1]
+feature_dim = feature_dummies.shape[1]
 
 X_mlp, y_mlp = [], []
 
@@ -303,7 +300,7 @@ elapsed_time = end_time - start_time
 
 print(pred_df)
 
-output_path = file_dir + "b_ffnn_ratings.csv"
+output_path = "b_ffnn_ratings.csv"
 pred_df.to_csv(output_path, index=False, float_format='%.1f')
 
 print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
