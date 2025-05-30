@@ -45,10 +45,10 @@ genre_df = genre_count.reset_index()
 genre_df.columns = ['Genre', 'Jumlah']
 print(genre_df)
 
-# print("\n========== ONE-HOT ENCODED FEATURES ==========")
-# print(feature_encoding.head())
-# print("\nJumlah fitur hasil encoding:", feature_encoding.shape[1])
+print("\n========== ONE-HOT ENCODED FEATURES ==========")
+print(feature_encoding.head())
+print("\nJumlah fitur hasil encoding:", feature_encoding.shape[1])
 
-# print("\n========== ITEM + FEATURES ==========")
-# print(item_with_features.head())
-# print("\nDimensi data akhir (item + fitur):", item_with_features.shape)
+print("\n========== ITEM + FEATURES ==========")
+print(item_with_features.head())
+print("\nDimensi data akhir (item + fitur):", item_with_features.shape)
