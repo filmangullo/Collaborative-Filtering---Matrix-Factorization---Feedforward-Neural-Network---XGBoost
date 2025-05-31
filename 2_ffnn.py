@@ -34,7 +34,7 @@ start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_dump/"
+file_dir = "dataset_hotels/"
 items = pd.read_csv(file_dir + "items.csv")
 ratings = pd.read_csv(file_dir + "ratings.csv")
 
@@ -86,9 +86,9 @@ num_users, num_items = R.shape
 # 3. Matrix Factorization
 # ----------------------------
 k = 42     # latent factors
-alpha = 0.005     # learning rate
-beta = 0.02      # regularization parameter
-epochs = 50     #early stopping
+alpha = 0.02     # learning rate
+beta = 0.01      # regularization parameter
+epochs = 10     #early stopping
 
 val_valid_corrected = 0.4
 val_final = True
