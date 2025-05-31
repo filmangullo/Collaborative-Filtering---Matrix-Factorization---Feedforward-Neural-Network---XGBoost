@@ -24,8 +24,12 @@ def load_and_train_model(file_path, top_n=8):
     )
 
     # Latih model
-    model = XGBRegressor(objective='reg:squarederror', n_estimators=100,
-                         learning_rate=0.1, max_depth=5, random_state=42)
+    model = XGBRegressor(
+        objective='reg:squarederror', 
+        n_estimators=100,
+        learning_rate=0.1, 
+        max_depth=5, 
+        random_state=42)
     model.fit(X_train, y_train)
 
     # Prediksi untuk seluruh data
