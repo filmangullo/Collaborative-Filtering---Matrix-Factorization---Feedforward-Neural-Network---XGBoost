@@ -1,0 +1,66 @@
+----------------------------------------------------------------
+   Matrix Factorization Feed-forward Neural Network -> MLP   
+----------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 42
+Learning rate                 : 0.02
+Regularization parameter      : 0.01
+Jumlah epoch / training       : 10
+
+
+Epoch 1/10
+2411/2411 [==============================] - 3s 834us/step - loss: 0.7519 - val_loss: 0.5629
+Epoch 2/10
+2411/2411 [==============================] - 2s 842us/step - loss: 0.5213 - val_loss: 0.4920
+Epoch 3/10
+2411/2411 [==============================] - 2s 836us/step - loss: 0.4670 - val_loss: 0.4530
+Epoch 4/10
+2411/2411 [==============================] - 2s 868us/step - loss: 0.4300 - val_loss: 0.4343
+Epoch 5/10
+2411/2411 [==============================] - 2s 775us/step - loss: 0.4022 - val_loss: 0.4548
+Epoch 6/10
+2411/2411 [==============================] - 2s 834us/step - loss: 0.3836 - val_loss: 0.4034
+Epoch 7/10
+2411/2411 [==============================] - 2s 785us/step - loss: 0.3660 - val_loss: 0.3772
+Epoch 8/10
+2411/2411 [==============================] - 2s 798us/step - loss: 0.3540 - val_loss: 0.3671
+Epoch 9/10
+2411/2411 [==============================] - 2s 729us/step - loss: 0.3434 - val_loss: 0.3609
+Epoch 10/10
+2411/2411 [==============================] - 2s 860us/step - loss: 0.3340 - val_loss: 0.3499
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.4641
+MSE : 0.4022
+RMSE: 0.6342
+
+📊 Evaluasi Model MLP
+MAE : 0.3615
+MSE : 0.2274
+RMSE: 0.4768
+
+Total kombinasi user-item diuji : 5942620
+Diproses oleh model            : 5942620
+Memiliki rating aktual         : 100836
+         userId  itemId  actual_rating  ffnn_predicted_rating
+0             1       1            4.0                    5.0
+1             1       2            0.0                    4.0
+2             1       3            4.0                    5.0
+3             1       4            0.0                    3.0
+4             1       5            0.0                    3.0
+...         ...     ...            ...                    ...
+5942615     610  193581            0.0                    3.0
+5942616     610  193583            0.0                    2.0
+5942617     610  193585            0.0                    2.0
+5942618     610  193587            0.0                    2.0
+5942619     610  193609            0.0                    4.0
+
+[5942620 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_movielens/b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 7188.44 detik
+ITs-iMac:HybridCFMFFNNXGBRec itseindo$ 

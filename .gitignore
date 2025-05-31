@@ -1,5 +1,5 @@
 /dataset_movielens/a_mf_ratings.csv
-/dataset_movielens/b_ffnn_ratings.csv
+/dataset_movielens/b_ffnn_ratings_x100.csv
 /dataset_movielens/c_hf_ratings.csv
 /dataset_hotels/with_50_percent_data/a_mf_ratings.csv
 /dataset_hotels/with_60_percent_data/a_mf_ratings.csv
