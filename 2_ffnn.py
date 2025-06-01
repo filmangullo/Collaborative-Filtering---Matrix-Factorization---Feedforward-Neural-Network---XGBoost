@@ -34,7 +34,7 @@ start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_hotels/"
+file_dir = "dataset_movielens/with_1_percent_data/"
 items = pd.read_csv(file_dir + "items.csv")
 ratings = pd.read_csv(file_dir + "ratings.csv")
 
@@ -90,7 +90,7 @@ alpha = 0.02     # learning rate
 beta = 0.01      # regularization parameter
 epochs = 10     #early stopping
 
-val_valid_corrected = 0.4
+val_valid_corrected = 0.0
 val_final = True
 
 print("Hyperparameter Matrix Factorization:")
@@ -100,6 +100,7 @@ print(f"Regularization parameter      : {beta}")
 print(f"Jumlah epoch / training       : {epochs}")
 print(f"\n")
 
+# Inisialisasi Matriks Laten
 np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))
 V = np.random.normal(scale=1./k, size=(num_items, k))

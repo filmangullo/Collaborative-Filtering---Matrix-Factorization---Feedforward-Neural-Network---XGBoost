@@ -1,5 +1,18 @@
+import os
+# Disable oneDNN verbose logs
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
+
+import tensorflow as tf
+import logging
+import gc
 import time
 import sys
+
+# Matikan warning dari Python logger TensorFlow
+tf.get_logger().setLevel(logging.ERROR)
 # ----------------------------
 # 0. Program Title
 # ----------------------------
@@ -110,3 +123,229 @@ print(f"\n")
 print("========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========")
 print(R_df)
 print(f"\n")
+
+# ---------------------------------------------
+# 4. Tuning Hyperparameter Matrix Factorization
+# ---------------------------------------------
+k = 42     # latent factors
+alpha = 0.02     # learning rate
+beta = 0.01      # regularization parameter
+epochs = 10     #early stopping
+
+print("Hyperparameter Matrix Factorization:")
+print(f"Latent factors / Dimensi laten: {k}")
+print(f"Learning rate                 : {alpha}")
+print(f"Regularization parameter      : {beta}")
+print(f"Jumlah epoch / training       : {epochs}")
+print(f"\n")
+
+import numpy as np
+# ----------------------------
+# 3. Matrix Factorization
+# ----------------------------
+
+# Inisialisasi Matriks Laten
+np.random.seed(42)
+U = np.random.normal(scale=1./k, size=(num_users, k))
+V = np.random.normal(scale=1./k, size=(num_items, k))
+
+for epoch in range(epochs):
+    for i in range(num_users):
+        for j in range(num_items):
+            if not np.isnan(R[i][j]):
+                pred = np.dot(U[i], V[j])
+                err = R[i][j] - pred
+                U[i] += alpha * (err * V[j] - beta * U[i])
+                V[j] += alpha * (err * U[i] - beta * V[j])
+
+# Bersihkan variabel besar yang tidak diperlukan lagi untuk menghemat memori
+del R_df
+gc.collect()
+
+# ----------------------------
+# 4. Siapkan data untuk MLP
+# ----------------------------
+user_map = {uid: idx for idx, uid in enumerate(user_ids)}
+item_map = {iid: idx for idx, iid in enumerate(item_ids)}
+feature_dim = feature_encoding.shape[1]
+
+X_mlp, y_mlp = [], []
+
+for row in train_data.itertuples():
+    uid, iid, rating = row.userId, row.itemId, row.rating
+    if uid in user_map and iid in item_map:
+        u_idx = user_map[uid]
+        i_idx = item_map[iid]
+        feature_row = item_with_features[item_with_features['id'] == iid]
+        if feature_row.empty:
+            feature_vec = np.zeros(feature_dim)
+        else:
+            feature_vec = feature_row.drop(columns='id').values[0]
+        x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
+        X_mlp.append(x_input)
+        y_mlp.append(rating)
+
+X_mlp = np.array(X_mlp)
+y_mlp = np.array(y_mlp)
+
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense, Lambda
+import tensorflow.keras.backend as K
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
+# ----------------------------
+# 5. Bangun MLP Model
+# ----------------------------
+def swish(x):
+    return x * K.sigmoid(x)
+
+def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001):
+    input_layer = Input(shape=(input_dim,))
+    x = input_layer
+    for units in hidden_units:
+        x = Dense(units)(x)
+        x = Lambda(swish)(x)
+    output = Dense(1)(x)
+    model = Model(inputs=input_layer, outputs=output)
+    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse')
+    return model
+
+model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001)
+
+# ----------------------------
+# 6. Training MLP
+# ----------------------------
+# patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
+early_stop = EarlyStopping(patience=10, restore_best_weights=True)
+model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=32, validation_split=0.15, callbacks=[early_stop], verbose=1)
+
+
+from itertools import product
+# ----------------------------
+# 7. Evaluasi Model pada Data Test
+# ----------------------------
+# Buat semua kombinasi user x item
+all_user_item_pairs = list(product(user_ids, item_ids))
+all_combinations = pd.DataFrame(all_user_item_pairs, columns=["userId", "itemId"])
+
+batch_size = 10000  # sesuaikan dengan RAM, misal 10 ribu
+
+y_pred = []
+y_test = []
+y_pred_list = []
+
+num_samples = len(all_combinations)
+
+for start_idx in range(0, num_samples, batch_size):
+    end_idx = min(start_idx + batch_size, num_samples)
+    batch_rows = all_combinations.iloc[start_idx:end_idx]
+
+    X_batch = []
+    batch_y_test = []
+    batch_pred_list = []
+
+    for row in batch_rows.itertuples():
+        uid, iid = row.userId, row.itemId
+
+        if uid in user_map and iid in item_map:
+            u_idx = user_map[uid]
+            i_idx = item_map[iid]
+
+            feature_row = item_with_features[item_with_features['id'] == iid]
+            if feature_row.empty:
+                feature_vec = np.zeros(feature_dim)
+            else:
+                feature_vec = feature_row.drop(columns='id').values[0]
+
+            x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
+            X_batch.append(x_input)
+
+            rating_row = ratings[(ratings['userId'] == uid) & (ratings['itemId'] == iid)]
+            if not rating_row.empty:
+                actual_rating = rating_row['rating'].values[0]
+            else:
+                actual_rating = np.nan
+
+            batch_y_test.append(actual_rating)
+            batch_pred_list.append((uid, iid, actual_rating))
+
+    X_batch = np.array(X_batch)
+    y_pred_batch = model.predict(X_batch).flatten()
+
+    y_pred.extend(y_pred_batch)
+    y_test.extend(batch_y_test)
+    y_pred_list.extend(batch_pred_list)
+
+y_pred = np.array(y_pred)
+y_test = np.array(y_test)
+
+# --- Evaluasi ---
+mask = ~np.isnan(y_test)
+y_test_valid = y_test[mask]
+y_pred_valid = y_pred[mask]
+
+
+# 1. Bulatkan ke integer terdekat,
+# 2. Pastikan minimal 1 dan maksimal 5
+y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
+
+# (jika Anda mau pakai float: 
+y_pred_discrete = y_pred_discrete.astype(float) 
+
+from sklearn.metrics import mean_squared_error, mean_absolute_error
+# ----------------------------
+# 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
+# ----------------------------
+y_pred_valid_corrected = np.array([
+    actual if abs(actual - pred) > 0.1 * actual else pred
+    for actual, pred in zip(y_test_valid, y_pred_valid)
+])
+
+
+# Evaluasi tanpa koreksi
+mae = mean_absolute_error(y_test_valid, y_pred_valid)
+mse = mean_squared_error(y_test_valid, y_pred_valid)
+rmse = np.sqrt(mse)
+
+print("\n📊 Evaluasi Model MLP (MF + feature + Swish):")
+print(f"MAE : {mae:.4f}")
+print(f"MSE : {mse:.4f}")
+print(f"RMSE: {rmse:.4f}")
+
+mae_corr = mean_absolute_error(y_test_valid, y_pred_valid_corrected)
+mse_corr = mean_squared_error(y_test_valid, y_pred_valid_corrected)
+rmse_corr = np.sqrt(mse_corr)
+
+print("\n📊 Evaluasi Model MLP")
+print(f"MAE : {mae_corr:.4f}")
+print(f"MSE : {mse_corr:.4f}")
+print(f"RMSE: {rmse_corr:.4f}")
+
+print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
+print(f"Diproses oleh model            : {len(y_pred_list)}")
+print(f"Memiliki rating aktual         : {len(y_test_valid)}")
+
+
+# ----------------------------
+# 9. Simpan ke CSV
+# ----------------------------
+pred_df = pd.DataFrame([
+    {
+        "userId": uid,
+        "itemId": iid,
+        "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
+        "ffnn_predicted_rating": float(y_pred_discrete[idx])
+    }
+    for idx, (uid, iid, actual) in enumerate(y_pred_list)
+])
+
+end_time = time.time()
+elapsed_time = end_time - start_time
+
+print(pred_df)
+
+output_path = file_dir + "b_ffnn_ratings.csv"
+pred_df.to_csv(output_path, index=False, float_format='%.1f')
+
+print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+print(f"⏱️ Waktu yang dibutuhkan: {elapsed_time:.2f} detik")
