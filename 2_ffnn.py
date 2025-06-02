@@ -88,7 +88,7 @@ num_users, num_items = R.shape
 k = 42     # latent factors
 alpha = 0.02     # learning rate
 beta = 0.01      # regularization parameter
-epochs = 10     #early stopping
+epochs = 20     #early stopping
 
 val_valid_corrected = 0.4
 val_final = True
