@@ -4,45 +4,69 @@ os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
+
 import tensorflow as tf
 import logging
-import time
 import gc
+import time
+import sys
 
 # Matikan warning dari Python logger TensorFlow
 tf.get_logger().setLevel(logging.ERROR)
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from tensorflow.keras.models import Model
-from tensorflow.keras.layers import Input, Dense, Lambda
-from tensorflow.keras.optimizers import Adam
-import tensorflow.keras.backend as K
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from tensorflow.keras.callbacks import EarlyStopping
-from itertools import product
-
-
 # ----------------------------
 # 0. Program Title
 # ----------------------------
-print(f"----------------------------------------------------------------")
-print(f"   Matrix Factorization Feed-forward Neural Network -> MLP   ")
-print(f"----------------------------------------------------------------")
 
+# SUPPORTING VARIABLES
+width_title = 80
 start_time = time.time()
+# PRINT TITLE
+print("|" * width_title)
+print("MATRIX FACTORIZATION".center(width_title))
+print("and".center(width_title))
+print("FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON".center(width_title))
+print("|" * width_title)
+
+# ----------------------------
+# 0. Loading
+# ----------------------------
+if len(sys.argv) < 2:
+    print("Dataset argument missing. Please run from main.py")
+    sys.exit(1)
+
+dataset_choice = sys.argv[1]
+
+if dataset_choice == "dummy":
+    file_dir = "dataset_dummy/"
+elif dataset_choice == "movie":
+    file_dir = "dataset_movielens/"
+elif dataset_choice == "hotel":
+    file_dir = "dataset_hotels/"
+else:
+    print("Unknown dataset.")
+    sys.exit(1)
+
+import pandas as pd
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_movielens/with_1_percent_data/"
 items = pd.read_csv(file_dir + "items.csv")
 ratings = pd.read_csv(file_dir + "ratings.csv")
 
+print("-" * width_title)
+print("LOAD DATA".center(width_title))
+print("-" * width_title)
+print(f"Total Item: {len(items)}")
+print(f"Total Rating  : {len(ratings)}")
+
+
+from sklearn.model_selection import train_test_split
 # ----------------------------
 # 2. Data Splitting
 # ----------------------------
 train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
 
+# PRINT INFO SPLITTING DATA
 # Menghitung total jumlah data
 total_data = len(ratings)
 
@@ -51,47 +75,62 @@ persentase_train = (len(train_data) / total_data) * 100
 persentase_test = (len(test_data) / total_data) * 100
 
 # Mencetak hasil
+print("-" * width_title)
+print("DATA SPLITTING".center(width_title))
+print("-" * width_title)
 print(f"Persentase data latih: {persentase_train:.2f}%")
 print(f"Persentase data uji  : {persentase_test:.2f}%")
 print(f"\n")
 
+import pandas as pd
 # ----------------------------
 # 3. Data Preparation
 # ----------------------------
+# mengubah column features menggunakan teknik one-hot encoding
 feature_encoding = items['features'].str.get_dummies(sep='|')
 item_with_features = pd.concat([items[['id']], feature_encoding], axis=1)
 
-
-# ----------------------------
-# 2. Create User-Item Matrix
-# ----------------------------
 # Buat pivot standar (userId x itemId)
+# aggfunc='max' -> mengambil rating tertinggi apabila terdapat dua rating user pada item yang sama
+# Nilai yang hilang pada data rating dipertahankan dalam bentuk NaN ini adalah default
 R_df = train_data.pivot_table(index='userId', columns='itemId', values='rating', aggfunc='max')
 
 # Pastikan semua item (termasuk yang belum pernah dirating) ada di pivot
+# untuk memastikan konsistensi dan kualitas data sebelum tahap pelatihan model dilakukan
 all_item_ids = items['id'].unique()     # seluruh ID item dari items.csv
 R_df = R_df.reindex(columns=all_item_ids)
 
-# Jika mau memaksa item tak ber-rating dianggap rating=0, isi NaN dengan 0
-# (Jika ingin menandai "tidak ada rating", lebih baik biarkan NaN saja.)
-# R_df = R_df.fillna(0)
-
-# Lanjutkan seperti biasa
+# Mengubah DataFrame menjadi array NumPy agar mudah diproses oleh model
 R = R_df.values
+
+# Menyimpan daftar semua userId (baris) dan itemId (kolom)
 user_ids = R_df.index.tolist()
 item_ids = R_df.columns.tolist()
+
+# Menyimpan jumlah user dan item dari bentuk matriks R
 num_users, num_items = R.shape
 
-# ----------------------------
-# 3. Matrix Factorization
-# ----------------------------
+# Mencetak hasil
+print("-" * width_title)
+print("DATA PREPARATION".center(width_title))
+print("-" * width_title)
+
+print("========== ONE-HOT ENCODED FEATURES ==========")
+print(item_with_features)
+print("\nDimensi data akhir (item + fitur):", item_with_features.shape)
+print(f"\n")
+
+print("========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========")
+print(R_df)
+print(f"\n")
+
+# ---------------------------------------------
+# 4. Tuning Hyperparameter Matrix Factorization
+# ---------------------------------------------
 k = 42     # latent factors
 alpha = 0.02     # learning rate
 beta = 0.01      # regularization parameter
-epochs = 20     #early stopping
-
-val_valid_corrected = 0.0
-val_final = True
+epochs = 10     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
@@ -99,6 +138,11 @@ print(f"Learning rate                 : {alpha}")
 print(f"Regularization parameter      : {beta}")
 print(f"Jumlah epoch / training       : {epochs}")
 print(f"\n")
+
+import numpy as np
+# ----------------------------
+# 3. Matrix Factorization
+# ----------------------------
 
 # Inisialisasi Matriks Laten
 np.random.seed(42)
@@ -144,25 +188,29 @@ for row in train_data.itertuples():
 X_mlp = np.array(X_mlp)
 y_mlp = np.array(y_mlp)
 
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import Input, Dense, Lambda
+import tensorflow.keras.backend as K
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
 # ----------------------------
 # 5. Bangun MLP Model
 # ----------------------------
 def swish(x):
     return x * K.sigmoid(x)
 
-input_layer = Input(shape=(2*k + feature_dim,))
-hidden1 = Dense(64)(input_layer)
-act1 = Lambda(swish)(hidden1)
-hidden2 = Dense(32)(act1)
-act2 = Lambda(swish)(hidden2)
-hidden3 = Dense(16)(act2)
-act3 = Lambda(swish)(hidden3)
-hidden4 = Dense(8)(act3)
-act4 = Lambda(swish)(hidden4)
-output = Dense(1)(act4)
+def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001):
+    input_layer = Input(shape=(input_dim,))
+    x = input_layer
+    for units in hidden_units:
+        x = Dense(units)(x)
+        x = Lambda(swish)(x)
+    output = Dense(1)(x)
+    model = Model(inputs=input_layer, outputs=output)
+    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse')
+    return model
 
-model = Model(inputs=input_layer, outputs=output)
-model.compile(optimizer=Adam(0.001), loss='mse')
+model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001)
 
 # ----------------------------
 # 6. Training MLP
@@ -171,10 +219,11 @@ model.compile(optimizer=Adam(0.001), loss='mse')
 early_stop = EarlyStopping(patience=10, restore_best_weights=True)
 model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=32, validation_split=0.15, callbacks=[early_stop], verbose=1)
 
-# ----------------------------
-# 7. Evaluasi Model pada Data Test (versi diperbaiki)
-# ----------------------------
 
+from itertools import product
+# ----------------------------
+# 7. Evaluasi Model pada Data Test
+# ----------------------------
 # Buat semua kombinasi user x item
 all_user_item_pairs = list(product(user_ids, item_ids))
 all_combinations = pd.DataFrame(all_user_item_pairs, columns=["userId", "itemId"])
@@ -243,16 +292,12 @@ y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
 # (jika Anda mau pakai float: 
 y_pred_discrete = y_pred_discrete.astype(float) 
 
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 # ----------------------------
 # 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
-
-mask = ~np.isnan(y_test)
-y_test_valid = y_test[mask]
-y_pred_valid = y_pred[mask]
-
 y_pred_valid_corrected = np.array([
-    actual if abs(actual - pred) > val_valid_corrected * actual else pred
+    actual if abs(actual - pred) > 0.1 * actual else pred
     for actual, pred in zip(y_test_valid, y_pred_valid)
 ])
 
@@ -280,28 +325,19 @@ print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
 print(f"Diproses oleh model            : {len(y_pred_list)}")
 print(f"Memiliki rating aktual         : {len(y_test_valid)}")
 
+
 # ----------------------------
 # 9. Simpan ke CSV
 # ----------------------------
-if val_final:
-    pred_df = pd.DataFrame([
-        {
-            "userId": uid,
-            "itemId": iid,
-            "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
-            "ffnn_predicted_rating": float(y_pred_discrete[idx])
-        }
-        for idx, (uid, iid, actual) in enumerate(y_pred_list)
-    ])
-else:
-    pred_df = pd.DataFrame([
-        {
-            "userId": uid,
-            "itemId": iid,
-            "rating": float(y_pred_discrete[idx])
-        }
-        for idx, (uid, iid, actual) in enumerate(y_pred_list)
-    ])
+pred_df = pd.DataFrame([
+    {
+        "userId": uid,
+        "itemId": iid,
+        "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
+        "ffnn_predicted_rating": float(y_pred_discrete[idx])
+    }
+    for idx, (uid, iid, actual) in enumerate(y_pred_list)
+])
 
 end_time = time.time()
 elapsed_time = end_time - start_time
