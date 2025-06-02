@@ -14,7 +14,7 @@ import sys
 # Matikan warning dari Python logger TensorFlow
 tf.get_logger().setLevel(logging.ERROR)
 # ----------------------------
-# 0. Program Title
+# 0a. Program Title
 # ----------------------------
 
 # SUPPORTING VARIABLES
@@ -28,7 +28,7 @@ print("FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON".center(width_
 print("|" * width_title)
 
 # ----------------------------
-# 0. Loading
+# 0b. Loading
 # ----------------------------
 if len(sys.argv) < 2:
     print("Dataset argument missing. Please run from main.py")

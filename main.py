@@ -41,7 +41,7 @@ def main():
     if program_choice == '1':
         subprocess.call([sys.executable, "program_mf_ffnn.py", dataset])
     elif program_choice == '2':
-        subprocess.call([sys.executable, "program_hf.py"])
+        subprocess.call([sys.executable, "program_hf.py", dataset])
     elif program_choice == '3':
         subprocess.call([sys.executable, "program_xg.py"])
     else:
