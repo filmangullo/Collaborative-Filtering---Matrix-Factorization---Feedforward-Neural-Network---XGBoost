@@ -12,6 +12,12 @@ Learning rate                 : 0.05
 Regularization parameter      : 0.02
 Jumlah epoch / training       : 25
 
+Hyperparameter MLP:
+Struktur Hidden Layer     : [64, 32, 16, 8]
+Learning Rate             : 0.001
+Batch Size                : 32
+Jumlah epoch / training   : 25
+Early Stopping (Patience) : 10
 
 Epoch 1/25
 405/405 [==============================] - 1s 1ms/step - loss: 3.0269 - val_loss: 2.0541

@@ -34,7 +34,7 @@ start_time = time.time()
 # ----------------------------
 # 1. Load Data
 # ----------------------------
-file_dir = "dataset_movielens/with_1_percent_data/"
+file_dir = "dataset_hotels/"
 items = pd.read_csv(file_dir + "items.csv")
 ratings = pd.read_csv(file_dir + "ratings.csv")
 

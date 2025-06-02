@@ -129,14 +129,14 @@ print(f"\n")
 # ---------------------------------------------
 k = 42     # latent factors
 alpha = 0.02     # learning rate
-beta = 0.01      # regularization parameter
-epochs = 10     #early stopping
+beta = 0.02      # regularization parameter
+epochs_mf = 35     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
 print(f"Learning rate                 : {alpha}")
 print(f"Regularization parameter      : {beta}")
-print(f"Jumlah epoch / training       : {epochs}")
+print(f"Jumlah epoch / training       : {epochs_mf}")
 print(f"\n")
 
 import numpy as np
@@ -149,7 +149,7 @@ np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))
 V = np.random.normal(scale=1./k, size=(num_items, k))
 
-for epoch in range(epochs):
+for epoch in range(epochs_mf):
     for i in range(num_users):
         for j in range(num_items):
             if not np.isnan(R[i][j]):
@@ -162,9 +162,24 @@ for epoch in range(epochs):
 del R_df
 gc.collect()
 
-# ----------------------------
-# 4. Siapkan data untuk MLP
-# ----------------------------
+# --------------------------------------
+# 4. Prepare & Tuning Hyperparameter MLP
+# --------------------------------------
+hidden_layer=[64, 32, 16] #Struktur jaringan (jumlah layer)
+learning_rate=0.002 #Kecepatan pembelajaran
+
+patience=10 #Toleransi stagnasi saat training
+batch_size=64 #Jumlah data per batch
+epochs_mlp=25 #Total maksimum iterasi
+
+print("Hyperparameter MLP:")
+print(f"Struktur Hidden Layer     : {hidden_layer}")
+print(f"Learning Rate             : {learning_rate}")
+print(f"Batch Size                : {batch_size}")
+print(f"Jumlah epoch / training   : {epochs_mlp}")
+print(f"Early Stopping (Patience) : {patience}")
+print(f"\n")
+
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
 feature_dim = feature_encoding.shape[1]
@@ -207,17 +222,17 @@ def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001
         x = Lambda(swish)(x)
     output = Dense(1)(x)
     model = Model(inputs=input_layer, outputs=output)
-    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse')
+    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse', metrics=['mae'])
     return model
 
-model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001)
+model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=hidden_layer, learning_rate=learning_rate)
 
 # ----------------------------
 # 6. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
-early_stop = EarlyStopping(patience=10, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=epochs, batch_size=32, validation_split=0.15, callbacks=[early_stop], verbose=1)
+early_stop = EarlyStopping(patience=patience, restore_best_weights=True)
+model.fit(X_mlp, y_mlp, epochs=epochs_mlp, batch_size=batch_size, validation_split=0.15, callbacks=[early_stop], verbose=1)
 
 
 from itertools import product

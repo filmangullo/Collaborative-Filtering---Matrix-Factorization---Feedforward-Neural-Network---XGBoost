@@ -1,4 +1,5 @@
 import subprocess
+import sys
 
 def main():
     # PRINT TITLE
@@ -15,6 +16,10 @@ def main():
     print("2. Film (MovieLens)")
     print("3. Hotel (PT. XYZ)")
     dataset_choice = input("Choose dataset (1, 2 or 3): ")
+    if isinstance(dataset_choice, int):
+        dataset_choice = str(dataset_choice)
+    else:
+        dataset_choice = dataset_choice.strip()
 
     if dataset_choice == '1':
         dataset = "dummy"
@@ -31,14 +36,14 @@ def main():
     print("1. Rating Prediction: Matrix Factorization and Feedforward Neural Network")
     print("2. Generate : Handcrafted Features")
     print("3. Do Recommendation : XGBoost")
-    pilihan = input("Please select one of the following options: 1, 2, or 3: ")
+    program_choice = str(input("Please select one of the following options: 1, 2, or 3: ")).strip()
 
-    if pilihan == '1':
-        subprocess.run(["python", "program_mf_ffnn.py", dataset])
-    elif pilihan == '2':
-        subprocess.run(["python", "program_hf.py"])
-    elif pilihan == '3':
-        subprocess.run(["python", "program_xg.py"])
+    if program_choice == '1':
+        subprocess.call([sys.executable, "program_mf_ffnn.py", dataset])
+    elif program_choice == '2':
+        subprocess.call([sys.executable, "program_hf.py"])
+    elif program_choice == '3':
+        subprocess.call([sys.executable, "program_xg.py"])
     else:
         print("Invalid selection.")
 
