@@ -43,7 +43,8 @@ def main():
     elif program_choice == '2':
         subprocess.call([sys.executable, "program_hf.py", dataset])
     elif program_choice == '3':
-        subprocess.call([sys.executable, "program_xg.py"])
+        print("\nLaunching Streamlit app for XGBoost recommendation...")
+        subprocess.call(["streamlit", "run", "program_xg.py", dataset])
     else:
         print("Invalid selection.")
 
