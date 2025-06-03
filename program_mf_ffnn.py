@@ -165,7 +165,11 @@ gc.collect()
 # --------------------------------------
 # 4. Prepare & Tuning Hyperparameter MLP
 # --------------------------------------
+<<<<<<< HEAD
 hidden_layer=[128, 64, 32, 16] #Struktur jaringan (jumlah layer)
+=======
+hidden_layer=[64, 32, 16] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
+>>>>>>> a9df1193c9874b12129b4cb7a6a81ce6f91c7789
 learning_rate=0.002 #Kecepatan pembelajaran
 
 patience=15 #Toleransi stagnasi saat training
@@ -196,6 +200,11 @@ for row in train_data.itertuples():
             feature_vec = np.zeros(feature_dim)
         else:
             feature_vec = feature_row.drop(columns='id').values[0]
+        
+        # U[u_idx]: adalah vektor laten user hasil dari Matrix Factorization.
+        # V[i_idx]: adalah vektor laten item dari Matrix Factorization.
+        # feature_vec: adalah fitur konten item (misalnya hasil one-hot encoding dari genre film).
+        # np.concatenate(...): menggabungkan ketiganya menjadi satu vektor input (x_input) yang akan masuk ke MLP.
         x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_mlp.append(x_input)
         y_mlp.append(rating)
