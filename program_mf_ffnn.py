@@ -165,11 +165,7 @@ gc.collect()
 # --------------------------------------
 # 4. Prepare & Tuning Hyperparameter MLP
 # --------------------------------------
-<<<<<<< HEAD
-hidden_layer=[128, 64, 32, 16] #Struktur jaringan (jumlah layer)
-=======
 hidden_layer=[64, 32, 16] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
->>>>>>> a9df1193c9874b12129b4cb7a6a81ce6f91c7789
 learning_rate=0.002 #Kecepatan pembelajaran
 
 patience=15 #Toleransi stagnasi saat training
