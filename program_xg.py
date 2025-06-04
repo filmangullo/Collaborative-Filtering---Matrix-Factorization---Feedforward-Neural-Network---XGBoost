@@ -32,7 +32,7 @@ dataset_choice = sys.argv[1]
 if dataset_choice == "dummy":
     file_path = "dataset_dummy/c_hf_ratings.csv"
 elif dataset_choice == "movie":
-    file_path = "dataset_movielens/final_feature_dataset.csv"
+    file_path = "dataset_movielens/c_hf_ratings.csv"
 elif dataset_choice == "hotel":
     file_path = "dataset_hotels/final_feature_dataset.csv"
 else:
@@ -65,7 +65,8 @@ def load_and_train_model(file_path, top_n=8):
     model.fit(X_train, y_train)
 
     # Prediksi seluruh data
-    df["predicted_rating"] = model.predict(X)
+    df["predicted_rating"] = np.round(model.predict(X), 1)
+    df["predicted_rating"] = df["predicted_rating"].astype(float).round(1)
 
     # Ambil Top-N rekomendasi per user
     top_n_recommendation = (
@@ -76,19 +77,15 @@ def load_and_train_model(file_path, top_n=8):
     )
 
     # Simpan hasil
-    top_n_recommendation.to_csv("top_n_recommendation.csv", index=False)
-    top_n_recommendation.to_excel("top_n_recommendation.xlsx", index=False)
+    top_n_recommendation.to_csv("top_n_recommendation.csv", index=False, float_format="%.1f")
+    # top_n_recommendation.to_excel("top_n_recommendation.xlsx", index=False, float_format="%.1f")
 
     # Evaluasi
     y_pred = model.predict(X_test)
-    mae  = mean_absolute_error(y_test, y_pred)
-    mse  = mean_squared_error(y_test, y_pred)
-    rmse = np.sqrt(mse)
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
     r2   = r2_score(y_test, y_pred)
 
     scores = {
-        "MAE": mae,
-        "MSE": mse,
         "RMSE": rmse,
         "R2": r2
     }
@@ -109,11 +106,11 @@ st.success("✅ Model dilatih & rekomendasi berhasil dihasilkan!")
 st.subheader("📥 Top-N Rekomendasi")
 user_ids = df_all['userId'].unique()
 selected_user = st.selectbox("Pilih User ID", user_ids)
-st.table(top_n_recommendation[top_n_recommendation['userId'] == selected_user][['itemId', 'predicted_rating']])
+display_df = top_n_recommendation[top_n_recommendation['userId'] == selected_user][['itemId', 'predicted_rating']]
+display_df['predicted_rating'] = display_df['predicted_rating'].map(lambda x: f"{x:.1f}")
+st.table(display_df)
 
 st.subheader("📈 Evaluasi Model")
-st.write(f"**MAE**  : {scores['MAE']:.4f}")
-st.write(f"**MSE**  : {scores['MSE']:.4f}")
 st.write(f"**RMSE** : {scores['RMSE']:.4f}")
 st.write(f"**R²**   : {scores['R2']:.4f}")
 
@@ -127,8 +124,8 @@ ax.set_ylabel("Predicted Rating")
 ax.set_title("Actual vs Predicted Ratings")
 st.pyplot(fig)
 
-st.download_button(
-    label="📤 Download Rekomendasi (Excel)",
-    data=open("top_n_recommendation.xlsx", "rb").read(),
-    file_name="top_n_recommendation.xlsx"
-)
+# st.download_button(
+#     label="📤 Download Rekomendasi (Excel)",
+#     data=open("top_n_recommendation.xlsx", "rb").read(),
+#     file_name="top_n_recommendation.xlsx"
+# )
