@@ -1,0 +1,198 @@
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                              MATRIX FACTORIZATION                              
+                                      and                                       
+           FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON           
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+--------------------------------------------------------------------------------
+                                   LOAD DATA                                    
+--------------------------------------------------------------------------------
+Total Item: 9742
+Total Rating  : 100836
+--------------------------------------------------------------------------------
+                                 DATA SPLITTING                                 
+--------------------------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+--------------------------------------------------------------------------------
+                                DATA PREPARATION                                
+--------------------------------------------------------------------------------
+========== ONE-HOT ENCODED FEATURES ==========
+          id  (no genres listed)  Action  ...  Thriller  War  Western
+0          1                   0       0  ...         0    0        0
+1          2                   0       0  ...         0    0        0
+2          3                   0       0  ...         0    0        0
+3          4                   0       0  ...         0    0        0
+4          5                   0       0  ...         0    0        0
+...      ...                 ...     ...  ...       ...  ...      ...
+9737  193581                   0       1  ...         0    0        0
+9738  193583                   0       0  ...         0    0        0
+9739  193585                   0       0  ...         0    0        0
+9740  193587                   0       1  ...         0    0        0
+9741  193609                   0       0  ...         0    0        0
+
+[9742 rows x 21 columns]
+
+Dimensi data akhir (item + fitur): (9742, 21)
+
+
+========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========
+itemId  1       2       3       4       ...  193583  193585  193587  193609
+userId                                  ...                                
+1          4.0     NaN     4.0     NaN  ...     NaN     NaN     NaN     NaN
+2          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+3          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+4          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+5          NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+...        ...     ...     ...     ...  ...     ...     ...     ...     ...
+606        2.5     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+607        4.0     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+608        2.5     2.0     2.0     NaN  ...     NaN     NaN     NaN     NaN
+609        3.0     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+610        5.0     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN
+
+[610 rows x 9742 columns]
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 64
+Learning rate                 : 0.005
+Regularization parameter      : 0.03
+Jumlah epoch / training       : 88
+
+
+Hyperparameter MLP:
+Struktur Hidden Layer     : [64, 32, 16, 8]
+Learning Rate             : 0.001
+Batch Size                : 128
+Jumlah epoch / training   : 50
+Early Stopping (Patience) : 15
+
+
+Epoch 1/50
+603/603 [==============================] - 1s 1ms/step - loss: 1.1458 - mae: 0.7650 - val_loss: 0.6411 - val_mae: 0.6120
+Epoch 2/50
+603/603 [==============================] - 1s 914us/step - loss: 0.5543 - mae: 0.5733 - val_loss: 0.5064 - val_mae: 0.5537
+Epoch 3/50
+603/603 [==============================] - 1s 937us/step - loss: 0.4491 - mae: 0.5155 - val_loss: 0.4245 - val_mae: 0.5044
+Epoch 4/50
+603/603 [==============================] - 1s 919us/step - loss: 0.3847 - mae: 0.4767 - val_loss: 0.3724 - val_mae: 0.4658
+Epoch 5/50
+603/603 [==============================] - 1s 945us/step - loss: 0.3381 - mae: 0.4467 - val_loss: 0.3309 - val_mae: 0.4408
+Epoch 6/50
+603/603 [==============================] - 1s 961us/step - loss: 0.3068 - mae: 0.4254 - val_loss: 0.3355 - val_mae: 0.4397
+Epoch 7/50
+603/603 [==============================] - 1s 923us/step - loss: 0.2835 - mae: 0.4086 - val_loss: 0.2849 - val_mae: 0.4076
+Epoch 8/50
+603/603 [==============================] - 1s 919us/step - loss: 0.2650 - mae: 0.3947 - val_loss: 0.2681 - val_mae: 0.3932
+Epoch 9/50
+603/603 [==============================] - 1s 942us/step - loss: 0.2512 - mae: 0.3843 - val_loss: 0.2767 - val_mae: 0.4015
+Epoch 10/50
+603/603 [==============================] - 1s 917us/step - loss: 0.2408 - mae: 0.3766 - val_loss: 0.2468 - val_mae: 0.3789
+Epoch 11/50
+603/603 [==============================] - 1s 954us/step - loss: 0.2283 - mae: 0.3664 - val_loss: 0.2366 - val_mae: 0.3702
+Epoch 12/50
+603/603 [==============================] - 1s 921us/step - loss: 0.2207 - mae: 0.3608 - val_loss: 0.2299 - val_mae: 0.3659
+Epoch 13/50
+603/603 [==============================] - 1s 942us/step - loss: 0.2093 - mae: 0.3506 - val_loss: 0.2340 - val_mae: 0.3721
+Epoch 14/50
+603/603 [==============================] - 1s 946us/step - loss: 0.2069 - mae: 0.3495 - val_loss: 0.2200 - val_mae: 0.3564
+Epoch 15/50
+603/603 [==============================] - 1s 923us/step - loss: 0.1947 - mae: 0.3386 - val_loss: 0.2121 - val_mae: 0.3529
+Epoch 16/50
+603/603 [==============================] - 1s 926us/step - loss: 0.1895 - mae: 0.3338 - val_loss: 0.2039 - val_mae: 0.3443
+Epoch 17/50
+603/603 [==============================] - 1s 931us/step - loss: 0.1829 - mae: 0.3281 - val_loss: 0.2018 - val_mae: 0.3434
+Epoch 18/50
+603/603 [==============================] - 1s 966us/step - loss: 0.1767 - mae: 0.3221 - val_loss: 0.1967 - val_mae: 0.3401
+Epoch 19/50
+603/603 [==============================] - 1s 927us/step - loss: 0.1744 - mae: 0.3204 - val_loss: 0.2010 - val_mae: 0.3454
+Epoch 20/50
+603/603 [==============================] - 1s 923us/step - loss: 0.1672 - mae: 0.3130 - val_loss: 0.1985 - val_mae: 0.3425
+Epoch 21/50
+603/603 [==============================] - 1s 925us/step - loss: 0.1652 - mae: 0.3117 - val_loss: 0.2017 - val_mae: 0.3494
+Epoch 22/50
+603/603 [==============================] - 1s 938us/step - loss: 0.1606 - mae: 0.3072 - val_loss: 0.1794 - val_mae: 0.3223
+Epoch 23/50
+603/603 [==============================] - 1s 994us/step - loss: 0.1566 - mae: 0.3029 - val_loss: 0.1718 - val_mae: 0.3151
+Epoch 24/50
+603/603 [==============================] - 1s 940us/step - loss: 0.1549 - mae: 0.3018 - val_loss: 0.1747 - val_mae: 0.3207
+Epoch 25/50
+603/603 [==============================] - 1s 933us/step - loss: 0.1510 - mae: 0.2978 - val_loss: 0.1663 - val_mae: 0.3098
+Epoch 26/50
+603/603 [==============================] - 1s 934us/step - loss: 0.1475 - mae: 0.2935 - val_loss: 0.1722 - val_mae: 0.3169
+Epoch 27/50
+603/603 [==============================] - 1s 916us/step - loss: 0.1483 - mae: 0.2953 - val_loss: 0.1811 - val_mae: 0.3257
+Epoch 28/50
+603/603 [==============================] - 1s 926us/step - loss: 0.1431 - mae: 0.2893 - val_loss: 0.1633 - val_mae: 0.3092
+Epoch 29/50
+603/603 [==============================] - 1s 938us/step - loss: 0.1423 - mae: 0.2887 - val_loss: 0.1665 - val_mae: 0.3093
+Epoch 30/50
+603/603 [==============================] - 1s 924us/step - loss: 0.1396 - mae: 0.2860 - val_loss: 0.1581 - val_mae: 0.3027
+Epoch 31/50
+603/603 [==============================] - 1s 939us/step - loss: 0.1383 - mae: 0.2843 - val_loss: 0.1633 - val_mae: 0.3075
+Epoch 32/50
+603/603 [==============================] - 1s 976us/step - loss: 0.1367 - mae: 0.2830 - val_loss: 0.1623 - val_mae: 0.3060
+Epoch 33/50
+603/603 [==============================] - 1s 938us/step - loss: 0.1346 - mae: 0.2810 - val_loss: 0.1658 - val_mae: 0.3098
+Epoch 34/50
+603/603 [==============================] - 1s 934us/step - loss: 0.1330 - mae: 0.2785 - val_loss: 0.1537 - val_mae: 0.2976
+Epoch 35/50
+603/603 [==============================] - 1s 936us/step - loss: 0.1296 - mae: 0.2749 - val_loss: 0.1704 - val_mae: 0.3155
+Epoch 36/50
+603/603 [==============================] - 1s 919us/step - loss: 0.1316 - mae: 0.2779 - val_loss: 0.1490 - val_mae: 0.2924
+Epoch 37/50
+603/603 [==============================] - 1s 931us/step - loss: 0.1276 - mae: 0.2727 - val_loss: 0.1567 - val_mae: 0.3029
+Epoch 38/50
+603/603 [==============================] - 1s 922us/step - loss: 0.1264 - mae: 0.2720 - val_loss: 0.1468 - val_mae: 0.2896
+Epoch 39/50
+603/603 [==============================] - 1s 923us/step - loss: 0.1257 - mae: 0.2713 - val_loss: 0.1511 - val_mae: 0.2948
+Epoch 40/50
+603/603 [==============================] - 1s 916us/step - loss: 0.1233 - mae: 0.2685 - val_loss: 0.1535 - val_mae: 0.2990
+Epoch 41/50
+603/603 [==============================] - 1s 1ms/step - loss: 0.1227 - mae: 0.2680 - val_loss: 0.1408 - val_mae: 0.2828
+Epoch 42/50
+603/603 [==============================] - 1s 936us/step - loss: 0.1218 - mae: 0.2667 - val_loss: 0.1471 - val_mae: 0.2918
+Epoch 43/50
+603/603 [==============================] - 1s 935us/step - loss: 0.1206 - mae: 0.2658 - val_loss: 0.1414 - val_mae: 0.2836
+Epoch 44/50
+603/603 [==============================] - 1s 920us/step - loss: 0.1196 - mae: 0.2647 - val_loss: 0.1426 - val_mae: 0.2852
+Epoch 45/50
+603/603 [==============================] - 1s 929us/step - loss: 0.1180 - mae: 0.2626 - val_loss: 0.1401 - val_mae: 0.2832
+Epoch 46/50
+603/603 [==============================] - 1s 923us/step - loss: 0.1165 - mae: 0.2609 - val_loss: 0.1378 - val_mae: 0.2794
+Epoch 47/50
+603/603 [==============================] - 1s 931us/step - loss: 0.1172 - mae: 0.2616 - val_loss: 0.1384 - val_mae: 0.2811
+Epoch 48/50
+603/603 [==============================] - 1s 922us/step - loss: 0.1151 - mae: 0.2595 - val_loss: 0.1399 - val_mae: 0.2830
+Epoch 49/50
+603/603 [==============================] - 1s 985us/step - loss: 0.1148 - mae: 0.2591 - val_loss: 0.1365 - val_mae: 0.2787
+Epoch 50/50
+603/603 [==============================] - 1s 955us/step - loss: 0.1142 - mae: 0.2585 - val_loss: 0.1368 - val_mae: 0.2793
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.3086
+MSE : 0.2182
+RMSE: 0.4671
+
+Total kombinasi user-item diuji : 5942620
+Diproses oleh model            : 5942620
+Memiliki rating aktual         : 100836
+         userId  itemId  actual_rating  ffnn_predicted_rating
+0             1       1            4.0                    5.0
+1             1       2            0.0                    3.0
+2             1       3            4.0                    4.0
+3             1       4            0.0                    3.0
+4             1       5            0.0                    4.0
+...         ...     ...            ...                    ...
+5942615     610  193581            0.0                    3.0
+5942616     610  193583            0.0                    3.0
+5942617     610  193585            0.0                    3.0
+5942618     610  193587            0.0                    3.0
+5942619     610  193609            0.0                    4.0
+
+[5942620 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_movielens/b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 8252.12 detik
