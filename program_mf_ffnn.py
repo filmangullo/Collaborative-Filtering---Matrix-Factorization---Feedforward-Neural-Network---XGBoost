@@ -127,10 +127,10 @@ print(f"\n")
 # ---------------------------------------------
 # 4. Tuning Hyperparameter Matrix Factorization
 # ---------------------------------------------
-k = 64     # latent factors
-alpha = 0.03     # learning rate
+k = 128     # latent factors
+alpha = 0.005     # learning rate
 beta = 0.03      # regularization parameter
-epochs_mf = 35     #early stopping
+epochs_mf = 50     #early stopping
 
 print("Hyperparameter Matrix Factorization:")
 print(f"Latent factors / Dimensi laten: {k}")
@@ -165,12 +165,12 @@ gc.collect()
 # --------------------------------------
 # 4. Prepare & Tuning Hyperparameter MLP
 # --------------------------------------
-hidden_layer=[128, 64, 32, 16] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
-learning_rate=0.003 #Kecepatan pembelajaran
+hidden_layer=[64, 32, 16, 8] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
+learning_rate=0.005 #Kecepatan pembelajaran
 
-batch_size=64 #Jumlah data per batch
+batch_size=42 #Jumlah data per batch
 epochs_mlp=50 #Total maksimum iterasi
-patience=15 #Toleransi stagnasi saat training
+patience=10 #Toleransi stagnasi saat training
 
 print("Hyperparameter MLP:")
 print(f"Struktur Hidden Layer     : {hidden_layer}")
