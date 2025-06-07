@@ -186,9 +186,9 @@ print(f"Jumlah epoch / training   : {epochs_mlp}")
 print(f"Early Stopping (Patience) : {patience}")
 print(f"\n")
 
-# --------------------------------------
-# 5. Prepare MLP
-# --------------------------------------
+# -------------------------------------------------------
+# 5. Input Preparation for Multi-Layer Perceptron Model
+# -------------------------------------------------------
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
 feature_dim = feature_encoding.shape[1]
@@ -206,14 +206,16 @@ for row in train_data.itertuples():
         else:
             feature_vec = feature_row.drop(columns='id').values[0]
         
-        # U[u_idx]: adalah vektor laten user hasil dari Matrix Factorization.
-        # V[i_idx]: adalah vektor laten item dari Matrix Factorization.
-        # feature_vec: adalah fitur konten item (misalnya hasil one-hot encoding dari genre film).
-        # np.concatenate(...): menggabungkan ketiganya menjadi satu vektor input (x_input) yang akan masuk ke MLP.
+        # - U[u_idx]: adalah vektor laten user hasil dari Matrix Factorization.
+        # - V[i_idx]: adalah vektor laten item dari Matrix Factorization.
+        # - feature_vec: adalah fitur konten item (misalnya 
+        #   hasil one-hot encoding dari genre film).
+        # - np.concatenate(...): menggabungkan ketiganya menjadi satu 
+        #   vektor input (x_input) yang akan masuk ke MLP.
         x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_mlp.append(x_input)
         y_mlp.append(rating)
-print (X_mlp, y_mlp)
+
 X_mlp = np.array(X_mlp)
 y_mlp = np.array(y_mlp)
 
@@ -222,9 +224,9 @@ from tensorflow.keras.layers import Input, Dense, Lambda
 import tensorflow.keras.backend as K
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
-# ----------------------------
-# 6. Bangun MLP Model
-# ----------------------------
+# ----------------------------------------------------
+# 6. Multi-Layer Perceptron Architecture Development
+# ----------------------------------------------------
 def swish(x):
     return x * K.sigmoid(x)
 
@@ -241,9 +243,9 @@ def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001
 
 model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=hidden_layer, learning_rate=learning_rate)
 
-# ----------------------------
-# 7. Training MLP
-# ----------------------------
+# ------------------------------------
+# 7. Training Multi-Layer Perceptron
+# ------------------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
 early_stop = EarlyStopping(patience=patience, restore_best_weights=True)
 model.fit(X_mlp, y_mlp, epochs=epochs_mlp, batch_size=batch_size, validation_split=0.15, callbacks=[early_stop], verbose=1)
