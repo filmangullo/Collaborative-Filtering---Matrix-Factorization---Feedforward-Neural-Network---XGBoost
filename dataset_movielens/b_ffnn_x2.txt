@@ -1,8 +1,74 @@
-----------------------------------------------------------------
-   Matrix Factorization Feed-forward Neural Network -> MLP   
-----------------------------------------------------------------
+--------------------------------------------------------------------------------
+              OPTIMIZATION OF HYBRID-BASED COLLABORATIVE FILTERING              
+                                     USING                                      
+         MATRIX FACTORIZATION, FEEDFORWARD NEURAL NETWORK, AND XGBOOST          
+                           TO IMPROVE RECOMMENDATIONS                           
+--------------------------------------------------------------------------------
+Select Dataset:
+1. Dummny
+2. Film (MovieLens)
+3. Hotel (PT. XYZ)
+Choose dataset (1, 2 or 3): 2
+Select the program you want to run:
+1. Rating Prediction: Matrix Factorization and Feedforward Neural Network
+2. Generate : Handcrafted Features
+3. Do Recommendation : XGBoost
+Please select one of the following options: 1, 2, or 3: 1
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                              MATRIX FACTORIZATION                              
+                                      and                                       
+           FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON           
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+--------------------------------------------------------------------------------
+                                   LOAD DATA                                    
+--------------------------------------------------------------------------------
+Total Item: 9742
+Total Rating  : 100836
+--------------------------------------------------------------------------------
+                                 DATA SPLITTING                                 
+--------------------------------------------------------------------------------
 Persentase data latih: 90.00%
 Persentase data uji  : 10.00%
+
+
+--------------------------------------------------------------------------------
+                                DATA PREPARATION                                
+--------------------------------------------------------------------------------
+========== ONE-HOT ENCODED FEATURES ==========
+          id  (no genres listed)  Action  Adventure  ...  Sci-Fi  Thriller  War  Western
+0          1                   0       0          1  ...       0         0    0        0
+1          2                   0       0          1  ...       0         0    0        0
+2          3                   0       0          0  ...       0         0    0        0
+3          4                   0       0          0  ...       0         0    0        0
+4          5                   0       0          0  ...       0         0    0        0
+...      ...                 ...     ...        ...  ...     ...       ...  ...      ...
+9737  193581                   0       1          0  ...       0         0    0        0
+9738  193583                   0       0          0  ...       0         0    0        0
+9739  193585                   0       0          0  ...       0         0    0        0
+9740  193587                   0       1          0  ...       0         0    0        0
+9741  193609                   0       0          0  ...       0         0    0        0
+
+[9742 rows x 21 columns]
+
+Dimensi data akhir (item + fitur): (9742, 21)
+
+
+========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========
+itemId  1       2       3       4       5       ...  193581  193583  193585  193587  193609
+userId                                          ...                                        
+1          4.0     NaN     4.0     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+2          NaN     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+3          NaN     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+4          NaN     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+5          NaN     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+...        ...     ...     ...     ...     ...  ...     ...     ...     ...     ...     ...
+606        2.5     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+607        4.0     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+608        2.5     2.0     2.0     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+609        3.0     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+610        5.0     NaN     NaN     NaN     NaN  ...     NaN     NaN     NaN     NaN     NaN
+
+[610 rows x 9742 columns]
 
 
 Hyperparameter Matrix Factorization:
@@ -11,6 +77,7 @@ Learning rate                 : 0.02
 Regularization parameter      : 0.01
 Jumlah epoch / training       : 10
 
+
 Hyperparameter MLP:
 Struktur Hidden Layer     : [64, 32, 16, 8]
 Learning Rate             : 0.001
@@ -18,31 +85,32 @@ Batch Size                : 32
 Jumlah epoch / training   : 10
 Early Stopping (Patience) : 10
 
+
 Epoch 1/10
-2411/2411 [==============================] - 3s 834us/step - loss: 0.7519 - val_loss: 0.5629
+2411/2411 [==============================] - 3s 847us/step - loss: 0.7509 - mae: 0.6528 - val_loss: 0.5839 - val_mae: 0.5875
 Epoch 2/10
-2411/2411 [==============================] - 2s 842us/step - loss: 0.5213 - val_loss: 0.4920
+2411/2411 [==============================] - 2s 839us/step - loss: 0.5340 - mae: 0.5644 - val_loss: 0.5341 - val_mae: 0.5543
 Epoch 3/10
-2411/2411 [==============================] - 2s 836us/step - loss: 0.4670 - val_loss: 0.4530
+2411/2411 [==============================] - 2s 791us/step - loss: 0.4744 - mae: 0.5305 - val_loss: 0.4600 - val_mae: 0.5176
 Epoch 4/10
-2411/2411 [==============================] - 2s 868us/step - loss: 0.4300 - val_loss: 0.4343
+2411/2411 [==============================] - 2s 762us/step - loss: 0.4329 - mae: 0.5046 - val_loss: 0.4438 - val_mae: 0.5056
 Epoch 5/10
-2411/2411 [==============================] - 2s 775us/step - loss: 0.4022 - val_loss: 0.4548
+2411/2411 [==============================] - 2s 764us/step - loss: 0.4047 - mae: 0.4868 - val_loss: 0.4168 - val_mae: 0.4894
 Epoch 6/10
-2411/2411 [==============================] - 2s 834us/step - loss: 0.3836 - val_loss: 0.4034
+2411/2411 [==============================] - 2s 897us/step - loss: 0.3842 - mae: 0.4743 - val_loss: 0.3883 - val_mae: 0.4706
 Epoch 7/10
-2411/2411 [==============================] - 2s 785us/step - loss: 0.3660 - val_loss: 0.3772
+2411/2411 [==============================] - 2s 780us/step - loss: 0.3670 - mae: 0.4628 - val_loss: 0.3731 - val_mae: 0.4626
 Epoch 8/10
-2411/2411 [==============================] - 2s 798us/step - loss: 0.3540 - val_loss: 0.3671
+2411/2411 [==============================] - 2s 839us/step - loss: 0.3549 - mae: 0.4554 - val_loss: 0.4083 - val_mae: 0.4981
 Epoch 9/10
-2411/2411 [==============================] - 2s 729us/step - loss: 0.3434 - val_loss: 0.3609
+2411/2411 [==============================] - 2s 756us/step - loss: 0.3416 - mae: 0.4466 - val_loss: 0.3587 - val_mae: 0.4539
 Epoch 10/10
-2411/2411 [==============================] - 2s 860us/step - loss: 0.3340 - val_loss: 0.3499
+2411/2411 [==============================] - 2s 756us/step - loss: 0.3325 - mae: 0.4408 - val_loss: 0.3419 - val_mae: 0.4445
 
 📊 Evaluasi Model MLP (MF + feature + Swish):
-MAE : 0.4641
-MSE : 0.4022
-RMSE: 0.6342
+MAE : 0.4648
+MSE : 0.3989
+RMSE: 0.6315
 
 Total kombinasi user-item diuji : 5942620
 Diproses oleh model            : 5942620
@@ -58,10 +126,9 @@ Memiliki rating aktual         : 100836
 5942616     610  193583            0.0                    2.0
 5942617     610  193585            0.0                    2.0
 5942618     610  193587            0.0                    2.0
-5942619     610  193609            0.0                    4.0
+5942619     610  193609            0.0                    3.0
 
 [5942620 rows x 4 columns]
 
 📁 Hasil prediksi disimpan ke: dataset_movielens/b_ffnn_ratings.csv
-⏱️ Waktu yang dibutuhkan: 7188.44 detik
-ITs-iMac:HybridCFMFFNNXGBRec itseindo$ 
+⏱️ Waktu yang dibutuhkan: 7322.42 detik

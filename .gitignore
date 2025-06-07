@@ -1,4 +1,6 @@
 /dataset_movielens/a_mf_ratings.csv
+/dataset_movielens/b_ffnn_ratings_x1.csv
+/dataset_movielens/b_ffnn_ratings_x2.csv
 /dataset_movielens/b_ffnn_ratings_x3.csv
 /dataset_movielens/b_ffnn_ratings_x4.csv
 /dataset_movielens/b_ffnn_ratings_x5.csv
