@@ -209,7 +209,8 @@ for row in train_data.itertuples():
         # - U[u_idx]: adalah vektor laten user hasil dari Matrix Factorization.
         # - V[i_idx]: adalah vektor laten item dari Matrix Factorization.
         # - feature_vec: adalah fitur konten item (misalnya 
-        #   hasil one-hot encoding dari genre film).
+        #   hasil one-hot encoding dari genre film atau atribut seperti 
+        #   peringkat bintang, daerah dan lainnya pada hotel).
         # - np.concatenate(...): menggabungkan ketiganya menjadi satu 
         #   vektor input (x_input) yang akan masuk ke MLP.
         x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
