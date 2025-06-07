@@ -143,7 +143,6 @@ import numpy as np
 # ----------------------------
 # 3. Matrix Factorization
 # ----------------------------
-
 # Inisialisasi Matriks Laten
 np.random.seed(42)
 U = np.random.normal(scale=1./k, size=(num_users, k))
@@ -153,17 +152,23 @@ for epoch in range(epochs_mf):
     for i in range(num_users):
         for j in range(num_items):
             if not np.isnan(R[i][j]):
-                pred = np.dot(U[i], V[j])
+                pred = np.dot(U[i], V[j]) #Matriks U dan V adalah dua matriks berdimensi lebih rendah.
                 err = R[i][j] - pred
                 U[i] += alpha * (err * V[j] - beta * U[i])
                 V[j] += alpha * (err * U[i] - beta * V[j])
+
+# print("5 Vektor Laten Pertama untuk Pengguna:")
+# print(U[:5])  # 5 user pertama
+
+# print("\n5 Vektor Laten Pertama untuk Item:")
+# print(V[:5])  # 5 item pertama
 
 # Bersihkan variabel besar yang tidak diperlukan lagi untuk menghemat memori
 del R_df
 gc.collect()
 
 # --------------------------------------
-# 4. Prepare & Tuning Hyperparameter MLP
+# 4. Tuning Hyperparameter MLP
 # --------------------------------------
 hidden_layer=[64, 32, 16, 8] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
 learning_rate=0.005 #Kecepatan pembelajaran
@@ -180,6 +185,9 @@ print(f"Jumlah epoch / training   : {epochs_mlp}")
 print(f"Early Stopping (Patience) : {patience}")
 print(f"\n")
 
+# --------------------------------------
+# 5. Prepare MLP
+# --------------------------------------
 user_map = {uid: idx for idx, uid in enumerate(user_ids)}
 item_map = {iid: idx for idx, iid in enumerate(item_ids)}
 feature_dim = feature_encoding.shape[1]
@@ -204,7 +212,7 @@ for row in train_data.itertuples():
         x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
         X_mlp.append(x_input)
         y_mlp.append(rating)
-
+print (X_mlp, y_mlp)
 X_mlp = np.array(X_mlp)
 y_mlp = np.array(y_mlp)
 
@@ -214,7 +222,7 @@ import tensorflow.keras.backend as K
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.callbacks import EarlyStopping
 # ----------------------------
-# 5. Bangun MLP Model
+# 6. Bangun MLP Model
 # ----------------------------
 def swish(x):
     return x * K.sigmoid(x)
@@ -233,7 +241,7 @@ def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001
 model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=hidden_layer, learning_rate=learning_rate)
 
 # ----------------------------
-# 6. Training MLP
+# 7. Training MLP
 # ----------------------------
 # patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
 early_stop = EarlyStopping(patience=patience, restore_best_weights=True)
@@ -242,7 +250,7 @@ model.fit(X_mlp, y_mlp, epochs=epochs_mlp, batch_size=batch_size, validation_spl
 
 from itertools import product
 # ----------------------------
-# 7. Evaluasi Model pada Data Test
+# 8. Evaluasi Model pada Data Test
 # ----------------------------
 # Buat semua kombinasi user x item
 all_user_item_pairs = list(product(user_ids, item_ids))
@@ -314,7 +322,7 @@ y_pred_discrete = y_pred_discrete.astype(float)
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 # ----------------------------
-# 8. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
+# 9. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
 y_pred_valid_corrected = np.array([
     actual if abs(actual - pred) > 0.1 * actual else pred
@@ -347,7 +355,7 @@ print(f"Memiliki rating aktual         : {len(y_test_valid)}")
 
 
 # ----------------------------
-# 9. Simpan ke CSV
+# 10. Simpan ke CSV
 # ----------------------------
 pred_df = pd.DataFrame([
     {
