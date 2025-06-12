@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import r2_score 
 from sklearn.metrics import mean_absolute_error, mean_squared_error
 
 # -----------------------------
@@ -10,7 +11,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 @st.cache_data
 def load_data():
     # Jika CSV kamu sudah memiliki header, hapus parameter names=[]
-    return pd.read_csv("dataset_hotels/ratings.csv", names=["userId", "itemId", "rating", "timestamp"])
+    return pd.read_csv("dataset_movielens/ratings.csv", names=["userId", "itemId", "rating", "timestamp"])
 
 # -----------------------------
 # 2. Buat Item-User Matrix
@@ -52,12 +53,13 @@ def evaluate_model(matrix, sim_df):
     mae = mean_absolute_error(actual, predicted)
     mse = mean_squared_error(actual, predicted)
     rmse = np.sqrt(mse)
-    return mae, mse, rmse
+    r2 = r2_score(actual, predicted)  # tambahan ini
+    return mae, mse, rmse, r2
 
 # -----------------------------
 # STREAMLIT UI
 # -----------------------------
-st.title("🍿 Item-Based Collaborative Filtering - MovieLens")
+st.title("🍿 Item-Based Collaborative Filtering")
 
 df = load_data()
 item_user_matrix = create_item_user_matrix(df)
@@ -74,12 +76,18 @@ top_n = st.slider("Jumlah Rekomendasi", 1, 10, 5)
 top_recommendations = recommendations.sort_values(ascending=False).head(top_n)
 
 st.subheader(f"Rekomendasi untuk User {selected_user}")
-st.dataframe(top_recommendations.reset_index().rename(columns={selected_user: "Predicted Rating"}))
+top_recommendations_df = top_recommendations.reset_index().rename(columns={selected_user: "Predicted Rating"})
+top_recommendations_df.columns = top_recommendations_df.columns.astype(str)
+st.dataframe(top_recommendations_df)
+
+
+
 
 # Evaluasi model
 if st.checkbox("Tampilkan Evaluasi MAE, MSE, RMSE"):
     with st.spinner("Menghitung evaluasi..."):
-        mae, mse, rmse = evaluate_model(item_user_matrix, item_similarity_df)
+        mae, mse, rmse, r2 = evaluate_model(item_user_matrix, item_similarity_df)
         st.metric("MAE", f"{mae:.4f}")
         st.metric("MSE", f"{mse:.4f}")
         st.metric("RMSE", f"{rmse:.4f}")
+        st.metric("R2", f"{r2:.4f}")
