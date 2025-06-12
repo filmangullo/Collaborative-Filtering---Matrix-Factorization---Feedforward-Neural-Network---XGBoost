@@ -1,28 +1,19 @@
+import pandas as pd
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+from scipy.sparse import csr_matrix
 import time
 import sys
 import os
-import streamlit as st
-import pandas as pd
-import numpy as np
-from xgboost import XGBRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-import matplotlib.pyplot as plt
 
-# ----------------------------
-# 0. Program Title
-# ----------------------------
 width_title = 80
 start_time = time.time()
 print("|" * width_title)
 print("".center(width_title))
-print("XGBOOST".center(width_title))
+print("HANDCRAFTED FEATURES".center(width_title))
 print("".center(width_title))
 print("|" * width_title)
 
-# ----------------------------
-# 1. Ambil Dataset Path dari Argumen
-# ----------------------------
 if len(sys.argv) < 2:
     print("Dataset argument missing. Please run from main.py")
     sys.exit(1)
@@ -30,105 +21,103 @@ if len(sys.argv) < 2:
 dataset_choice = sys.argv[1]
 
 if dataset_choice == "dummy":
-    file_path = "dataset_dummy/final_feature_dataset.csv"
+    file_dir = "dataset_dummy/"
 elif dataset_choice == "movie":
-    file_path = "dataset_movielens/final_feature_dataset.csv"
+    file_dir = "dataset_movielens/"
 elif dataset_choice == "hotel":
-    file_path = "dataset_hotels/final_feature_dataset.csv"
+    file_dir = "dataset_hotels/"
 else:
     print("Unknown dataset.")
     sys.exit(1)
 
-# ----------------------------
-# 2. Load Data dan Latih Model
-# ----------------------------
-@st.cache_data
-def load_and_train_model(file_path, top_n=8):
-    df = pd.read_csv(file_path)
+def compute_features(file_dir, input_path, output_path, rating_column="actual_rating"):
+    start_time = time.time()
 
-    # Pisahkan fitur dan target
-    X = df.drop(columns=["actual_rating"])
-    y = df["actual_rating"]
+    input_file = file_dir + input_path
+    output_file = file_dir + output_path
 
-    # Split data
-    X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.2, random_state=42
-    )
+    print("🔃 Membaca dataset...")
+    df = pd.read_csv(input_file)
+    filtered_df = df[df[rating_column] > 0]
 
-    # Latih model
-    model = XGBRegressor(
-        objective='reg:squarederror', 
-        n_estimators=100,
-        learning_rate=0.1, 
-        max_depth=5, 
-        random_state=42)
-    model.fit(X_train, y_train)
+    print("📊 Statistik dasar...")
+    total_ratings = len(filtered_df)
+    total_users = df['userId'].nunique()
+    total_items = df['itemId'].nunique()
+    print(f"Total rating : {total_ratings}")
+    print(f"Total user   : {total_users}")
+    print(f"Total item   : {total_items}")
 
-    # Prediksi seluruh data
-    df["predicted_rating"] = model.predict(X)
+    print("🧠 Menghitung fitur rata-rata...")
 
-    # Ambil Top-N rekomendasi per user
-    top_n_recommendation = (
-        df.sort_values(by=["userId", "predicted_rating"], ascending=[True, False])
-          .groupby("userId")
-          .head(top_n)
-          .reset_index(drop=True)
-    )
+    # Global Average Rating
+    df['global_average_rating'] = round(filtered_df[rating_column].mean(), 1)
 
-    # Simpan hasil
-    top_n_recommendation.to_csv("top_n_recommendation.csv", index=False)
-    top_n_recommendation.to_excel("top_n_recommendation.xlsx", index=False)
+    user_avg = filtered_df.groupby('userId')[rating_column].mean().round(1)
+    item_avg = filtered_df.groupby('itemId')[rating_column].mean().round(1)
 
-    # Evaluasi
-    y_pred = model.predict(X_test)
-    mae  = mean_absolute_error(y_test, y_pred)
-    mse  = mean_squared_error(y_test, y_pred)
-    rmse = np.sqrt(mse)
-    r2   = r2_score(y_test, y_pred)
+    # User Average Rating
+    df['user_average_rating'] = df['userId'].map(user_avg).fillna(0.0)
 
-    scores = {
-        "MAE": mae,
-        "MSE": mse,
-        "RMSE": rmse,
-        "R2": r2
-    }
+    # Item Average Rating
+    df['item_average_rating'] = df['itemId'].map(item_avg).fillna(0.0)
 
-    return top_n_recommendation, scores, df, y_test, y_pred
+    print("🤖 Membangun user-item sparse matrix...")
+    # Matrix user-item dan cosine similarity antar user
+    user_item_pivot = filtered_df.pivot(index='userId', columns='itemId', values=rating_column).fillna(0)
+    user_item_matrix = csr_matrix(user_item_pivot.values)
+    user_sim = cosine_similarity(user_item_matrix)
 
+    print("🤖 Membangun item-user sparse matrix...")
+    # Matrix item-user dan cosine similarity antar item
+    item_user_pivot = filtered_df.pivot(index='itemId', columns='userId', values=rating_column).fillna(0)
+    item_user_matrix = csr_matrix(item_user_pivot.values)
+    item_sim = cosine_similarity(item_user_matrix)
 
-# ----------------------------
-# 3. UI Streamlit
-# ----------------------------
-st.title("📊 Sistem Rekomendasi dengan XGBoost")
-st.info(f"Menggunakan dataset: `{dataset_choice}`")
+    # Map userId dan itemId ke index
+    user_index_map = {uid: idx for idx, uid in enumerate(user_item_pivot.index)}
+    item_index_map = {iid: idx for idx, iid in enumerate(item_user_pivot.index)}
 
-top_n_recommendation, scores, df_all, y_test, y_pred = load_and_train_model(file_path)
+    # Similar Users Rating
+    def predict_sim_user(row):
+        user_id, item_id = row['userId'], row['itemId']
+        if item_id not in user_item_pivot.columns or user_id not in user_index_map:
+            return 0.0
+        ratings = user_item_pivot[item_id]
+        similarities = user_sim[user_index_map[user_id]]
+        mask = ratings > 0
+        sim_scores = similarities[mask.values]
+        if sim_scores.sum() == 0:
+            return 0.0
+        return round(np.dot(sim_scores, ratings[mask]) / sim_scores.sum(), 1)
 
-st.success("✅ Model dilatih & rekomendasi berhasil dihasilkan!")
+    # Similar Items Ratings
+    def predict_sim_item(row):
+        user_id, item_id = row['userId'], row['itemId']
+        if user_id not in item_user_pivot.columns or item_id not in item_index_map:
+            return 0.0
+        ratings = item_user_pivot[user_id]
+        similarities = item_sim[item_index_map[item_id]]
+        mask = ratings > 0
+        sim_scores = similarities[mask.values]
+        if sim_scores.sum() == 0:
+            return 0.0
+        return round(np.dot(sim_scores, ratings[mask]) / sim_scores.sum(), 1)
 
-st.subheader("📥 Top-N Rekomendasi")
-user_ids = df_all['userId'].unique()
-selected_user = st.selectbox("Pilih User ID", user_ids)
-st.table(top_n_recommendation[top_n_recommendation['userId'] == selected_user][['itemId', 'predicted_rating']])
+    print("📐 Menghitung prediksi berbasis user dan item serupa...")
+    df['similar_users_rating'] = df[['userId', 'itemId']].apply(predict_sim_user, axis=1)
+    df['similar_items_rating'] = df[['userId', 'itemId']].apply(predict_sim_item, axis=1)
 
-st.subheader("📈 Evaluasi Model")
-st.write(f"**MAE**  : {scores['MAE']:.4f}")
-st.write(f"**MSE**  : {scores['MSE']:.4f}")
-st.write(f"**RMSE** : {scores['RMSE']:.4f}")
-st.write(f"**R²**   : {scores['R2']:.4f}")
+    print("💾 Menyimpan hasil akhir...")
+    df.to_csv(output_file, index=False)
 
-# Visualisasi
-st.subheader("📊 Plot: Actual vs Predicted Ratings")
-fig, ax = plt.subplots()
-ax.scatter(y_test, y_pred, alpha=0.7, edgecolors='k')
-ax.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], 'r--')
-ax.set_xlabel("Actual Rating")
-ax.set_ylabel("Predicted Rating")
-ax.set_title("Actual vs Predicted Ratings")
-st.pyplot(fig)
+    elapsed = time.time() - start_time
+    print(f"\n✅ Fitur handcrafted disimpan ke: {output_path}")
+    print(f"Total waktu eksekusi : {elapsed:.2f} detik.")
 
-st.download_button(
-    label="📤 Download Rekomendasi (Excel)",
-    data=open("top_n_recommendation.xlsx", "rb").read(),
-    file_name="top_n_recommendation.xlsx"
+compute_features(
+    file_dir=file_dir,
+    input_path="b_ffnn_ratings_x4.csv",
+    output_path="c_hf_ratings.csv",
+    rating_column='ffnn_predicted_rating'
 )
