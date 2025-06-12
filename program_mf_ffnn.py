@@ -231,25 +231,32 @@ from tensorflow.keras.callbacks import EarlyStopping
 def swish(x):
     return x * K.sigmoid(x)
 
-def build_mlp_model(input_dim, hidden_units=[64, 32, 16, 8], learning_rate=0.001):
+def build_mlp_model(input_dim, hidden_units, learning_rate):
     input_layer = Input(shape=(input_dim,))
     x = input_layer
-    for units in hidden_units:
+    #Hidden Layers (L₁ hingga Lₖ)
+    for units in hidden_units: 
         x = Dense(units)(x)
         x = Lambda(swish)(x)
     output = Dense(1)(x)
     model = Model(inputs=input_layer, outputs=output)
-    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse', metrics=['mae'])
+    model.compile(optimizer=Adam(learning_rate=learning_rate), loss='mse')
     return model
 
-model = build_mlp_model(input_dim=2*k + feature_dim, hidden_units=hidden_layer, learning_rate=learning_rate)
+model = build_mlp_model(input_dim=2*k + feature_dim, 
+                        hidden_units=hidden_layer, 
+                        learning_rate=learning_rate)
 
 # ------------------------------------
 # 7. Training Multi-Layer Perceptron
 # ------------------------------------
-# patience=5 berarti: tunggu 5 epoch — kalau tidak ada peningkatan, stop.
 early_stop = EarlyStopping(patience=patience, restore_best_weights=True)
-model.fit(X_mlp, y_mlp, epochs=epochs_mlp, batch_size=batch_size, validation_split=0.15, callbacks=[early_stop], verbose=1)
+model.fit(X_mlp, y_mlp, 
+          epochs=epochs_mlp, 
+          batch_size=batch_size, 
+          validation_split=0.15, 
+          callbacks=[early_stop], 
+          verbose=1)
 
 
 from itertools import product
@@ -289,7 +296,7 @@ for start_idx in range(0, num_samples, batch_size):
             else:
                 feature_vec = feature_row.drop(columns='id').values[0]
 
-            x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec])
+            x_input = np.concatenate([U[u_idx], V[i_idx], feature_vec]) #Input Layer (L_in)
             X_batch.append(x_input)
 
             rating_row = ratings[(ratings['userId'] == uid) & (ratings['itemId'] == iid)]
