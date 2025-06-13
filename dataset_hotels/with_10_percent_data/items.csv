@@ -1,0 +1,1451 @@
+id,name,features
+69641,G**** A****,0|Ambon|Hotel|Ambon
+69642,M***** C******* A*****,0|Ampana|Hotel|Tanjung Api
+69651,A** H*******,0|Bali|Hotel|Bali
+69654,C***** B**** H****,0|Bali|Hotel|Bali
+69655,T** D**** R****** - P*** V**** G**** H****,0|Bali|Hotel|Bali
+69659,C** H**** & V****,0|Bali|Hotel|Bali
+69688,C****** H**** S****,0|Banda Aceh|Hotel|Banda Aceh
+69697,H**** B**** R*** B****,0|Banda Aceh|Hotel|Banda Aceh
+69698,A***** H******* M*******,0|Banda Aceh|Hotel|Banda Aceh
+69725,T**** K****** B******,0|Bandar Lampung|Hotel|Bandar Lampung
+69727,D*** B****** H*******,0|Bandar Lampung|Hotel|Bandar Lampung
+69771,C****** B**** H****,4|Baubau|Hotel|Baubau
+69781,H**** K***** U**,0|Berastagi|Hotel|Berastagi
+69788,W**** P***** T****** U***,0|Bintan|Hotel|Bintan
+69802,G**** P**** B********,2|Bondowoso|Hotel|Bondowoso
+69809,G**** D*** H**** B******,0|Brebes|Hotel|Brebes
+69833,H**** A****,0|Dompu|Hotel|Dompu
+69834,H**** A********,0|Dompu|Hotel|Dompu
+69844,V******* H****,0|Garut|Hotel|Pameungpeuk
+69852,z****** H****,3|Halmahera|Hotel|Halmahera
+69854,G****** H****,0|Indramayu|Hotel|Indramayu
+69855,V** H**** I********,0|Indramayu|Hotel|Indramayu
+69866,A********* S******* P***,0|Jakarta|Hotel|Jakarta
+69870,H**** M**** P****,0|Jambi|Hotel|Jambi
+69873,H**** J*** W*****,0|Jambi|Hotel|Jambi
+69883,H**** B***** B****,0|Jambi|Hotel|Jambi
+69914,M***** R***** H****,0|Kalimantan|Hotel|Kalimantan
+69950,P********* S**** 2 P****,0|Kalimantan|Hotel|Kalimantan
+69994,G**** H**** F***** S**,0|Kolaka|Hotel|Kolaka
+69997,P**** J*** H**** K*********,0|Kotamobagu|Hotel|Kotamobagu
+70001,H*** S*** M****** K*****,0|Kupang|Hotel|Kupang city
+70018,H**** E******,1|Lamongan|Hotel|Lamongan
+70044,H**** B****,0|Makassar|Hotel|Makassar
+70055,H**** E********,0|Maluku|Hotel|Maluku
+70064,G**** S**** H****,1|Maluku|Hotel|Maluku
+70107,A***** B******* H**** P******,2|Pacitan|Hotel|Pacitan
+70120,H**** P****** B****,0|Pagar Alam|Hotel|Pagar Alam
+70123,H**** J****** B***,0|Palangkaraya|Hotel|Palangkaraya
+70135,P******* H****,3|Palopo|Hotel|Palopo
+70136,G******** G**** H****,0|Palu|Hotel|Palu
+70166,H**** G*** N*****,0|Papua|Hotel|Papua
+70174,W**** F*********,0|Payakumbuh|Hotel|Payakumbuh
+70182,H**** K****** P*******,0|Pemalang|Hotel|Pemalang
+70195,G**** L***** H****,0|Pontianak|Hotel|Pontianak
+70200,G**** N*****,0|Prabumulih|Hotel|Prabumulih
+70206,M G**** H****,0|Purwokerto|Hotel|Purwokerto
+70207,H**** V**** P*********,1|Purwokerto|Hotel|Purwokerto
+70209,H**** H*****,0|Purworejo|Hotel|Purworejo
+70213,H**** M**********,0|Riau|Hotel|Riau
+70223,A***** H*******,0|Riau|Hotel|Riau
+70231,H******* T** J******,0|Riau|Hotel|Riau
+70238,P***** M***** H****,0|Riau|Hotel|Riau
+70254,D***** T********* H****,0|Riau|Hotel|Riau
+70258,N** H**** R****,3|Rote Island|Hotel|Rote Island
+70271,C******* H****,0|Samosir|Hotel|Samosir
+70272,T*** V****** I**,3|Samosir|Hotel|Samosir
+70303,C****** U**** R***,0|Situbondo|Hotel|Situbondo
+70310,H**** G**** A**** S******,0|Soppeng|Hotel|Lalabata
+70332,B*** H****** H****,0|Sulawesi|Hotel|Sulawesi
+70371,H**** T**** K****** B******,0|Sumatra|Hotel|Sumatra
+70380,H**** A****,0|Sumatra|Hotel|Sumatra
+70384,G**** H****,0|Sumatra|Hotel|Sumatra
+70409,H**** U**** & R******** (***** S*******,0|Sumatra|Hotel|Sumatra
+70424,S****** H**** G***** T**,0|Sumatra|Hotel|Sumatra
+70425,M****** I**,0|Sumatra|Hotel|Sumatra
+70428,H**** E*** T********,0|Sumba|Hotel|Sumba
+70433,N**** T******* R*****,0|Sumbawa|Hotel|Sumbawa
+70434,K***** R******,4|Sumbawa|Hotel|Sumbawa
+70450,G**** T***** R*****,0|Surabaya|Hotel|Surabaya
+70477,D***** P***** H****,0|Ternate|Hotel|Ternate
+70481,R**** G**** H****,0|Tojo Una-Una|Hotel|Tojo Una-Una
+70488,J***** K****** H**** & R*****,0|Tulungagung|Hotel|Tulungagung
+70493,H**** A****** W*****,0|Wamena|Hotel|Wamena
+70507,A*** U********* T***** D** 3** Y*********,0|Yogyakarta|Hotel|Yogyakarta
+70511,G**** I********* H****,0|Medan|Hotel|Medan
+70514,I**** I**,2|Sabang|Bed & breakfast|Sabang
+70520,R******* S****** @ I**** B**** S*****,2|Banda Aceh|Hotel|sabang
+70529,R******* S****** n*** P******** U*** L**** B**** A***,2|Banda Aceh|Hotel|Banda Aceh
+70540,T** P*** H**** A***,3|Banda Aceh|Hotel|Darul imara lampeneurut
+70546,A**** H****,3|Banda Aceh|Hotel|Penayoung
+70549,P****** A***** H**** A***,3|Banda Aceh|Hotel|Penayoung
+70571,G**** H**** L******* R*********,1|Banda Aceh|Hotel|Banda Aceh
+70582,C******* B**** R***** & S**,3|Banda Aceh|Resort|sabang
+70591,R******* S****** n*** B**** A*** C********* H***,2|Banda Aceh|Hotel|Banda Aceh
+70603,M******* B****** A***,0|Banda Aceh|Hotel|Banda Aceh
+70605,D****** H**** A***,2|Banda Aceh|Hotel|Banda Aceh
+70609,R******* S****** n*** D**** L** T**** T*******,2|Banda Aceh|Hotel|central aceh
+70613,R******* S****** n*** D**** L** T**** T******* 2,2|Banda Aceh|Hotel|Banda Aceh
+70631,T** R**** I**,3|Banda Aceh|Hotel|central aceh
+70633,S**** D** H*****,1|Nias|Hostel/Backpacker accommodation|Hiligeho
+70635,R******* @ S******** H**** N*** S******,1|Medan|Hotel|Medan
+70642,B**** I**,2|Bukit Lawang|Guest House|Bohorok
+70668,O** 7** H**** D****,1|Berastagi|Hostel/Backpacker accommodation|Berastagi
+70675,S**** P**** H**** By Z***,3|Berastagi|Hotel|Berastagi
+70676,P********* G****,1|Berastagi|Guest House|Berastagi
+70683,S****** V**** B**** M**,2|Berastagi|Guest House|Berastagi
+70687,R******* n*** M**** H****** F****** B********,2|Berastagi|Guest House|Berastagi
+70690,O** 2*** T******* B****,2|Karo|Hotel|Merdeka
+70704,R******* n*** M******** T**** S***** M**** 2,2|Medan|Guest House|Medan
+70710,H**** G**** N******** By Z***,1|Medan|Bed & breakfast|Medan
+70712,S** I** S****** M**** S******,2|Medan|Guest House|Medan Sunggal
+70713,O** 1*** J** - Je G**** H****,2|Medan|Hotel|Medan
+70714,J**** G**** H**** M**** R*********,1|Medan|Hotel|Medan Tuntungan
+70734,Z** R**** S******** S****** M****,2|Medan|Guest House|Medan Sunggal
+70738,S** R******** C******,2|Medan|Hotel|Medan
+70740,S*** ON 2*** C**** A***** R******** S******,2|Medan|Hotel|Medan
+70742,R******* @ J**** G**** H**** M****,2|Medan|Bed & breakfast|Medan
+70754,A*** M**** S****** Dr M****** 1**,0|Medan|Hotel|Medan
+70755,R******* P*** @ S******** M**** 5,3|Medan|Bed & breakfast|Medan
+70767,O** 9**** T******,2|Medan|Bed & breakfast|Medan
+70813,O** 1*** P*******,2|Medan|Bed & breakfast|Medan
+70815,H***** H**** M****,2|Medan|Hotel|Medan
+70819,O***** C*** M****,3|Medan|Hotel|Medan
+70820,G**** K***** H****,3|Medan|Hotel|Medan Petisah
+70826,O** 1*** D**** R******** S******,2|Medan|Bed & breakfast|Medan
+70829,R***** M****,3|Medan|Hotel|Medan
+70836,R******* @ S****** P** M****,2|Medan|Bed & breakfast|Medan
+70860,O** 9** H**** T****** S******,2|Medan|Hotel|Medan Petisah
+70865,A*** R******** n*** J**** I******* M*** M**** R*********,2|Medan|Hotel|Medan City Center
+70868,O** 9**** W****** U**,2|Medan|Hotel|Medan
+70880,O** 9**** K******* K***,2|Medan|Bed & breakfast|Medan
+70883,S****** H**** M****,3|Medan|Bed & breakfast|Medan Petisah
+70890,P**** I**,2|Medan|Bed & breakfast|Medan
+70894,C******** H**** M****,5|Medan|Hotel|Medan Petisah
+70902,O** 2*** B**** R*** R********,2|Medan|Hotel|Medan
+70919,T******** I** R*********,1|Medan|Hotel|Medan
+70925,C***** H**** M****,1|Medan|Hotel|Medan Petisah
+70943,R******* @ C** P****** M****,2|Medan|Bed & breakfast|Medan
+70946,R**** S**** C*******,4|Medan|Aparthotel|Medan Maimun
+70992,G***** C****,1|Medan|Hotel|Medan
+71000,O** 9**** D******* G********* S******,2|Medan|Bed & breakfast|Medan
+71003,R******* @ J**** B******* K****** M**** 2,2|Medan|Hotel|Medan
+71005,O** 6** R******** P*** H**** S******,3|Medan|Hotel|Medan
+71018,A****** H**** M****,2|Medan|Hotel|Medan
+71019,O** 2*** S****** H****** R********,2|Medan|Hotel|Medan
+71023,H**** C*** I************ S** Y** S**,3|Medan|Hotel|Medan City Center
+71026,G****** H****,2|Medan|Bed & breakfast|Medan
+71035,R******* @ S***** P******* I** P******,1|Samosir|Hotel|Samosir
+71044,O** 2*** R**** I**,2|Samosir|Hotel|Samosir
+71046,G**** S*****,3|Medan|Hotel|Medan
+71057,O** 2*** W***** H****,2|Samosir|Hotel|Samosir
+71078,O** F******* 1*** A******** S********* M****,2|Medan|Hotel|Medan
+71086,O** 3** E******** I**,2|Medan|Hotel|Medan
+71096,S**** O** 9**** G******* R********,2|Medan|Bed & breakfast|Medan
+71117,T** L***** H**** K******** M****,2|Medan|Bed & breakfast|Medan
+71130,L***** J***** G********* S******,1|Samosir|Hotel|Samosir
+71141,P********* R****,2|Samosir Island|Hotel|Simanindo
+71160,T**** B****** R******** By Z***,3|Medan|Hotel|Kualanamu
+71164,D**** T*** I************ C****** P******,3|Parapat|Resort|Parapat
+71166,P**** L*******,2|Medan|Hotel|Medan
+71172,O** 9**** H**** T*** S*****,2|Samosir|Bed & breakfast|Samosir
+71187,R******* @ A**** V**** S*******,1|Pematang Siantar|Hotel|Parapat
+71210,R******* n*** RS H****** P******* S******,2|Pematang Siantar|Hotel|Siantar
+71243,O** 1*** H**** W*****,2|Tanjung Balai Karimun|Hotel|Tanjung Balai
+71249,G**** H****,1|Medan|Hotel|Medan
+71258,O** 2*** W**** P***** S******,2|Padang|Hostel/Backpacker accommodation|Batang Anai
+71261,R******* S****** n*** M********** I************ A******,1|Padang|Hotel|Batang Anai
+71308,O** 2*** K***** G***** G*********,2|Padang|Hotel|Painan
+71319,B********* H****,1|Padang|Hotel|Padang Barat
+71324,A*** P***** B**** B**** K*******,0|Padang|Hotel|Padang
+71347,R******* N*** J******* S*** N****** P*****,2|Padang|Hotel|Padang Barat
+71371,S***** H****,2|Bukittinggi|Hotel|Guguk Panjang
+71391,N*****,1|Bukittinggi|Hotel|Bukittinggi
+71397,O** 3*** T*** H**** S******,2|Padang|Hotel|Painan
+71398,M**** W******** a** R*****,3|Padang|Hotel|Sepuluh Koto
+71399,H******* S****** S****** R*********,1|Bukittinggi|Hotel|Guguk Panjang
+71412,J***** G*********,2|Bukittinggi|Guest House|Mandiangin Koto Selayan
+71429,A** A**** C******,3|Bukittinggi|Hotel|Bukittinggi
+71431,H**** R******* B*** P***** P******,2|Padang|Hotel|Padang Barat
+71436,O** 1*** H******* R**** P***,1|Painan|Hostel/Backpacker accommodation|Painan
+71439,O** 9**** H**** F******* S******,2|Payakumbuh|Bed & breakfast|Payakumbuh
+71458,O** 3*** P********* C******,2|Kerinci|Bed & breakfast|Kerinci
+71481,H**** P****,2|Pekanbaru|Hotel|Pekanbaru
+71483,D E W***** H****,0|Pekanbaru|Hotel|Pekanbaru
+71492,W***** P**** By Z***,3|Pekanbaru|Hotel|Pekanbaru
+71496,O** 1*** D** H*******,2|Pekanbaru|Hostel/Backpacker accommodation|Marpoyan Damai
+71503,S*** ON 2*** H**** T*****,2|Pekanbaru|Hotel|Pekanbaru
+71516,K***** R******** S****** By Z***,2|Pekanbaru|Bed & breakfast|Pekanbaru
+71519,W****** H**** P********,3|Pekanbaru|Hotel|Senapelan
+71521,A*** T** C****** A**** Y*** 43 P********,0|Pekanbaru|Hotel|Pekanbaru
+71522,M***** H**** P********,3|Pekanbaru|Hotel|Pekanbaru
+71541,C******* H**** D****,3|Dumai|Hotel|Dumai Timur
+71551,S*** ON 2*** A**** N** P*********,1|Dumai|Hostel/Backpacker accommodation|Dumai Timur
+71553,D*** G****,3|Pekanbaru|Hotel|Pekanbaru
+71589,T** B******* L***** V***** a** R****,3|Pekanbaru|Hotel|Pekanbaru
+71590,O** 3*** U**** S*** H*******,2|Pekanbaru|Hotel|Pekanbaru
+71619,R******* @ L*****,2|Bengkulu|Hotel|Curup
+71636,O** 7** G**** M****** G**** H****,2|Bengkulu|Guest House|Sungai Serut
+71653,G** P******** B*******,3|Bengkulu|Hotel|Ratu Agung
+71655,T****** K*****,0|Bengkulu|Hotel|Bengkulu
+71656,O** 9**** K***** S****** H****,2|Bengkulu|Bed & breakfast|Curup
+71664,R******* n*** P***** P****** B*******,2|Bengkulu|Guest House|Gading Cempaka
+71695,H**** D******,3|Lubuk Linggau|Hotel|Lubuklinggau Timur
+71709,W**** L*** S****** P**** A*** R*********,1|Bengkulu|Hotel|Curup
+71717,H**** S**** 8**,3|Tanjung Balai Karimun|Hotel|Tanjung Balai Karimun City Center
+71728,H**** C*******,2|Lahat|Hotel|Lahat City Center
+71732,R******* S****** N*** K***** P**** T********** J****,1|Jambi|Hotel|Jambi
+71743,M******* R******** S****** R*********,2|Jambi|Hotel|Telanaipura
+71747,R******* @ J**** S********* 2 J****,2|Jambi|Hotel|Jambi
+71770,O******* W******* H**** & S**,3|Jambi|Hotel|Jambi
+71817,K****** B********,1|Bandar Lampung|Hotel|Bandar Lampung
+71832,R******* P*** @ K****** A** B*** A**,3|Batam|Hotel|Segulung
+71862,J*** K*** R*********,1|Batam|Hotel|Lubuk Baja
+71867,Z*** H**** H****** B** B****,3|Batam|Hotel|Batu Ampar
+71879,O** 1*** N** S*** H****,2|Batam|Hostel/Backpacker accommodation|Batu Ampar
+71887,C**** I**,2|Batam|Hotel|Nagoya
+71897,A*** E** N***** K****** B*** I**** B*** T*** 20 B****,0|Batam|Hotel|Batam
+71907,H****** H****,3|Batam|Hotel|Nagoya
+71938,C**** V**** B****,4|Batam|Hotel|Nagoya
+71939,A***** N***** H***,2|Batam|Hotel|Lubuk Baja
+71960,B****** H**** B****,4|Batam|Hotel|Lubuk Baja
+71985,T** C***** H**** a** R******** by O******* B****,3|Batam|Hotel|Batam City
+72005,S******** - P**** G*****,1|Batam|Guest House|Batam Center
+72009,S**** O** C****** O 1*** K*** G**** H****,2|Batam|Hotel|Batam City
+72012,G******** H**** B****,2|Batam|Hotel|Batam City
+72013,C****** O 1*** B**** H****,2|Batam|Hotel|Batam Center
+72021,O** 7** N**** I***** R*****,2|Batam|Hotel|Batam Center
+72025,S******** - D****** P*****,1|Batam|Villa|Batam Center
+72030,S*** ON 2*** Z***** H*******,2|Batam|Hostel/Backpacker accommodation|Batam City
+72046,O** 9**** Fj A******* K***,2|Prabumulih|Bed & breakfast|Prabumulih
+72091,O** 1*** P**** H**** T****** P*****,2|Tanjungpinang|Bed & breakfast|Tanjung Pinang
+72110,B***** P**** B**** R*****,3|Bintan|Hotel|Teluk Bakau
+72114,R**** H**** P********,3|Palembang|Hotel|Sukarami
+72121,O** 9** P********* T****,2|Palembang|Hostel/Backpacker accommodation|Sukarami
+72134,T****** H******* B******,4|Palembang|Villa|Palembang
+72139,R******* n*** T**** W***** A*** P**** K*** P******** 2,2|Palembang|Hotel|Palembang
+72145,O** 9**** W**** K******,2|Palembang|Bed & breakfast|Palembang
+72148,O** 3** M**** R******** P******** I,2|Palembang|Hostel/Backpacker accommodation|Ilir Barat
+72149,R******* @ J**** W******* P****,1|Palembang|Hotel|Ilir Barat 1
+72186,S*** H**** M** To U P********,3|Palembang|Hotel|Sukarami
+72192,AA R********* P******** S****** R*********,2|Palembang|Hotel|Sukarami
+72203,R******* S****** n*** R*** S*** F****** P********,2|Palembang|Hotel|Ilir Timur I
+72204,R******* N*** P******** T**** C***** 3,2|Palembang|Hotel|Kemuning
+72228,R******* P*** n*** RS RK C******* 2 P********,3|Palembang|Hotel|Ilir Barat
+72236,A*** P****** S** P******* J****** S******* 1** P********,0|Palembang|Hotel|Palembang
+72265,R******* n*** P******** T**** C***** 4,2|Palembang|Hotel|Palembang
+72300,T** A*** H****,5|Palembang|Hotel|Ilir Timur II
+72310,R******* n*** J**** MP M*********** P********,1|Palembang|Hotel|Ilir Timur II
+72347,U******** H**** P***** I**** P********,3|Bandar Lampung|Hotel|Pringsewu
+72358,R******* n*** R**** I**** A****** L****** 2,2|Bandar Lampung|Hotel|City Center
+72385,H******* R********,3|Bandar Lampung|Hotel|Lampung
+72402,R******* P*** @ J**** P. E*** M** N*** L******,3|Bandar Lampung|Hotel|City Center
+72426,S******* L******,4|Bandar Lampung|Hotel|City Center
+72462,O** 2*** W**** L*** T****,2|Bandar Lampung|Hotel|Kedaton
+72479,U******** H**** B****** GH S****** L******,2|Bandar Lampung|Hotel|Teluk Betung
+72494,R******* S****** @ G**** S****** L******,2|Bandar Lampung|Hotel|Lampung
+72497,R******* n*** J**** P******* K********** L******,2|Bandar Lampung|Hotel|City Center
+72503,R******* @ J**** H**** W**** L****** 2,2|Bandar Lampung|Guest House|Kedamaian
+72510,R******* S****** @ J**** P******* A******* 4,2|Bandar Lampung|Hotel|City Center
+72532,C******** S******,2|Bandar Lampung|Hotel|City Center
+72534,A** G********* R********* L******,1|Bandar Lampung|Bed & breakfast|Bandar Jaya
+72537,R******* S****** @ J**** E**** S******* L******,3|Bandar Lampung|Hotel|Sukarame
+72547,A**** G***** H****,1|Bandar Lampung|Hotel|City Center
+72559,W**** B******* K*******,2|Bandar Lampung|Hotel|kalianda
+72568,O** 2*** T** C****** H******* S******,2|Pandeglang|Hotel|Pandeglang City Center
+72577,O** 1*** C***** A*** V***** & R*****,2|Tangerang|Bed & breakfast|Benda
+72578,S*** ON 2*** H**** C**** A**,2|Pandeglang|Hotel|Pandeglang City Center
+72580,D***** G R***** A****,3|Anyer|Hotel|Cinangka
+72596,N***** B*** A****,3|Anyer|Hotel|Anyer
+72629,G**** P***** L****** B*****,3|Bangka|Hotel|City Center
+72644,G**** S***** H**** P************,3|Bangka|Hotel|City Center
+72646,P**** B**** R***** a** S** B*****,4|Bangka|Hotel|Sungailiat
+72652,R******* n*** A*** A*** K*** S*****,2|Serang|Hotel|City Centre
+72654,A*** P****** P***** A********* 1 B*****,0|Bangka|Hotel|Bangka
+72667,T****** P***** B**** R***** a** S**,3|Bangka|Hotel|Sungailiat
+72672,M**** G**** H****,2|Serang|Hotel|Serang
+72693,O** 1*** H******* C*** D***** S******,2|Sukabumi|Hotel|Pelabuhan Ratu
+72714,K***** S***,1|Sukabumi|Hotel|Sukabumi
+72736,R******* n*** S***** K*******,2|Tangerang|Guest House|Tangerang
+72753,3J L***** L**** K*******,2|Tangerang|Hotel|Serpong
+72758,A******* L**** V******,4|Tangerang|Hotel|Karawaci
+72775,Q***** B******* H****,3|Tangerang|Hotel|Gading Serpong
+72781,O** 3*** S******* D******** S******,2|Tangerang|Hotel|Gading Serpong
+72786,R******* S****** P*** @ W**** B********** K*******,3|Tangerang|Hotel|Gading Serpong
+72788,J** S******** G***** S******,5|Tangerang|Hotel|Serpong
+72801,S*** ON 9**** Jr R***,2|Tangerang|Bed & breakfast|Bintaro
+72819,77 G**** H**** S******,2|Tangerang|Bed & breakfast|Alam Sutera
+72825,Z** R**** S*********,0|Jakarta|Hotel|Jakarta
+72840,B****** P******* A******** By Z***,3|Tangerang|Hotel|Tangerang
+72856,D*** H**** & S***** by W****** J****** A******,3|Tangerang|Hotel|Bandara
+72872,M****** S***** n*** S******* H**** A****** R*********,1|Tangerang|Hotel|Bandara
+72877,S*** ON 9**** G***** B*** R******** S******,2|Tangerang|Bed & breakfast|Benda
+72901,De S**** H******* G***** S**** R*********,1|Bogor|Hotel|Bogor
+72916,R******** A******** 19 A***** - R*** P*******,2|Banten|Hotel|Banten
+72939,d*********** A****** J****** 1 H****,2|Tangerang|Hotel|Benda
+72945,U**** E****** H***** S******,2|Tangerang|Hostel/Backpacker accommodation|Serpong
+72949,S***** P******* E*** By Z***,3|Tangerang|Bed & breakfast|Bintaro
+72956,P******* M****** A******** by G******* P** By Z***,1|Jakarta|Hotel|Kalideres
+72966,S***** B******,2|Tangerang|Hotel|Tangerang
+72985,C****** H**** C*********,2|Jakarta|Hotel|West Jakarta
+72987,R******* n*** U********** P*******,2|Tangerang|Hotel|Ciputat
+72999,A******** C*** P*** T**** H** P****** R**** R*********,2|Jakarta|Hotel|Cengkareng - West Jakarta
+73016,O** 3*** S**** H******* S******,2|Bogor|Hotel|Bogor
+73024,S******** J****** P** A*****,5|Jakarta|Hotel|North Jakarta
+73034,O** 4*** 58 G*********,2|Tangerang|Hotel|Bintaro
+73045,O** F******* 7** B****** A********,2|Tangerang|Hotel|Alam Sutera
+73056,B**** H**** P*** I****,3|Jakarta|Hotel|Puri Kembangan - West Jakarta
+73061,R******* @ P***********,2|Jakarta|Guest House|Jakarta
+73064,R******* n*** T******* B****** B****,1|Bogor|Hotel|Bogor
+73103,Z** R**** K********* S******,2|Jakarta|Guest House|Jakarta
+73107,R******* at P***** I**** 2,2|Jakarta|Hotel|Jakarta
+73109,R******* S****** @ C****** S*******,1|Sukabumi|Hotel|Sukabumi City Center
+73117,R******* S****** @ C***** D****,2|Depok|Hotel|Margonda
+73119,O** 9**** W**** T***** K********,2|Jakarta|Bed & breakfast|Kebayoran Lama
+73158,F** L*** G***** J******,2|Jakarta|Hotel|Grogol/Roxy - West Jakarta
+73177,R******* at A****** R**** D****,2|Jakarta|Hotel|Kebayoran Baru - South Jakarta
+73183,O** 1*** T** T****,2|Jakarta|Hotel|Grogol/Roxy - West Jakarta
+73189,M*** A******,3|Jakarta|Hotel|Grogol/Roxy - West Jakarta
+73217,W**** J***** B**** R*********,1|Bogor|Hotel|Paledang
+73230,Z** R**** P******* B****,2|Jakarta|Hotel|Central Jakarta
+73274,T******** O** Jp H****,3|Jakarta|Bed & breakfast|Penjaringan
+73282,F H**** J******,3|Jakarta|Hotel|Melawai - South Jakarta
+73295,R******* @ P******* P**** 2,2|Jakarta|Hotel|Panglima Polim - South Jakarta
+73299,W H*** C*****,3|Jakarta|Hotel|Cipete - South Jakarta
+73314,O** 9**** S****** B**** V*****,2|Bogor|Bed & breakfast|Bogor
+73351,R******* P*** @ C***** D****,3|Jakarta|Hotel|Kebayoran Baru - South Jakarta
+73401,L******** K**** R*** B****,3|Bogor|Guest House|bogor tengah
+73407,P***** G**** H**** J******,0|Jakarta|Bed & breakfast|Jakarta
+73412,R******* @ P******* A******* 2,2|Jakarta|Hotel|Cipete - South Jakarta
+73422,A*** B************ R*** 39 B****,0|Bogor|Hotel|Bogor
+73451,R**** P********** H****,3|Bogor|Hotel|Bogor
+73463,D**** I**,0|Bogor|Hotel|Bogor Timur
+73491,T*** M****** S****** n*** B***** R*********,1|Jakarta|Hotel|Tanah Abang - Central Jakarta
+73497,O** 9**** W**** P***** S******,2|Bogor|Hotel|Bogor
+73500,(*** u*** A**** R******** S******,2|Jakarta|Hotel|Senayan - South Jakarta
+73502,O** 9**** S******* M**** R********,2|Jakarta|Hotel|Kuningan
+73505,N3 H**** J******,3|Jakarta|Hotel|Jakarta
+73515,Z** R**** P***** B************,0|Bogor|Hotel|Bogor
+73540,Q*** E****** H****,2|Jakarta|Hotel|Jakarta
+73541,R******* @ G***** P****,2|Jakarta|Hotel|Jakarta
+73559,R******* P*** n*** L**** M*** K***** 2,3|Jakarta|Hotel|Kemang - South Jakarta
+73564,P***** L**** (****,2|Jakarta|Hostel/Backpacker accommodation|Jakarta
+73574,K***** E*****,3|Jakarta|Hotel|Kemang - South Jakarta
+73582,R******* @ G**** M***,2|Jakarta|Hotel|Jakarta
+73585,A*** T****** K**** K***** E**** 12 J******,0|Jakarta|Hotel|Kebayoran Baru - South Jakarta
+73593,T** O***** J****** A R**** H******* H**** J******,5|Jakarta|Hotel|Sudirman
+73610,R******* R********,3|Jakarta|Hotel|pasar minggu
+73614,S** C*** J******,0|Jakarta|Hotel|Jakarta
+73647,H**** Ro & Vi B*******,3|Jakarta|Hotel|Tamansari - West Jakarta
+73661,A***** H**** M***** B****,2|Jakarta|Hotel|Mangga Besar - West Jakarta
+73667,W**** S***** M****** R*********,2|Jakarta|Hotel|Kuningan/Setiabudi  - South Jakarta
+73675,R**** S*****,2|Jakarta|Hotel|Jakarta
+73680,G**** A**** R********,2|Jakarta|Hotel|Tanah Abang - Central Jakarta
+73712,R**** H****,2|Bogor|Hotel|Bogor Timur
+73722,V**** H****** J******,4|Jakarta|Hotel|Harmoni / Gajah Mada / Glodok - Central Jakarta
+73736,R******* at M***** B**** 2,2|Jakarta|Guest House|Jakarta
+73738,Z** R**** N*** B******* HI,0|Jakarta|Hotel|Jakarta
+73739,Z** R**** K******* T****,3|Jakarta|Guest House|Jakarta
+73757,K****** H****,4|Jakarta|Hotel|Wahid Hasyim - Central Jakarta
+73758,R******* n*** E*** T*** T**** B*** B****,2|Bogor|Hotel|Bogor Utara
+73765,S***** L*** J******* A****** C******,3|Jakarta|Hotel|Tamansari - West Jakarta
+73777,A*** T**** S*** M***** B**** E**** E 23 J******,0|Jakarta|Hotel|Jakarta
+73789,F****** M***** B**** IV,2|Jakarta|Hotel|Tamansari - West Jakarta
+73809,R******* n*** C****** W**** K******* 3,2|Jakarta|Hotel|Jakarta
+73837,C*** S**** R********,2|Jakarta|Hotel|Tamansari - West Jakarta
+73838,I******* H****,1|Jakarta|Hotel|Tamansari - West Jakarta
+73855,O** 1** H**** S****,2|Jakarta|Hotel|Pasar Baru/Pecenongan/Juanda/Gunung Sahari - Central Jakarta
+73858,T**** R********,3|Jakarta|Hotel|Jakarta
+73870,O** 2** 45 R********,2|Jakarta|Hotel|Mangga Besar - West Jakarta
+73871,H**** A*****,3|Jakarta|Hotel|Tamansari - West Jakarta
+73874,R****** H****,3|Jakarta|Hotel|Jakarta
+73877,H**** S****** D****,3|Depok|Hotel|Margonda
+73882,R******* at S******** 8,2|Jakarta|Hotel|South Jakarta
+73883,H**** S******,1|Jakarta|Hotel|Mangga Dua - North Jakarta
+73884,R****** H**** W****,2|Jakarta|Hotel|Gambir - Central Jakarta
+73895,Ra I** K*****,3|Jakarta|Hotel|Pancoran - South Jakarta
+73904,M**** B*****,3|Jakarta|Hotel|Kemang - South Jakarta
+73957,D**** E****** J**** J******,3|Jakarta|Hotel|Kebon Sirih
+73968,I***** R*** H****,3|Jakarta|Hotel|Menteng
+73975,S***** H**** D****,3|Depok|Hotel|Margonda
+73991,B****** J****** J******,3|Jakarta|Hotel|Sawah Besar
+73994,H*** H**** M***** D** S*****,3|Jakarta|Hotel|Mangga Dua - North Jakarta
+73998,P****** H**** W**** H*****,3|Jakarta|Hotel|Wahid Hasyim - Central Jakarta
+74017,H*** H****,3|Jakarta|Hotel|Sawah Besar
+74019,A******** T**** M***** M******* by W****** By Z***,3|Depok|Hotel|beji
+74021,F******** M******* D****,3|Depok|Hotel|Margonda
+74024,O** 2*** K****** R********,2|Jakarta|Hotel|Pasar Baru/Pecenongan/Juanda/Gunung Sahari - Central Jakarta
+74048,A*** S****** M****** C** M***** 9 J******,0|Jakarta|Hotel|Jakarta
+74062,L***** I**** H****,3|Jakarta|Hotel|Jakarta
+74071,O** 1** O***** K***,2|Jakarta|Hotel|Sawah Besar
+74083,P******** P**** K******* J******,3|Jakarta|Hotel|Tebet/Casablanca/Manggarai - South Jakarta
+74093,O** 3*** W**** Y**** S*******,2|Jakarta|Bed & breakfast|pasar minggu
+74116,D**** N****** H****,2|Jakarta|Hotel|Cikini/Menteng - Central Jakarta
+74123,S*** ON 3*** W**** P****** S******,2|Depok|Hotel|beji
+74140,D*** R******** - M******,3|Jakarta|Hotel|Menteng
+74145,K****** E** H**** J******,2|Jakarta|Hotel|Kemayoran - Central Jakarta
+74155,H***** H**** & C********* C******* C*** M*** B****,4|Bogor|Hotel|Bogor
+74179,D********* by H***** J****** - D*********,4|Jakarta|Hotel|Cikini/Menteng - Central Jakarta
+74193,A***** S****,3|Jakarta|Hotel|Senen/Tugu Tani - Central Jakarta
+74196,R***** H**** J******,3|Jakarta|Hotel|Senen/Tugu Tani - Central Jakarta
+74216,C*** L***** S******,2|Jakarta|Hotel|Senayan - South Jakarta
+74223,R******* P*** @ J**** P***** J******,3|Jakarta|Hotel|Rawamangun
+74224,O** 8** A****** R********,2|Jakarta|Hotel|East Jakarta
+74226,O** 3** T********* R********,2|Jakarta|Hotel|Tanah Abang - Central Jakarta
+74261,W**** B****** R*********,1|Jakarta|Hotel|Central Jakarta
+74272,S** P******* 3 By Z***,1|Jakarta|Hotel|Pancoran - South Jakarta
+74306,H**** A****** S******* J*** B****,3|Sukabumi|Hotel|Sukabumi City Center
+74309,O** 9**** 3a S******,2|Jakarta|Bed & breakfast|Cempaka Putih/Sunter - Central Jakarta
+74347,S*** ON 2*** K******** H******* S******,2|Jakarta|Bed & breakfast|Central Jakarta
+74354,R******* n*** G**** C******** M***,2|Jakarta|Hotel|East Jakarta
+74355,H****** S****** H**** By Z***,3|Jakarta|Bed & breakfast|Central Jakarta
+74361,J******* S******,2|Jakarta|Hotel|Tanjung Priok
+74363,E**** G*********,2|Jakarta|Bed & breakfast|Central Jakarta
+74365,O** S***** C******,3|Bogor|Hotel|Sentul City
+74369,O** 1*** A** R******** S******,2|Jakarta|Hotel|Cililitan
+74378,R******* P*** n*** G**** P****** S***** M***,3|Jakarta|Hotel|Cempaka Putih/Sunter - Central Jakarta
+74379,W**** K********* By Z***,2|Jakarta|Hotel|Ciracas
+74418,R******** A******** B****** C*** - E** R***,2|Jakarta|Hotel|Jatinegara
+74453,O** 3*** S***** H******* S******,2|Jakarta|Hotel|East Jakarta
+74455,C**** H****,3|Jakarta|Hotel|Cempaka Putih/Sunter - Central Jakarta
+74460,R******* A******** at P*** G*****,2|Jakarta|Hotel|Jakarta
+74461,F***** H****,3|Jakarta|Hotel|Rawamangun
+74476,V***** at P******* G*** V*** A******** By Z***,3|Bogor|Apartment|Bogor
+74485,M****** H**** S******,2|Depok|Hotel|Margonda
+74489,G**** C****** R***** H**** P****** by A**********,3|Puncak|Hotel|Puncak
+74492,S****** T***,3|Jakarta|Hotel|Jakarta
+74500,O** 9** C****** A****** C*** & R*****,2|Bogor|Hotel|Bogor
+74507,C**** C***** H**** A** F***** C*******,3|Puncak|Resort|Cisarua
+74521,V**** B*** T** P***** R*********,2|Bogor|Hotel|Bogor
+74541,U******** H**** G**** A****** 2 C****** P***** by R*******,3|Bogor|Hotel|Cisarua
+74562,O** 9**** G***** P**** S***** A********,2|Bogor|Bed & breakfast|Bogor
+74564,H**** L***** N**** C***** R*********,2|Bogor|Hotel|Cisarua
+74566,I******** C****** P***** R*********,2|Bogor|Hotel|Bogor
+74571,H**** C****** I****,4|Puncak|Hotel|Cisarua
+74593,O** 1*** B***** C*** 2 S*******,2|Sukabumi|Hotel|Sukabumi City Center
+74603,R******* S****** n*** RS H****** S*******,2|Sukabumi|Hotel|Sukabumi City Center
+74607,(*** u*** R******* P*** @ H**** P****** A***,3|Bogor|Hotel|Bogor
+74611,O** 3*** S****,2|Jakarta|Hotel|East Jakarta
+74621,A******** S***** T**** R******** - S** Z*** P******* T**** O*****,1|Jakarta|Hotel|East Jakarta
+74635,V**** G**** V***** P***** R*********,2|Bogor|Hotel|Puncak
+74639,B********* V******,2|Bogor|Bed & breakfast|Bogor
+74646,A***** R***** P*****,4|Puncak|Villa|Cisarua
+74650,R******* P*** n*** G***** B*****,3|Bekasi|Hotel|Bekasi Barat
+74655,S** P******* 2 By Z***,1|Bekasi|Hotel|Bekasi Utara
+74659,S****** G***** H******* R*********,2|Bekasi|Bed & breakfast|Bekasi Barat
+74667,A********* G**** K***** L***** E****** N**** T**** A**** R*** S******,1|Bekasi|Hotel|Cibubur
+74669,R******** A******** G**** K***** L***** - I*** R**** T**** B****** S**** w*** N******,1|Bekasi|Hotel|Bekasi Selatan
+74672,R******** A******** G**** K***** L***** - K*** K*** P******* T**** E******,1|Bekasi|Hotel|Bekasi Selatan
+74674,G**** K***** L***** by V****** By Z***,1|Bekasi|Hotel|Bekasi Selatan
+74686,A******** K***** V*** - R*** 88 T**** A*****,2|Bekasi|Hotel|Bekasi Selatan
+74696,S*** ON 1*** S***** H******* S******,2|Bogor|Hotel|Bogor
+74697,B****** M*** M*** B*****,3|Bekasi|Capsule Hotel|Bekasi Barat
+74707,M****** B*****,4|Bekasi|Hotel|Rawalumbu
+74710,G**** M**** H**** P*****,3|Puncak|Hotel|Ciloto Puncak
+74720,I** B*****,2|Bekasi|Hotel|Bekasi Barat
+74745,S**** E****** G**** by G******** B*****,2|Bekasi|Apartment|Bekasi Timur
+74766,R******* S****** @ B**** K****,2|Bekasi|Bed & breakfast|Bekasi Barat
+74775,O** 3*** Y***** R****,2|Puncak|Hotel|Cipanas
+74796,V**** K*** B**** P*****,4|Cipanas|Villa|Cipanas
+74822,T*** G**** H**** G**** W*****,1|Bekasi|Hotel|Bekasi Selatan
+74829,V**** P****** P*****,3|Cipanas|Villa|Cipanas
+74835,G** C***** R********* n*** G***** K**** C******,1|Cianjur|Hotel|Cianjur
+74837,O** 2*** G**** S***** P*****,2|Puncak|Hotel|Cipanas
+74878,A*** C******* C******** R*** R*** C** B*****,0|Bekasi|Hotel|Bekasi
+74879,C******** H**** C*******,1|Cikarang|Hotel|Cikarang Selatan
+74884,O** 1*** P****** T******** S******,2|Cianjur|Hotel|Cianjur
+74896,S**** J*** L**** C******* H****,5|Cikarang|Hotel|Cikarang Selatan
+74903,K*** P*** H******* C****** S****** R*********,1|Cianjur|Hotel|Cianjur
+74916,O** 4** H**** B******* P***** C*******,3|Bekasi|Hotel|Bekasi Barat
+74922,R******* P*** N*** L**** C******* M***,3|Cikarang|Hotel|Cibatu
+74956,T** E***** S***,3|Cikarang|Apartment|Cikarang Pusat
+74961,S*** ON 2*** O**** P**** S******,2|Cianjur|Hotel|Cianjur
+74965,U******** R***** V**** C****** by R*******,3|Cianjur|Hotel|Cianjur
+74975,O** F******* 1*** S********* K*******,2|Karawang|Hostel/Backpacker accommodation|Teluk Jambe
+74978,O** 9**** G*******,2|Karawang|Bed & breakfast|Karawang Barat
+74995,A***** R******** S******,2|Karawang|Hotel|Karawang
+75006,O** 9**** S***** R********,2|Karawang|Bed & breakfast|Karawang
+75015,O** 2*** R*** R******** S******,2|Karawang|Hostel/Backpacker accommodation|Karawang Barat
+75018,S*** ON 3*** S**** C**** 2,2|Karawang|Hotel|Cikampek
+75027,S*** ON 2*** M****** R********,2|Karawang|Hotel|Cikampek
+75028,F**** O** A****** H**** K*******,3|Karawang|Hotel|Teluk Jambe Timur
+75062,P****** H**** P*********,2|Purwakarta|Hotel|Bungursari
+75066,S*** H**** G**** S******* C*******,3|Karawang|Hotel|Cikampek
+75090,A******** T** E*** B**** - K******,2|Bandung|Hotel|Cimahi
+75093,K****** A******** By Z***,3|Bandung|Hotel|Cimahi
+75099,S**** O** 2*** A***** B** & B********,2|Bandung|Hotel|Bandung
+75109,S**** O** 3*** C***** G**** H****,2|Bandung|Hotel|Cimahi
+75138,R******* n*** S******** M***,2|Bandung|Hotel|Pasteur
+75142,R******* n*** S******** M*** 4,2|Bandung|Hotel|Pasteur
+75144,B***** G***** P******,1|Bandung|Hotel|Bandung
+75147,S****** G**** H**** P******,1|Bandung|Guest House|Sukajadi
+75167,O** 1*** F*** M*********,2|Bandung|Hotel|Sukajadi
+75188,D*** H**** P***** H**** P********* B****** 1 By Z***,1|Bandung|Hostel/Backpacker accommodation|Parongpong
+75189,O** 2** H*** 33,2|Bandung|Hotel|Sukajadi
+75214,O** 1*** D**** R********,2|Bandung|Hotel|Bandung
+75217,R******* P****** @ H**** H****,3|Bandung|Hotel|Kopo
+75221,S**** P*******,2|Bandung|Hotel|Bandung
+75231,R******* @ S***** B*****,2|Bandung|Hotel|Bandung Wetan
+75233,C*** R******** C****** B******,2|Bandung|Hotel|Sukasari
+75240,P****** W*****,3|Bandung|Hotel|Bandung
+75254,H**** C** @ C******** R*********,1|Bandung|Hotel|Bandung
+75268,P**** H**** B******,0|Bandung|Hotel|Setiabudhi
+75275,T** S**** H****,3|Bandung|Hotel|Bandung
+75276,V**** D****** L******,3|Bandung|Hotel|Lembang
+75282,M******** H****,3|Bandung|Hotel|Sukajadi
+75292,C*** d L*****,0|Bandung|Hotel|Bandung
+75293,A****** V*****,2|Bandung|Hotel|Bandung
+75295,A*** S******* 1** B******,0|Bandung|Hotel|Bandung
+75296,P******* H****,2|Bandung|Hotel|Sukajadi
+75303,S*** S**** G********* S****** N*** RS H**** S******,1|Bandung|Hotel|Sukajadi
+75306,de J*** H**** B******,4|Bandung|Hotel|Sukajadi
+75308,T**** C***,2|Bandung|Hostel/Backpacker accommodation|Cicendo
+75341,O** 9**** H**** P****,2|Bandung|Hotel|Bandung
+75357,R**** A********* B******,2|Bandung|Hotel|Bandung
+75374,O** 9** B****** C****** G**** H****,2|Bandung|Hotel|Andir
+75385,Z***** K********,2|Bandung|Hotel|Kebon Jati
+75388,F*** H**** B******,3|Bandung|Hotel|Kebon Jati
+75392,G**** H*** H****,3|Bandung|Hotel|Lembang
+75393,E***** S H***,2|Bandung|Hotel|Sukajadi
+75398,O** 1*** P********* H****,2|Bandung|Hotel|Cicendo
+75435,W*** H**** B******,3|Bandung|Hotel|Ciumbuleuit
+75443,S**** O** C********* O H**** P**** B*** H*******,2|Bandung|Hotel|Andir
+75449,C********* H**** 1,1|Bandung|Hotel|Cihampelas
+75464,K******* H**** B******,3|Bandung|Hotel|Bandung
+75467,T** J****** A******** by B******** G**** By Z***,1|Bandung|Hotel|Coblong
+75473,R******* A******** @ J****** C*********,3|Bandung|Hotel|Cihampelas
+75475,O** 2*** H**** A***** L*** D*** S******,2|Bandung|Hotel|Bandung
+75484,R******** A******** P********** R******** - A**** R****,1|Bandung|Hotel|Hegarmanah
+75511,O** 1*** P******** H****,2|Bandung|Hotel|Sumurbandung
+75521,M******** - H*****,2|Bandung|Hostel/Backpacker accommodation|Lengkong
+75539,V**** L****,3|Bandung|Hotel|Lembang
+75551,J******** B******,4|Bandung|Hotel|Aceh
+75557,S****** H**** B******,3|Bandung|Hotel|Riau Street
+75565,M*** H**** B******,3|Bandung|Houseboat|Bandung Wetan
+75584,G******** R**** C***,0|Bandung|Hotel|Bandung
+75589,R**** D***,2|Bandung|Hotel|Bandung
+75594,P**** B******,3|Bandung|Hotel|Dago
+75605,O** 3*** G**** H****,2|Bandung|Hotel|Bandung
+75628,H**** D**** B******,3|Bandung|Hotel|Coblong
+75631,T** K******* H****,2|Bandung|Hotel|Bandung
+75632,De R*** H**** B******,3|Bandung|Hotel|Lengkong
+75633,H**** B*** A***,3|Bandung|Hotel|Bandung Wetan
+75638,L***** I** B******,2|Bandung|Hotel|Aceh
+75682,O** 9**** H**** S****** B*** B*** B******,2|Bandung|Bed & breakfast|Bandung
+75699,H**** H****** I****,1|Bandung|Hotel|Lengkong
+75705,O** 2*** H**** S****** S******,2|Bandung|Hotel|Bandung
+75709,I************ I******* B******,0|Bandung|Hotel|Bandung
+75719,R******* P*** n*** D*** P****,3|Bandung|Hotel|Cibeunying
+75722,O** 2** S***** G**** H****,2|Bandung|Hotel|Lembang
+75734,P***** C***** P******* R*********,2|Bandung|Hotel|Lembang
+75759,T***** H****,2|Bandung|Hotel|Bandung
+75771,C****** C*** 2 H**** B*******,1|Belitung|Hotel|Tanjung Pandan
+75808,F******** by M******* B*******,4|Belitung|Hotel|Tanjung Pandan
+75813,O** 1*** B*** M*******,2|Bandung|Hotel|Bandung
+75826,M******* S***** B******,4|Bandung|Hotel|Dago
+75831,A*** C*********** S******* 2** B******,0|Bandung|Hotel|Bandung
+75839,E**** Al M****** R*****,3|Bandung|Hotel|Lembang
+75848,BW I** B*******,3|Belitung|Hotel|Tanjung Pandan
+75895,R******** A******** G****** C****** - S***** C**** M********,2|Bandung|Hotel|kiaracondong
+75896,R******** A******** G****** C****** - DB R***,2|Bandung|Hotel|kiaracondong
+75902,R******** A******** G****** C****** - R**** K*** T**** E****** A,1|Bandung|Hotel|Bandung
+75904,G***** H**** B******,1|Bandung|Hotel|Bandung
+75905,P***** A****** C***** R*********,1|Subang|Hotel|Kota Subang
+75906,O** 2*** A***** R******** S******,2|Bandung|Hotel|Bandung
+75914,R******* P*** n*** S******* C***,3|Bandung|Hotel|Cibeunying
+75915,D***** H**** (******** T***** H**** B********,2|Bengkulu|Hotel|Bengkulu
+75951,O** 9**** H***** O***** G**** H****,2|Bandung|Bed & breakfast|Bandung
+75956,V**** C***** H*******,4|Subang|Villa|Ciater
+75957,B*** W****,3|Bandung|Hotel|Soekarno Hatta
+75965,R******* n*** M**** I**** M***,2|Bandung|Hotel|Bandung
+75977,O** 9**** G**** A****** S****** G**** H****,2|Bandung|Bed & breakfast|Lembang
+75992,S**** O** C********* O 9**** R**** O** O** S******,2|Bandung|Bed & breakfast|Bandung
+75999,R******* S****** @ T***** M**** S***** S*****,2|Subang|Hotel|Ciater
+76002,R******* S****** n*** K**** N********,2|Bandung|Hotel|Cibeunying
+76019,B******* H****** R*****,3|Belitung|Bed & breakfast|Sijuk
+76021,O** 9**** H**** D****** S******,2|Subang|Bed & breakfast|Ciater
+76029,S*** ON 2*** P***** N****,2|Bandung|Hotel|Bandung
+76034,L**** H**** S*****,3|Subang|Hotel|Kota Subang
+76035,R******* n*** J********* T*** S*****,2|Bandung|Hotel|Jatinangor
+76039,R******* P*** n*** J********* T*** S***** 2,3|Bandung|Hotel|Hegarmanah
+76050,K******* G**** H**** a** R*****,4|Garut|Hotel|Samarang
+76053,B**** A*******,3|Garut|Hotel|Tarogong Kidul
+76061,S**** A*** R*****,0|Garut|Hotel|Tarogong Kaler
+76075,T**** H**** G****,2|Garut|Hotel|Cimanuk
+76095,A******* H**** & C********** BW S******** C*********,4|Tasikmalaya|Hotel|Tasikmalaya
+76104,O** 2*** B*** E**** E*** H******* S******,2|Tasikmalaya|Hotel|Cihideung
+76115,O** 2*** H**** A*** 2 S******,2|Tasikmalaya|Hotel|Indihiang
+76128,C**** H**** T**********,3|Tasikmalaya|Hotel|Cipedes
+76138,R******* S****** @ H**** K****** T**********,2|Tasikmalaya|Hotel|Cihideung
+76142,R******* n*** U********** S******** T**********,2|Tasikmalaya|Guest House|Cihideung
+76167,U******** H**** T******** J*** I**** I******** by R*******,3|Indramayu|Hotel|Indramayu
+76176,P********* Al F******* S****** R*********,2|Kuningan|Hotel|Kuningan
+76178,S****** S**** G**** H**** R*********,1|Semarang|Hostel/Backpacker accommodation|Semarang Barat
+76184,(*** u*** R******* N*** S***** C******,2|Cirebon|Hotel|Kedawung
+76185,O** 9**** P********* S**** K*******,2|Kuningan|Bed & breakfast|Kuningan
+76219,S**** O** 5** R******* G**** H****,3|Cirebon|Guest House|Kedawung
+76229,O** 9** T****** G**** H**** S******,2|Cirebon|Hotel|Kedawung
+76244,O** 2*** P***** W******,2|Cirebon|Bed & breakfast|Kedawung
+76251,C********* C******,2|Cirebon|Hotel|Kesambi
+76266,O** 2*** Z***** P***** G******,2|Cirebon|Hostel/Backpacker accommodation|Kedawung
+76269,S**** R*** G**** H**** C******,2|Cirebon|Guest House|Kesambi
+76289,M** H**** C****** ( P********* I*** B***** C****** ),2|Cirebon|Hotel|Kejaksan
+76293,C****** O 2*** H**** R*****,2|Cirebon|Bed & breakfast|Kedawung
+76310,R******* P*** N*** G**** C*** M***,3|Cirebon|Hotel|Cirebon
+76312,T** L*** G**** H**** S******,2|Cirebon|Hotel|Cirebon
+76331,R******* H***** @ G**** P**********,2|Pangandaran|Hotel|Pangandaran
+76353,I**** S***** H**** R*********,1|Pangandaran|Hotel|Pangandaran
+76360,P***** I**** R***** H**** B****,3|Pangandaran|Hotel|Pangandaran
+76364,O** 7** Y***** B**** H****,2|Pangandaran|Hostel/Backpacker accommodation|Pangandaran
+76373,A******** H**** K***********,3|Brebes|Hotel|Ketanggungan
+76387,O** 3*** H**** K***********,2|Singkawang|Hotel|Pasiran
+76397,S*** ON 2*** A*** G**** H**** S******,2|Cilacap|Hostel/Backpacker accommodation|cilacap tengah
+76406,F******** C******,3|Cilacap|Hotel|Sidakaya
+76410,R******* @ J**** B*** C******,2|Cilacap|Hotel|Cilacap
+76439,G**** H**** Hj M****** S****** S**** R*********,1|Tegal|Hotel|Kota Tegal
+76442,R******* S****** n*** A*** A*** B**** K*** T****,2|Tegal|Hotel|Kota Tegal
+76448,S****** R******** S******,1|Tegal|Hotel|Tegal
+76459,S***** G*** T****,3|Tegal|Hotel|Guci
+76472,H**** A**** B******** R*********,1|Purwokerto|Hotel|Banyumas
+76493,O** 8** H**** M**** J***,2|Purwokerto|Hotel|Purwokerto Selatan
+76499,T** L**** I**,0|Purwokerto|Hotel|Purwokerto
+76527,R******* S****** n*** U********** J******* S********,2|Purwokerto|Hotel|Purwokerto Timur
+76535,R******* n*** U********** M*********** P********* 2,2|Purwokerto|Hotel|Purwokerto
+76538,R******* S****** n*** R*** M****** P*********,2|Purwokerto|Hotel|Purwokerto Timur
+76550,B***** H**** - P********,3|Pontianak|Hotel|Pontianak
+76584,K***** D*****,2|Pontianak|Hotel|Pontianak
+76602,W**** P****** P*******,0|Pemalang|Hotel|Pemalang
+76608,O** 9**** H**** C*****,2|Kebumen|Bed & breakfast|Kebumen
+76619,I***** P*********,0|Pekalongan|Hotel|Pekalongan
+76627,U******** V**** K********* K****** by R*******,3|Kebumen|Hotel|Kebumen
+76634,H**** P********* S****** R*********,2|Pekalongan|Hotel|Pekalongan Timur
+76641,S**** Y**** B***********,3|Banjarnegara|Hotel|Madukara
+76650,R******* n*** K****** I******* B*****,2|Semarang|Hotel|Singosari
+76654,R******* S****** n*** E*** T** B*****,2|Pekalongan|Hotel|Pekalongan
+76665,C** H**** W*******,1|Wonosobo|Hotel|Wonosobo
+76685,H**** B*** A**** D**** R*********,1|Wonosobo|Hotel|Wonosobo
+76686,R******* @ G****** D**** P****** A***,2|Wonosobo|Hotel|Wonosobo
+76693,A**** K*******,3|Ketapang|Hotel|Delta Pawan
+76696,G**** Z*** K*******,3|Ketapang|Hotel|Delta Pawan
+76699,H**** S********** P******** R*********,1|Pasuruan|Hotel|Purworejo
+76705,S************* A****** Y*********,4|Yogyakarta|Hotel|Yogyakarta
+76715,S****** C****** S*** a** E********,1|Yogyakarta|Hotel|Yogyakarta
+76717,K******* H******* By Z***,2|Yogyakarta|Bed & breakfast|Kulon Progo
+76722,O*** W*** B******* By Z***,2|Yogyakarta|Bed & breakfast|Yogyakarta
+76723,P***** W***** K*******,1|Yogyakarta|Hotel|Yogyakarta
+76727,R******* n*** T******* W**** K**** P****,2|Yogyakarta|Hotel|Yogyakarta
+76728,G**** J*****,2|Yogyakarta|Bed & breakfast|Yogyakarta
+76736,A****** H*******,3|Yogyakarta|Bed & breakfast|Yogyakarta
+76738,H**** C****** T********* S****** R*********,1|Semarang|Hotel|Semarang
+76750,B*************,3|Magelang|Hotel|borobudur
+76788,S**** B******** H******* H****,1|Magelang|Hotel|borobudur
+76797,C****** H**** at J***** M*******,2|Magelang|Hotel|Magelang
+76799,S******* B********,3|Magelang|Hotel|borobudur
+76805,O** 2*** O**** N***** S******,2|Magelang|Hotel|Magelang
+76817,R**** B**** P****** R********* V**** B********,2|Magelang|Hotel|Magelang
+76846,L***** A**** By Z***,2|Yogyakarta|Hotel|Kretek
+76865,J**** M****** B******* H****,3|Yogyakarta|Hotel|Yogyakarta
+76872,R**** S*****,3|Yogyakarta|Hotel|Yogyakarta
+76874,D****** R***** & G****** n*** D*** W***** K******* Y********* R*********,1|Yogyakarta|Hotel|Bantul
+76885,O** 6** T** E**** S******,2|Yogyakarta|Hotel|Yogyakarta
+76904,U******** H**** S**** K***** E******,3|Yogyakarta|Hotel|Sleman
+76929,O** 8** P******* M******** S******,2|Yogyakarta|Hotel|Wirobrajan
+76937,A**** M** M********,1|Yogyakarta|Hotel|Patangpuluhan
+76941,R**** A***** G********* S******,2|Yogyakarta|Hotel|Yogyakarta
+76944,F**** O** I** S*******,2|Semarang|Hotel|Tugurejo
+76955,E********* H*******,1|Yogyakarta|Hotel|Bantul
+76982,O** 1*** A**** R********,2|Yogyakarta|Hotel|Gedongtengen
+76984,A**** R******** M******** Y********* R*********,1|Yogyakarta|Hotel|Gedongtengen
+76996,A***** H**** B********,2|Semarang|Hotel|Semarang
+77044,K*** T***,3|Yogyakarta|Hotel|Jetis
+77059,P**** M******** H****,3|Yogyakarta|Hotel|Sosrowijayan
+77069,O** 9**** A*** N******* B******* H****,2|Yogyakarta|Hotel|Yogyakarta
+77073,D******** M********,2|Yogyakarta|Hotel|Malioboro Street
+77076,S**** S** a** R***** S*******,3|Semarang|Hotel|Bandungan
+77078,A***** B******* Y*********,3|Yogyakarta|Hotel|Yogyakarta
+77094,W*** H**** M******** Y*********,2|Yogyakarta|Hotel|Malioboro Street
+77095,N** H**** L****,2|Yogyakarta|Hotel|Gedongtengen
+77096,K***** Y**** H******* M******** R*********,2|Yogyakarta|Bed & breakfast|Yogyakarta
+77137,R******* @ G***** I** T*** Y*********,2|Yogyakarta|Hotel|Yogyakarta
+77154,R******* @ J**** P***********,2|Yogyakarta|Hotel|Kota Gede
+77169,R******* n*** M******** T*** S****** J****,2|Yogyakarta|Hotel|Gedongtengen
+77176,M******* Y*********,3|Yogyakarta|Hotel|Yogyakarta
+77193,O** 2*** D**** J***** H*******,2|Yogyakarta|Hotel|Yogyakarta
+77203,D*** G***** Y*********,3|Yogyakarta|Hotel|Yogyakarta
+77230,M******** D****** H*******,2|Yogyakarta|Guest House|Yogyakarta
+77238,O** F******* 3*** T***** B*** R********,2|Yogyakarta|Hotel|Sleman
+77240,D*** G**** H**** Y*********,3|Yogyakarta|Hotel|Yogyakarta
+77282,S** H**** J****,3|Yogyakarta|Hotel|Danurejan
+77300,O** 3** P***** A**** R******,2|Yogyakarta|Hotel|Sleman
+77305,O** 3*** D**** P*** S****** S******,2|Yogyakarta|Hotel|Yogyakarta
+77318,A*** M********* T**** S**** 91 Y*********,2|Yogyakarta|Hotel|Mergangsan
+77321,U********* C*** H**** U**,3|Yogyakarta|Hotel|Mlati
+77330,K***** S******* Y********* by H***** (******** N****** Y**********,4|Yogyakarta|Hotel|Gondokusuman
+77338,R******* @ J**** M****** S*****,2|Yogyakarta|Guest House|Umbulharjo
+77346,S*** ON 2*** R**** N****** H**** S******,2|Yogyakarta|Hotel|Yogyakarta
+77363,R******* @ J**** B****,2|Yogyakarta|Hotel|Yogyakarta
+77364,P***** ke U*****,3|Yogyakarta|Aparthotel|Sleman
+77369,R******* @ J**** B**** 2,2|Yogyakarta|Guest House|Yogyakarta
+77387,T********* H******* S******* R*********,1|Semarang|Hotel|Semarang
+77408,T***** Y*********,2|Yogyakarta|Hotel|Demangan
+77420,R******* P*** n*** S****** M****** K****,3|Yogyakarta|Hotel|Umbulharjo
+77428,G**** K***** H**** U*** S******** Y********* (******** H****** Y**********,3|Yogyakarta|Hotel|Demangan
+77445,R******* P*** n*** U********** N***** Y*********,3|Yogyakarta|Hotel|Sleman
+77463,T** M******* H**** Y*********,4|Yogyakarta|Hotel|Gejayan
+77470,Y***** S*** G******,3|Yogyakarta|Hotel|Sleman
+77481,B**** M***** M***** H****,0|Yogyakarta|Hotel|Yogyakarta
+77486,R**** C**** S******* R*********,2|Semarang|Hotel|Semarang
+77489,G***** R******** A****** H**** S*******,2|Semarang|Hotel|Semarang Barat
+77491,U******** H**** S****** W********* by R*******,3|Yogyakarta|Hotel|Umbulharjo
+77493,R******* n*** K***** 3 U** Y*********,2|Yogyakarta|Bed & breakfast|Yogyakarta
+77497,N** S***** Y*********,4|Yogyakarta|Hotel|Sleman
+77516,O** 6** C**** H******* S******,2|Semarang|Hostel/Backpacker accommodation|Semarang Barat
+77523,A***** P******* H**** Y*********,3|Yogyakarta|Hotel|Sleman
+77534,A*** U********* P******* K********** 87 Y*********,0|Yogyakarta|Hotel|Yogyakarta
+77539,R******* @ D******* S*** R********,2|Yogyakarta|Hotel|Catur Tunggal
+77566,R******* P*** n*** H****** M***,3|Yogyakarta|Hotel|Sleman
+77569,O** 1*** 88 E******** G*********,2|Yogyakarta|Hotel|Depok
+77573,R******* n*** M*** A******** Y*********,2|Yogyakarta|Hotel|Yogyakarta
+77588,K***** H**** S*******,2|Semarang|Hotel|Semarang Barat
+77595,O**** D**** G**** H**** S****** S*******,1|Semarang|Hotel|Semarang Barat
+77597,H**** A***** S******,3|Yogyakarta|Hotel|Sleman
+77610,S*** ON 2*** I** P**** S****** R********,2|Yogyakarta|Hotel|Sleman
+77615,S*** H**** G*** W*** S*******,3|Semarang|Hotel|Semarang
+77619,O** 9**** T2 E******** S******,2|Yogyakarta|Bed & breakfast|Depok
+77625,O** 9**** H*** De R*** G*********,2|Yogyakarta|Bed & breakfast|Catur Tunggal
+77627,E*** J**** H******* By Z***,2|Yogyakarta|Guest House|Yogyakarta
+77680,T** S********* H**** By Z***,1|Yogyakarta|Hotel|Depok
+77690,O*** A********,1|Jakarta|Bed & breakfast|City Center
+77698,A***** H*****,1|Semarang|Hostel/Backpacker accommodation|Semarang
+77702,R******* @ S****** R*** (******** R******* @ S******* R****,2|Yogyakarta|Hotel|Catur Tunggal
+77704,O** 2*** R**** D**** G**** H**** S******,2|Yogyakarta|Bed & breakfast|Yogyakarta
+77719,O** 2*** I***** T***** B*********,2|Semarang|Hostel/Backpacker accommodation|Banyumanik
+77734,R******** A******** B**** C*** by C****** - WM P*******,3|Yogyakarta|Hotel|Depok
+77759,K******* n*** S****** M**********,1|Yogyakarta|Hotel|Sleman
+77786,P***** S****** C********** B******* & T****** H****,3|Semarang|Hotel|Semarang
+77795,U******** H**** A***** S****** L*** by R*******,3|Semarang|Hotel|Semarang
+77805,M*** I** S*******,3|Semarang|Hotel|Semarang
+77819,R******* @ J**** S******** S*******,2|Semarang|Hotel|Banyumanik
+77825,S**** B******* H**** K*** L*** S*******,2|Semarang|Hotel|Poncol
+77833,C***** H**** S******* M****** by T****** H***** M*********,4|Semarang|Hotel|Gajah Mada
+77844,I****** S******,2|Semarang|Guest House|Semarang Selatan
+77855,A**** E****** H**** Y********* by D***** I************ (******** A**** G**** Y**********,2|Yogyakarta|Hotel|Timoho
+77864,DS R******** S*******,4|Semarang|Hotel|Candisari
+77876,R******* P*** n*** C****** M*** S****** L*** 2,3|Semarang|Hotel|Semarang
+77896,D******* O**** By Z***,4|Yogyakarta|Hotel|Depok
+77906,R******* n*** S*** S********* K*****,2|Salatiga|Hotel|Getasan
+77917,R** O***** S****** L*** by S*****,2|Semarang|Hotel|Simpang Lima
+77922,R****** V****,0|Yogyakarta|Hotel|Sleman
+77928,W**** J*** By Z***,3|Yogyakarta|Bed & breakfast|Yogyakarta
+77950,R******* S****** n*** RS H****** Y*********,2|Yogyakarta|Hotel|Depok
+77953,H**** P***** K*** L*** S*******,2|Semarang|Hostel/Backpacker accommodation|Semarang Tengah
+77954,P********* M******** K******** R*********,1|Yogyakarta|Hotel|Sleman
+77982,J*** I** S*******,2|Semarang|Guest House|Semarang
+77994,O** 1*** P********* Rb S******,2|Yogyakarta|Hostel/Backpacker accommodation|Maguwoharjo
+78011,R**** S****** G**** H**,2|Semarang|Hotel|Semarang
+78013,S*** ON 2*** O****,2|Semarang|Bed & breakfast|Gajahmungkur
+78027,B**** L****** S*** D****** By Z***,2|Yogyakarta|Villa|Bantul
+78041,O** 1*** U*** R********,2|Semarang|Guest House|Gayamsari
+78044,R*** S*******,3|Semarang|Hotel|Semarang
+78045,H**** R*** S*******,0|Semarang|Hotel|Tembalang
+78063,R******* n*** T******* A A********* A******,2|Yogyakarta|Hotel|Kalasan
+78077,D*** S*******,2|Semarang|Hotel|Pedurungan
+78089,O** 1*** P****** R********,2|Semarang|Hotel|Semarang
+78092,B**** S*****,2|Semarang|Hotel|Pedurungan
+78096,O** 1*** W**** T**** S******,2|Semarang|Bed & breakfast|Pedurungan
+78140,H**** K******* D**** R*********,2|Yogyakarta|Hotel|Gunung Kidul
+78182,O**** V*** R******** J*****,3|Jepara|Hotel|Jepara
+78186,T** G**** I** T***,2|Jepara|Inn|Tahunan
+78192,J***** I****,0|Jepara|Hotel|Jepara
+78200,N***** H******* T****,2|Jepara|Hotel|Jepara
+78201,J***** G***** R*****,1|Jepara|Hotel|Jepara
+78235,L**** D****** S*** H****,"3|Solo City|Hotel|Colomadu,"
+78244,R******* P*** S****** n*** L****** S***,3|Solo City|Hotel|Sukoharjo
+78252,A**** S***,5|Solo City|Hotel|Laweyan
+78274,S*** ON 2*** H**** M**** S***,2|Solo City|Hostel/Backpacker accommodation|Laweyan
+78281,T** S**** H**** S***,4|Solo City|Hotel|Laweyan
+78291,R******** H*******,2|Solo City|Hotel|Solo City
+78292,R******* n*** G**** S*** B**** S***,2|Solo City|Hotel|Banjarsari
+78295,(*** u*** R******* P*** @ P********,3|Solo City|Hotel|Laweyan
+78304,K******* S****** n*** S*** P****** M***,3|Solo City|Guest House|Laweyan
+78314,Z*** H**** P***** R*** S***,2|Solo City|Hotel|Surakarta
+78324,R******* P*** @ L******,3|Solo City|Hotel|Laweyan
+78326,S*** P****** a** R*********,4|Solo City|Hotel|Mangkubumen
+78332,R******* P*** n*** S*** B***,3|Solo City|Bed & breakfast|Solo
+78345,M******* H**** S*** (******** R** P***** S****,2|Solo City|Hotel|Mangkubumen
+78349,R******* n*** T******* T********,2|Solo City|Hotel|Banjarsari
+78358,U******** H**** S*** T****,2|Solo City|Hotel|Laweyan
+78369,R******* n*** S*** B****** S****** 2,2|Solo City|Hotel|Banjarsari
+78374,N****** c******** S***,0|Solo City|Hotel|Solo City
+78385,S**** Y********* H****,3|Solo City|Hotel|Balapan
+78394,N*** A**** H**** S***,3|Solo City|Hotel|Serengan
+78395,P*** In S***,3|Solo City|Hotel|Balapan
+78412,B****** S***** R*****,3|Solo City|Hotel|Banjarsari
+78429,C****** O 9**** D**** G**** H****,2|Kudus|Bed & breakfast|Kudus
+78438,S***** H**** S********,3|Central Java|Hotel|Central Java
+78442,R******* n*** S****** T**** K****,2|Kudus|Hotel|Kudus
+78456,at H** H**** K**** by H****** G****,2|Kudus|Hotel|Kudus
+78482,S**** O** 2*** S****** H**** P***,2|pati|Hotel|pati
+78494,R******* P*** @ Jl P***** P***,3|pati|Hotel|pati
+78495,S**** O** 2*** H**** G**** P****,2|Pacitan|Hotel|Pacitan
+78507,R******* S****** n*** A*** A*** P****** 2,2|Pacitan|Hotel|Pacitan
+78520,F***** H**** T**********,4|Tawangmangu|Hotel|Tawangmangu
+78535,O** 3*** Al B****** S****** F*****,2|Magetan|Hotel|Magetan
+78541,R******* n*** A*** - A*** M******,2|Magetan|Bed & breakfast|Magetan
+78549,K****** B****,0|Blora|Hotel|Blora
+78582,A*** K****** M***** 4 M*****,0|Madiun|Hotel|Madiun
+78590,S**** O** 1*** H**** S******* P*****,2|Madiun|Hotel|Manguharjo
+78614,N*** A** D** H**** N*********,2|Nanga Pinoh|Hotel|Borneo
+78626,A****** P*** 3 S****** n*** T******* C******,1|Madiun|Hotel|Kartoharjo
+78631,S*** ON 2*** A**** H*******,2|Trenggalek|Hotel|Trenggalek
+78635,R******* P****** @ R*** B*********,3|Bojonegoro|Hotel|Bojonegoro
+78650,D****** H**** a** C********* B*********,3|Bojonegoro|Hotel|Sukorejo
+78652,A*** V****** 55 B*********,0|Bojonegoro|Hotel|Bojonegoro
+78682,A*** M******* J**** A**** S******* 26 K*****,0|Kediri|Hotel|Kediri
+78693,H**** P******** K*****,0|Kediri|Hotel|Kediri
+78699,S**** H******* S******,2|Tuban|Hotel|Bogorejo
+78700,HP R******** R********* n*** A*** A*** K*****,1|Kediri|Hotel|Kediri
+78702,V*** H**** K*****,2|Kediri|Hotel|Kediri
+78741,H**** S****** B*****,3|Blitar|Hotel|Blitar
+78742,S*** ON 2*** P******** R********,2|Blitar|Hostel/Backpacker accommodation|Kepanjenkidul
+78748,U******** H**** S***** K****** I****** P*** by R*******,2|Kediri|Hotel|Kediri
+78761,H**** Y**** J****** (****** H***** R********* & C********* (******** Y**** H**** R********* a** C**********,3|Jombang|Hotel|Peterongan
+78825,R******* S****** n*** B**** K*** B***,2|Malang|Hotel|Malang city
+78835,R******* n*** W***** M***** A***** 3,1|Batu|Hotel|Pesanggrahan
+78872,V**** A*** K***** B*** M*****,2|Batu|Villa|Batu
+78882,T** B*** V***** N**** n*** M***** A*****,2|Batu|Villa|Batu
+78883,B*** H***** a** V***** (****,0|Batu|Hotel|Batu
+78886,G****** B*** B******* H****,3|Batu|Hotel|Ngaglik
+78890,O** 9**** Tl G**** H****,2|Batu|Bed & breakfast|Batu
+78897,O** 9** T*******,2|Batu|Bed & breakfast|Batu
+78899,O** T*** G******* R*****,3|Batu|Hotel|Batu
+78907,V**** V**** By Z***,1|Batu|Villa|Batu
+78927,R******* n*** B** B***,1|Malang|Hotel|Malang
+78938,R******* @ V**** A**** 3,1|Malang|Hotel|Malang city
+78941,O** 9**** V**** D*** & H******* B***,2|Malang|Bed & breakfast|Lawang
+78956,O** 3*** T**** W******** H*******,2|Batu|Hotel|Batu
+78959,O** 1*** P**** A*** R******** S******,2|Batu|Hotel|Batu
+78962,G**** H******* By Z***,2|Batu|Hostel/Backpacker accommodation|Batu
+78968,R******* S****** n*** B*** N**** S********** 2,1|Malang|Hotel|Malang city
+78973,O** 9** C***** H****,3|Mojokerto|Hostel/Backpacker accommodation|Pacet
+78976,G**** S****,2|Malang|Hotel|Malang city
+78997,H**** Y** C***** (***** Y** C***** K********,4|Malang|Hotel|Malang
+79002,R**** C****** H**** a** O*******,2|Mojokerto|Hostel/Backpacker accommodation|trawas
+79003,A*** C******* a** R*****,0|Mojokerto|Hotel|Mojokerto
+79008,O** 3*** I** a**,2|Mojokerto|Hotel|Mojokerto
+79010,S*** ON 2*** D***** H******* F*****,1|Malang|Hostel/Backpacker accommodation|Sengkaling
+79018,O** 9**** T****** H*******,2|Malang|Hotel|Malang city
+79026,F***** G**** H****,3|Malang|Guest House|Malang
+79033,O** 3** A**** K****** R*** H****,2|Mojokerto|Hotel|Mojokerto
+79049,O** 9**** D**** E****** H**** S******,2|Malang|Hotel|Malang city
+79055,T*** H*******,1|Malang|Hotel|Malang
+79065,R******* n*** C**** M***,1|Malang|Hotel|Sukun
+79078,O** 9**** R**** B**** T***** s******,2|Pasuruan|Bed & breakfast|Prigen
+79079,P******* m** G**** H****,2|Malang|Hotel|Malang city
+79092,B***** G**** H**** T**** M****** J***,2|Malang|Guest House|Klojen
+79105,E******* S**** M*****,2|Malang|Hotel|Lowokwaru
+79124,R******* n*** U********** N***** M*****,2|Malang|Hotel|Lowokwaru
+79129,S**** G***** B******* G**** H****,3|Malang|Hotel|Malang
+79131,R******* @ H******* G******,1|Malang|Hotel|Malang city
+79133,S****,2|Malang|Guest House|Lowokwaru
+79137,S*** ON 1*** L*** F***** R******** S******,2|Malang|Hostel/Backpacker accommodation|Lowokwaru
+79138,De P**** S****** R*********,1|Malang|Hotel|Lowokwaru
+79151,L******* G********* M*****,3|Malang|Hotel|Malang
+79166,L** M** H**** P*****,2|Pasuruan|Hotel|Prigen
+79180,R******* @ T***** 2,2|Pasuruan|Hotel|Prigen
+79187,R******* n*** G******* S****** M*****,2|Malang|Hotel|Malang city
+79196,G*** H**** M*****,3|Malang|Hotel|Malang city
+79210,A*** A*** A*** M***** B***** R****** 1,0|Malang|Hotel|Malang
+79217,H**** A***,2|Malang|Guest House|Klojen
+79220,So B******* H*****,2|Malang|Hostel/Backpacker accommodation|Klojen
+79236,R******* H***** @ M***** C*** C***** 2,2|Malang|Hotel|Klojen
+79261,L*** G**** H****,1|Malang|Hotel|Klojen
+79263,O***** G*****,3|Malang|Hotel|Klojen
+79275,M**** M***** D*** H*****,1|East Java|Hostel/Backpacker accommodation|East Java
+79280,V**** M*******,0|Pasuruan|Guest House|Pandaan
+79281,R******* n*** U********** W******** M*****,2|Malang|Guest House|Malang city
+79283,F**** H****,1|Malang|Hotel|Singosari
+79284,O** 9**** P** S******,2|Malang|Bed & breakfast|Lowokwaru
+79287,R******* n*** K****** W**** W****,2|Malang|Hotel|Klojen
+79296,A*** L******** S***** 22 M*****,0|Malang|Hotel|Malang
+79297,C**** R******** H**** & V****,3|Surabaya|Hotel|Lakarsantri
+79298,Z** R**** n*** S****** K*** B***,0|Malang|Hotel|Klojen
+79312,P********,1|Malang|Hotel|Blimbing
+79337,R******* @ R******** M*****,2|Malang|Hotel|Blimbing
+79343,O** 3** K****** S****** H*******,2|Malang|Hostel/Backpacker accommodation|Lowokwaru
+79352,O** 9**** H******* M*****,2|Malang|Bed & breakfast|Blimbing
+79357,S**** O** 1*** K*** F***** R********,2|Gresik|Hotel|Gresik
+79368,K****** G**** H**** by P**** K****,3|Malang|Guest House|Blimbing
+79382,O** 3*** H**** W******* S****** M*****,2|Malang|Hotel|Malang city
+79393,S*** ON 2*** K***** K** F***** S******,2|Malang|Hotel|Malang city
+79405,O** 1*** V******** F***** H****,2|Malang|Hostel/Backpacker accommodation|Blimbing
+79408,O** 2*** T**** D*** V**** G*** V***,2|Pasuruan|Hotel|Prigen
+79417,R******* S****** @ P******* S*******,2|Sidoarjo|Hotel|Sidoarjo
+79442,R******* @ L*****,2|Malang|Hotel|Lawang
+79452,G**** A** H****,0|Surabaya|Hotel|Sukomanunggal
+79459,R******* n*** K******** N***** S*******,2|Surabaya|Hotel|Surabaya
+79477,Y***** S******* R********* n*** M****** S*******,2|Surabaya|Hotel|Surabaya City Center
+79509,De L*** H******* n*** A*** A*** S*******,2|Sidoarjo|Hotel|Sidoarjo
+79514,C****** I** S*******,2|Sidoarjo|Hotel|Sidoarjo
+79516,O** 3*** D***** H*******,2|Sidoarjo|Hotel|Sidoarjo
+79522,R******* n*** C****** W**** 3,2|Surabaya|Hotel|Surabaya
+79527,O** 1*** D***** H*******,2|Surabaya|Hotel|Dukuh Pakis
+79534,R******* @ D**** P*** 1 S*******,2|Surabaya|Hotel|Sawahan
+79546,H**** A******** By Z***,3|Surabaya|Hotel|Surabaya
+79559,R******* n*** RS M**** K******* W***,2|Sidoarjo|Hotel|Sidoarjo
+79578,R******* P*** @ P********,3|Pasuruan|Hotel|Pasuruan
+79580,V******* H******* S****** 2 R*********,2|Surabaya|Hotel|Gayungan
+79613,R******* n*** P******** T****** P**** 2 S*******,2|Surabaya|Hotel|Surabaya
+79614,R******* P*** n*** C*** M*** S*******,3|Surabaya|Hotel|Wonocolo
+79625,M*********************,3|Surabaya|Hotel|Sawahan
+79637,A***** H**** E***** M***** S*******,2|Surabaya|Hotel|Embong Malang
+79648,P****** H**** S*******,4|Surabaya|Hotel|Pabean Cantian
+79651,Z** R**** K***** S*** W*******,3|Surabaya|Hotel|Tegalsari
+79662,R******* n*** P**** T*** S******,2|Surabaya|Hotel|Bubutan
+79671,O** 9**** P****** S******,2|Surabaya|Bed & breakfast|Sawahan
+79692,U******** H**** K*** S*******,2|Surabaya|Hotel|Tegalsari
+79695,V**** C****** H**** T******** S********,3|Surabaya|Hotel|Genteng
+79713,B***** H**** D**** S*******,3|Surabaya|Hotel|Wonokromo
+79717,H**** G**** K****** S****** 2,2|Surabaya|Hotel|Pabean Cantian
+79725,H**** S**** J***** S*******,3|Surabaya|Hotel|Juanda
+79735,R******* @ U*** S********,2|Surabaya|Hotel|Tegalsari
+79748,H******* M****** W**** O***,2|Surabaya|Guest House|Tegalsari
+79760,H******* E******** D*** W**** O*** By Z***,2|Surabaya|Guest House|Tegalsari
+79766,M***** H****,3|Surabaya|Hotel|Genteng
+79767,H**** G**** M*** By Z***,1|Surabaya|Hotel|Simokerto
+79810,G S***** H**** S*******,3|Surabaya|Hotel|Gubeng
+79826,S******* P****,0|Surabaya|Hotel|Surabaya
+79830,A*** G***** K********,0|Surabaya|Hotel|Surabaya
+79852,My S***** H**** S*******,1|Surabaya|Hostel/Backpacker accommodation|Surabaya
+79869,C******** My T**** H****,4|Surabaya|Hotel|Tenggilis Mejoyo
+79877,H**** T******,3|Sidoarjo|Hotel|Gedangan
+79889,De R*** H****,3|Surabaya|Hotel|Gubeng
+79909,R******* n*** J***** I************ A****** 2,2|Sidoarjo|Hotel|Sidoarjo
+79932,O** 1*** P********* D**** II,2|Surabaya|Hotel|Tambaksari
+79934,O** 2** I***** P****** N*****,0|Surabaya|Hotel|Surabaya
+79938,O** 2*** M***** S**** S******** S****** H****,2|Sidoarjo|Bed & breakfast|Sidoarjo
+79944,O** 1*** O*** D*****,2|Surabaya|Bed & breakfast|Gubeng
+79946,G**** C****** B******* H****,0|Surabaya|Hotel|Rungkut
+79947,R******* n*** K*** M*** S*******,2|Surabaya|Bed & breakfast|Surabaya
+79950,B***** H**** S*******,3|Surabaya|Hotel|Manyar
+79958,A*** R*** R****** J***** S*******,0|Surabaya|Hotel|Surabaya
+79960,Z** R**** R*** R******,2|Surabaya|Hotel|Surabaya
+79962,O** 2*** Az Z**** R******** S******,2|Surabaya|Bed & breakfast|Gunungsari
+79964,R******* @ P***** C*****,1|Surabaya|Hotel|Rungkut
+79970,(*** u*** R******* P****** @ R*** N******,3|Surabaya|Hotel|sedati
+79979,My H**** H*******,2|Surabaya|Hotel|Surabaya
+79988,H**** S******,3|Surabaya|Hotel|Surabaya
+79993,H**** P******,1|Sidoarjo|Hotel|Sidoarjo
+80004,T** A***** P****** H**** S*******,3|Surabaya|Hotel|Surabaya
+80021,R**** K******** H*******,1|Surabaya|Hotel|Surabaya
+80023,R******* @ R******,2|Surabaya|Hotel|Rungkut
+80041,H******* B***** n*** W***** B***** T***** S*******,1|Sidoarjo|Hotel|Sidoarjo
+80049,J**** H*******,3|Pasuruan|Guest House|Tosari
+80053,O** 1*** P********* R****,2|Pasuruan|Hotel|Prigen
+80067,G********* H**** R*********,1|Kotawaringin Timur|Hotel|Kotawaringin Timur
+80073,C***** I**** H****,1|Probolinggo|Hotel|Probolinggo
+80076,L***** S**** K**** I,2|Probolinggo|Guest House|Sukapura
+80079,L**** H*******,2|Probolinggo|Guest House|Sukapura
+80086,B**** H****** G*********,2|Probolinggo|Guest House|Sukapura
+80087,O** 2*** P***** H******* B****,2|Probolinggo|Hotel|Probolinggo
+80105,O** 2*** R**** S****** B**,2|Probolinggo|Hotel|Probolinggo
+80115,R******* @ T***** P**********,2|Probolinggo|Hotel|Probolinggo
+80120,O** 1*** P********* A****** S****** 2,2|Probolinggo|Bed & breakfast|Probolinggo
+80123,O** 9** D***** V******,3|Probolinggo|Hotel|Sukapura
+80127,C***** H*******,2|Probolinggo|Hotel|Mayangan
+80129,V**** H*******,2|Probolinggo|Hotel|Probolinggo
+80130,G**** J***** P**********,2|Probolinggo|Hotel|Probolinggo
+80134,G**** H**** R**** W****** S******,1|Probolinggo|Hotel|Probolinggo
+80147,B**** P*** H****,3|Probolinggo|Hotel|Probolinggo
+80156,G**** A**** H**** L*******,1|Lumajang|Hotel|Lumajang
+80186,A**** J***** H**** a** C********* C*****,4|Jember|Hotel|Kaliwates
+80189,K********** H*******,1|Jember|Hotel|Kaliwates
+80190,JC H******* J*****,3|Jember|Hotel|Jember
+80195,J*** L**** H**** J*****,4|Jember|Hotel|Kaliwates
+80198,S******* H**** J*****,0|Jember|Hotel|Jember
+80230,R******* @ R******* KM 5 P***********,2|Palangkaraya|Hotel|Bundaran Besar
+80242,A*** S****** P******* R******* Km 2** P***********,0|Palangkaraya|Hotel|Palangkaraya
+80255,R******* P*** n*** B******* B**** P***********,3|Palangkaraya|Hotel|Jekan Raya
+80259,U******** H**** G**** M****** P*********** by R*******,2|Palangkaraya|Hotel|Jekan Raya
+80285,H**** H******** P*********** R*********,1|Palangkaraya|Hotel|Pahandut
+80290,M**** U**** E** R*****,2|Banyuwangi|Hotel|Kalibaru
+80321,G**** A*** S****** R*********,1|Banyuwangi|Hotel|Banyuwangi
+80329,A******* H*******,0|Banyuwangi|Hotel|Banyuwangi
+80334,S*** ON 1*** G**** K******,2|Banyuwangi|Hostel/Backpacker accommodation|Banyuwangi
+80341,K********* R***** H*******,2|Banyuwangi|Guest House|Glagah
+80347,K****** O**** I**,2|Banyuwangi|Guest House|Banyuwangi
+80362,S*** ON 1*** P**** K***** R********,2|Banyuwangi|Hostel/Backpacker accommodation|Giri
+80378,O** 5** M******** H******* S****** 1,2|Banyuwangi|Guest House|Banyuwangi
+80382,O** 9**** W********,2|Banyuwangi|Bed & breakfast|Banyuwangi
+80418,R******* n*** B********* B*** S******,2|Banyuwangi|Hotel|Banyuwangi
+80421,F***** H**** K**** K*****,3|Kapuas|Hotel|Kapuas
+80430,Z****** H******* S****** R*********,2|Banyuwangi|Hotel|Banyuwangi
+80433,O** 3*** H**** D*** W******,2|Bali|Bed & breakfast|Gianyar
+80473,O** 3*** E**** H****,2|Banjarmasin|Hotel|Banjarbaru
+80482,A*** T**** M***** B******* P***** T****** 22 B**********,0|Banjarmasin|Hotel|Banjarmasin
+80498,O** 1*** H**** S******* S*******,2|Banjarmasin|Hotel|Banjarmasin Timur
+80500,U******** H**** G**** B**********,2|Banjarmasin|Hotel|Banjarmasin Timur
+80516,J********* H****,3|Bali|Hotel|Bali
+80523,T******* B**********,3|Banjarmasin|Hotel|Pemurus Dalam
+80565,O** 9**** H** G*********,2|Banjarbaru|Bed & breakfast|Banjarbaru Utara
+80574,K***** G**** H**** S******,2|Banjarbaru|Hotel|Banjarbaru
+80588,O** 2*** A**** H*******,2|Banjarbaru|Hotel|Banjarbaru Utara
+80590,O** 3*** H******* S***** W***** S******,2|Banjarbaru|Hotel|Banjarbaru Utara
+80614,P***** P*****,3|Bali|Inn|Denpasar
+80620,N****** L*****,3|Bali|Hotel|Lovina
+80626,A***** B**** R*****,3|Bali|Hotel|Lovina
+80628,B*** L***** B**** C*******,4|Bali|Hotel|Bali
+80646,O** 3*** V****** V****,2|Bali|Hotel|Bali
+80674,B*** L***,3|Bali|Bed & breakfast|Denpasar
+80676,M**** G***** B******** By Z***,1|Bali|Hotel|Tabanan
+80682,M********* H*******,1|Bali|Hotel|Denpasar
+80713,V**** P****,3|Bali|Villa|Denpasar
+80717,P*** U****** V*****,3|Bali|Hotel|Uluwatu
+80734,A**** S**** V****,4|Bali|Hotel|Denpasar
+80738,R******* n*** B******* H****** 2,2|Bali|Bed & breakfast|Bali
+80747,A** G*** R*****,3|Bali|Resort|Denpasar
+80748,B*** G**** H****,2|Bali|Hotel|Denpasar
+80765,U**** B*** R*****,3|Bali|Hotel|Canggu
+80766,P***** P***** S*** G**** H**** B*** R*********,2|Bali|Hotel|Uluwatu
+80793,P****** S*** C***,3|Bali|Guest House|Denpasar
+80800,F******** B********,2|Bali|Hotel|Denpasar
+80814,J****** H*******,2|Bali|Bed & breakfast|Bali
+80826,B*** D**** V**** a** R***** E*** B****,3|Bali|Resort|Bali
+80833,E***** A**** R***** C*****,4|Bali|Hotel|Seminyak
+80853,T** K***** C***** H****,4|Bali|Resort|Canggu
+80857,D A**** S*** a** S*** C*****,3|Bali|Hotel|Canggu
+80876,T** L***** K***** P****** U******,4|Bali|Villa|Pecatu
+80885,G**** V****,0|Bali|Hotel|Denpasar
+80911,A**** R***** B***,5|Bali|Hotel|JImbaran
+80912,P**** V*** V****,0|Bali|Hotel|Denpasar
+80929,T** W*** E*** B**** G********* By Z***,2|Bali|Hotel|Canggu
+80954,T** C********* C***** by B** B*** H****** R******,3|Bali|Guest House|Canggu
+80956,C***** B****** B***,4|Bali|Villa|Canggu
+80957,O** 5** B*** M*** G**** H****,2|Bali|Hotel|badung
+80962,L** R***** H**** C***** B***,5|Bali|Resort|Seminyak
+80975,O** 9**** P*** K***** C*****,2|Bali|Hotel|Canggu
+80977,A**** V*****,4|Bali|Hotel|Denpasar
+80980,O** 3*** V**** K******,2|Bali|Hotel|Canggu
+80988,M******* D********,4|Bali|Hotel|Denpasar
+81009,A**** S**** R*****,3|Bali|Hotel|JImbaran
+81012,V**** U***** B***,4|Bali|Villa|Denpasar
+81043,K****** 1** By Z***,2|Bali|Hotel|JImbaran
+81049,I*** R*** By Z***,2|Bali|Bed & breakfast|Canggu
+81061,V**** D****,4|Bali|Villa|badung
+81095,V**** G******,4|Bali|Villa|Denpasar
+81099,A*** B******* R***** (******** T** A*** V*****,4|Bali|Hotel|Umalas
+81115,I**** V*****,3|Bali|Villa|Denpasar
+81153,H****** B**** S*****,3|Bali|Hotel|Seminyak
+81157,O** 9**** L********* G**** H****,2|Bali|Bed & breakfast|Canggu
+81197,C*** T*****,3|Bali|Hotel|badung
+81207,A**** V***** B***,5|Bali|Hotel|JImbaran
+81216,In C*** H*****,2|Bali|Bed & breakfast|Bali
+81222,O** 9**** V**** G**** H****,2|Bali|Bed & breakfast|Seminyak
+81223,Z** R**** C********** 1 S*******,3|Bali|Hotel|Seminyak
+81275,A******* V***** C*****,0|Bali|Hotel|Canggu
+81281,T** A*** U*****,3|Bali|Villa|Bali
+81309,A***** V*****,5|Bali|Resort|Denpasar
+81388,V**** K****,0|Bali|Hotel|Denpasar
+81416,P*** S**** S*******,4|Bali|Hotel|Seminyak
+81420,R**** V**** U*****,4|Bali|Hotel|Umalas
+81441,S******** P********,3|Bali|Hotel|Denpasar
+81444,d*********** P********* S******* (******** A**** B******* H*****,4|Bali|Hotel|Seminyak
+81447,H**** I***** B*** S******* B****,5|Bali|Hotel|Seminyak
+81466,R******* n*** S******* B****,2|Bali|Hotel|Seminyak
+81476,B*** S****,3|Bali|Hotel|Denpasar
+81482,3 P******* B******* H**** a** S**,3|Bali|Hotel|Denpasar
+81487,AW R******** S*******,0|Bali|Hotel|Seminyak
+81498,U** S****,5|Bali|Hotel|Denpasar
+81509,L**** T**** S*******,3|Bali|Hotel|Seminyak
+81543,V**** M****,0|Bali|Hotel|Denpasar
+81561,D*** G********* B***,3|Bali|Guest House|Denpasar
+81594,J*** R*****,3|Bali|Hotel|Denpasar
+81609,M***** R********,3|Bali|Hotel|Kerobokan
+81619,O** 2*** M****** H****,2|Bali|Hotel|badung
+81632,B**** P****** H*******,2|Bali|Hotel|Bali
+81634,B*** M****** B**** R***** a** S**,5|Bali|Resort|Legian
+81646,S**** B*** H**** By Z***,2|Bali|Bed & breakfast|Legian
+81653,A*** K***** B******* R*****,4|Bali|Resort|Kuta
+81662,T***** C*******,2|Bali|Hotel|Seminyak
+81665,T**** B*** K*** B****,4|Bali|Resort|Kuta
+81675,V**** Z******,3|Bali|Villa|Denpasar
+81679,J***** B*** v*****,0|Bali|Hotel|Denpasar
+81694,J**** G***** L*****,0|Bali|Hotel|Legian
+81699,T**** B******* B********,3|Bali|Hotel|Legian
+81736,O** 3*** G**** R*** H*******,2|Bali|Hotel|badung
+81740,F******** S***** S*******,3|Bali|Hotel|Seminyak
+81755,S******** B****,3|Bali|Hotel|Denpasar
+81773,O** 9**** R****** K*** R********,2|Bali|Bed & breakfast|Legian
+81779,L***** E******,3|Bali|Hotel|Legian
+81784,S******* B*** K*** R*****,5|Bali|Hotel|Kuta
+81791,A R******** K***,3|Bali|Hotel|Kuta
+81794,B** S**** H**** S*******,2|Bali|Hotel|Seminyak
+81810,M******* V**** 4,3|Bali|Villa|Denpasar
+81823,P*** T**** L**,3|Bali|Hotel|Denpasar
+81833,O** 3*** V**** P*** R****,2|Bali|Hotel|Bali
+81847,V**** J***** S*******,5|Bali|Villa|Seminyak
+81851,S****** C*******,3|Bali|Hotel|Kuta
+81872,V**** H**** J*******,2|Bali|Hotel|JImbaran
+81884,R******* H***** n*** L**** M*** K***,2|Bali|Bed & breakfast|Bali
+81927,A****** K***,3|Bali|Hotel|Bali
+81941,A*** J******* W**** U****** 20 B***,0|Bali|Hotel|JImbaran
+81973,C****** G****,2|Bali|Hostel/Backpacker accommodation|Denpasar
+81979,Y**** B**** I** B***,3|Bali|Hotel|Kuta
+81983,O** 4*** A** B**** I**,2|Bali|Hotel|badung
+81988,T****** at K*** H****,3|Bali|Hotel|Kuta
+81989,Z** R**** K*** B*******,3|Bali|Hotel|Kuta
+81992,B*** H***** P******* S*******,3|Bali|Hotel|Seminyak
+81996,L***** G**** H****,0|Bali|Hotel|Denpasar
+82034,Z** R**** K*** T**** S*****,3|Bali|Hotel|Kuta
+82062,F******** K*** S*****,3|Bali|Hotel|Kuta
+82073,K*** D***** L****,3|Bali|Bed & breakfast|Bali
+82075,S****** S*******,3|Bali|Hotel|Seminyak
+82078,O** 2*** T**** M**** B**** I** 2,2|Bali|Hotel|badung
+82090,B******* V*****,4|Bali|Villa|Legian
+82098,A*** K*** S***** T**** W**** 2 B***,0|Bali|Hotel|Kuta
+82110,AB H**** K***,3|Bali|Hotel|Kuta
+82119,T** F**** K*** B***,3|Bali|Hotel|Bali
+82125,O** 3*** P***** D**** J***,2|Bali|Hotel|badung
+82128,G***** S*** H**** By Z***,3|Bali|Hotel|Kuta
+82138,Z** H****,3|Bali|Hotel|Denpasar
+82194,R******* at N***** S******* 2,2|Bali|Hotel|Seminyak
+82233,Z** R**** K*** T*******,0|Bali|Hotel|Kuta
+82234,D***** S**** a** R********,3|Bali|Hotel|Legian
+82264,L A**** S*******,3|Bali|Hotel|Seminyak
+82282,O** 9**** L***** M**** R********,2|Bali|Bed & breakfast|Legian
+82293,G**** K*** H**** a** R********,4|Bali|Hotel|Kuta
+82322,S****** B***,3|Bali|Hotel|Legian
+82328,R******* @ M*** T*** D*****,2|Bali|Bed & breakfast|Bali
+82329,F*** H**** S***** R***,3|Bali|Hotel|Legian
+82345,E******* H**** K*** C******,2|Bali|Hotel|Kuta
+82357,S** I***** S***** & S** G** G***,5|Bali|Villa|Uluwatu
+82361,O** 9**** A**** A********,2|Bali|Bed & breakfast|Kuta
+82363,U**** S***** H*** K***,2|Bali|Hotel|Legian
+82377,A*** I***** K*** G****** P**** J******* B***,0|Bali|Hotel|Kuta
+82389,K*** M****** H**** by U**** S*****,3|Bali|Hotel|Kuta
+82410,Z** P****** K*** R****,0|Bali|Hotel|Bali
+82414,K**** B**** G********* D*******,1|Bali|Hotel|Bali
+82430,A*** J******* T**** B***** B********** 1 B***,0|Bali|Hotel|JImbaran
+82445,R******* @ P************ D*******,2|Bali|Bed & breakfast|Bali
+82449,S**** O** 3*** K*** R******** B***,2|Bali|Hotel|Bali
+82465,V**** K*****,0|Bali|Hotel|Denpasar
+82500,T** A**** V****,3|Bali|Villa|Seminyak
+82504,W******** I** K***,2|Bali|Bed & breakfast|Bali
+82513,H**** T*** B** & R**** A** S**** By Z***,1|Bali|Hotel|Singaraja
+82515,R******* P*** n*** J**** I*** B***** D*******,3|Bali|Hotel|Denpasar
+82545,O** 9**** V** S*** C****,2|Bali|Bed & breakfast|Denpasar
+82562,A*** D******* S****** R*** P****** G*** T**** 2** B***,0|Bali|Hotel|Denpasar
+82568,O** 9**** P***** 8** T**** R********,2|Bali|Bed & breakfast|Denpasar
+82572,I**** R******** H****,1|Bali|Hotel|Denpasar
+82576,H**** D**** 2 By Z***,2|Bali|Hostel/Backpacker accommodation|Denpasar
+82577,O** 2*** H**** T**** W*****,2|Bali|Hotel|Denpasar
+82599,V**** S****,3|Bali|Villa|Denpasar
+82606,U** V***** B***,0|Bali|Hotel|Denpasar
+82610,M***** T******* B*** B******* H****,3|Bali|Hotel|Nusa Dua
+82616,C***** S*** H**** D*******,2|Bali|Hotel|Denpasar
+82618,T** S***** R********,3|Bali|Villa|Nusa Dua
+82633,S******* V**** By Z***,5|Bali|Hotel|Nusa Dua
+82635,G*** V**** By Z***,1|Bali|Hotel|Nusa Dua
+82648,A*** V**** By Z***,2|Bali|Villa|badung
+82653,A***** V**** By Z***,4|Bali|Villa|Kuta
+82668,S***** B*** S***** a** V*****,5|Bali|Resort|Nusa Dua
+82689,S**** O** 3*** H**** R***,2|Bali|Hotel|Denpasar
+82692,O** 9**** H**** D****,2|Bali|Bed & breakfast|Denpasar
+82694,C******* H****,2|Bali|Guest House|Nusa Dua
+82706,T** G**** B*** P*** H****,2|Bali|Hotel|Denpasar
+82708,P*** A** H****,3|Bali|Hotel|Denpasar
+82709,H**** N****,2|Bali|Hotel|Denpasar
+82724,C***** B**** G***** A** S****,2|Bali|Hotel|Denpasar
+82732,P***** A**** B** a** B********,3|Bali|Bed & breakfast|Nusa Dua
+82737,R**** B***,4|Bali|Hotel|Denpasar
+82794,P*** B**** S**** B*******,0|Bali|Hotel|Denpasar
+82800,B*** N*** D** H**** a** C*********,5|Bali|Hotel|Nusa Dua
+82816,V**** V**** U***,3|Bali|Villa|Ubud
+82834,S****** L*****,2|Bali|Bed & breakfast|Denpasar
+82837,Z** R**** D******* M********,2|Bali|Hotel|Denpasar
+82839,R***** A**** R***** a** V*****,4|Bali|Resort|Denpasar
+82871,A*** R**** T**** B***** S****** 27 B***,0|Bali|Hotel|Bali
+82872,K*** S*** B*** V*****,4|Bali|Villa|Bali
+82883,T** B*** R***,2|Bali|Hotel|Denpasar
+82892,A*** D******* T**** K****** M******* S*** 1*** B***,0|Bali|Hotel|Denpasar
+82894,O** 3*** A**** V**** By N** A****,2|Bali|Hotel|Denpasar
+82896,T** K****** U*** V****,4|Bali|Villa|Ubud
+82904,R*** V***** B***,3|Bali|Villa|Denpasar
+82909,V**** B****,3|Bali|Villa|Denpasar
+82918,Y*** B***,2|Bali|Hotel|Denpasar
+82922,O****** H**** By Z***,3|Bali|Hotel|Denpasar
+82924,P****** W*** K***** R*****,5|Bali|Hotel|Ubud
+82939,B*** R*** L***** V**** U***,3|Bali|Hotel|Ubud
+82941,B**** P**** V***** U***,4|Bali|Hotel|Ubud
+82957,U*** H***** P*********,4|Bali|Villa|Ubud
+82968,V**** N****** B***,0|Bali|Hotel|Denpasar
+82970,G***** U***,3|Bali|Hotel|Ubud
+82980,B****** U*** V****,3|Bali|Guest House|Ubud
+82982,Y R***** U***,3|Bali|Resort|Ubud
+82998,S**** G**** H****,2|Bali|Hotel|Sanur
+83023,U** U***,5|Bali|Hotel|Ubud
+83051,O** 2*** P*** S****,2|Bali|Hotel|Denpasar
+83052,S******* R***** S**** B***,5|Bali|Resort|Denpasar Selatan
+83070,V**** P*** A**,3|Bali|Hotel|Denpasar Selatan
+83089,C***** U*** V****,3|Bali|Villa|Gianyar
+83096,A*** S***** U***,3|Bali|Hotel|Ubud
+83099,P****** at B**** 1,3|Bali|Resort|Ubud
+83106,A****** B****,4|Bali|Hotel|Gianyar Ubud
+83114,P*** D**** S****,2|Bali|Resort|Bali
+83117,S**** A**** H**** a** R*********,3|Bali|Hotel|Sanur
+83118,A** s G**** L*****,2|Bali|Guest House|Denpasar
+83122,V**** C*******,3|Bali|Bed & breakfast|Denpasar
+83131,B**** S*** R*****,0|Bali|Hotel|Denpasar
+83133,I***** C******,3|Bali|Hotel|Denpasar
+83157,P*** B******** & H*****,3|Bali|Guest House|Ubud
+83158,R**** - V***** & S**,3|Bali|Resort|Denpasar
+83162,P*** T**** D*****,3|Bali|Resort|Sanur
+83178,S** P**** R***** a** V****,3|Bali|Hotel|Sanur
+83193,Z** R**** M***** F***** U*** @ p**** p****,3|Bali|Hotel|Ubud
+83231,A*** S**** D**** T********* 1** D******* B***,0|Bali|Hotel|Sanur
+83261,T**** S***,3|Bali|Hotel|Denpasar
+83278,T** V***** at F******* S**** B**** B***,5|Bali|Villa|Denpasar Selatan
+83295,A******* B****,3|Bali|Resort|Sanur
+83297,Z** R**** S**** T*********,0|Bali|Hotel|Sanur
+83298,B*** U*** R*****,3|Bali|Hotel|Bali
+83311,P******* B***,3|Bali|Hotel|Denpasar
+83337,V**** P*****,0|Bali|Villa|Pecatu
+83350,C*** G****** U***,2|Bali|Hotel|Ubud
+83361,G**** M***** V*****,0|Bali|Hotel|Denpasar
+83368,B****** B**** R***** B***,2|Bali|Hotel|Bali
+83410,U*** A*** R****** C*****,3|Bali|Bed & breakfast|Ubud
+83423,U** D*** G**** H****,3|Bali|Guest House|Denpasar
+83426,T*** H****,2|Bali|Hotel|Bali
+83441,A****** H****** U***,4|Bali|Hotel|Ubud
+83449,A** J*** C******,3|Bali|Hotel|Ubud
+83451,T******* C*******,3|Bali|Hotel|Ubud
+83483,V**** S****,3|Bali|Resort|Denpasar
+83489,A**** V*****,3|Bali|Villa|Denpasar
+83514,T******* H*******,3|Bali|Guest House|Denpasar
+83528,A*** S*** H********,2|Bali|Guest House|Denpasar
+83534,S**** A*** U*** H**** by I** V** H**********,4|Bali|Villa|Ubud
+83562,U****** R******,0|Bali|Hotel|Denpasar
+83564,A***** U*** by I** V** H**********,5|Bali|Resort|Ubud
+83569,T** P*** S****,3|Bali|Hotel|Ubud
+83585,V**** G*** U***,1|Bali|Hotel|Ubud
+83615,S***** G******* T****,4|Bali|Hotel|Denpasar
+83631,U*** O** V******,2|Bali|Hotel|Ubud
+83636,DD U*** V****,3|Bali|Hotel|Ubud
+83638,K******** V***** K******,4|Bali|Villa|Denpasar
+83642,A*** S******* K****** R*** S******* B***,0|Bali|Hotel|Denpasar
+83676,B** N*** B********,3|Bali|Resort|Denpasar
+83698,T** G**** B**** J***** R****** V****,3|Bali|Hotel|Denpasar
+83710,B**** G**** L*** By Z***,2|Bali|Guest House|Kintamani
+83720,B******** K********,3|Bali|Hotel|Gianyar
+83734,T** N*** H**** L********,1|Bali|Hotel|Nusa Lembongan
+83748,D**** B**** B******,3|Bali|Hotel|Nusa Penida
+83776,C**** V****,3|Bali|Hotel|Denpasar
+83787,L**** S****,3|Bali|Hotel|Denpasar
+83795,T** B**** H*** By Z***,2|Bali|Guest House|Nusa Lembongan
+83800,M*** C******* By Z***,3|Bali|Hotel|Nusa Lembongan
+83807,L********* H**** a** S** L********,3|Bali|Hotel|Nusa Lembongan
+83813,N*** B**** H******* By Z***,1|Bali|Guest House|Nusa Lembongan
+83823,P** M**** L********,3|Bali|Hotel|Denpasar
+83859,A** B******* N*** P*****,1|Bali|Hotel|Amed
+83864,T** D*** S***** S****,4|Bali|Hotel|Nusa Penida
+83882,B**** C******,1|Bali|Hotel|Nusa Penida
+83905,K***** T*******,4|Bali|Resort|Amed
+83919,F****** B********,3|Bali|Hotel|Nusa Penida
+83928,P****** B**** R***** a** S** L*****,0|Bali|Hotel|Bali
+83932,B*** S******* B**** C***,3|Bali|Hotel|Candidasa
+83933,P*** B**** C********,4|Bali|Resort|Candidasa
+83934,V*********,3|Bali|Resort|Candidasa
+83946,T**** T******* R***** a** S** T*******,3|Bali|Hotel|Amed
+83976,S***** H****,2|Bali|Resort|Denpasar
+84012,N***** R*****,3|Bali|Guest House|Denpasar
+84027,M*** G***** R***** a** S**,3|Lombok|Hotel|Gili Trawangan
+84049,K***** L***** V*****,3|Lombok|Resort|Gili Trawangan
+84069,P***** S**** E***** G*** T********,3|Lombok|Resort|Gili Trawangan
+84082,G*** E***** B*******,3|Lombok|Guest House|Gili Trawangan
+84089,T** T******** R*****,3|Lombok|Resort|Gili Trawangan
+84093,V**** C**** F****,3|Lombok|Villa|Gili Trawangan
+84109,V**** R*******,3|Lombok|Guest House|Gili Trawangan
+84117,V**** P*****,3|Lombok|Guest House|Gili Trawangan
+84138,P***** S****** 2,3|Lombok|Guest House|Gili Trawangan
+84146,O** 1*** B*** G*** B*******,2|Lombok|Hotel|Gili Trawangan
+84153,K**** B******* B********,3|Lombok|Hotel|Gili Trawangan
+84157,V***** R*****,3|Lombok|Hotel|Gili Trawangan
+84158,M***** G***,1|Lombok|Hotel|Gili Trawangan
+84159,Ko Ko Mo G*** T******** R*****,4|Lombok|Hotel|Gili Trawangan
+84164,O** 2*** P***** L***,2|Lombok|Hotel|Gili Trawangan
+84167,G*** B**** C*******,3|Lombok|Hotel|Gili Trawangan
+84168,H R**** at H*********,0|Lombok|Hotel|Gili Trawangan
+84179,G*** B***,2|Lombok|Guest House|Gili Trawangan
+84203,D**** D***** B*******,2|Lombok|Hotel|senggigi
+84221,A*** H**** & B*******,3|Lombok|Hotel|Gili Trawangan
+84229,S***** B******* By Z***,2|Lombok|Guest House|Gili Trawangan
+84241,D**** E***** R*****,3|Lombok|Private vacation home|Lombok
+84259,M*** B**** s R******,3|Lombok|Hotel|senggigi
+84262,V**** C******,3|Lombok|Guest House|Lombok
+84266,L*** S*** R***** by B***,3|Lombok|Resort|Teluknarat
+84269,M*** H***** B********,3|Lombok|Hotel|gili meno
+84288,T** C***** B******* R*****,4|Lombok|Resort|senggigi
+84315,O** 1*** G*** I**** R*****,2|Lombok|Hotel|Gili Trawangan
+84321,C****** H*******,3|Lombok|Guest House|Gili Trawangan
+84327,O** 3*** L***** V****** H**** & C*********,2|Lombok|Hotel|Lombok
+84339,O** 2*** E***** G********* S******,2|Lombok|Hotel|Lombok
+84345,S****** H**** & C********* L*****,2|Lombok|Hotel|Mataram
+84347,A*** M****** A****** A** S****** 10 L*****,0|Lombok|Hotel|Lombok
+84348,P****** H**** a** C*********,3|Lombok|Hotel|Mataram
+84356,R******* S****** n*** L***** E********* M***,2|Lombok|Hotel|Lombok
+84373,R******* P*** n*** S********** P***,3|Lombok|Hotel|Mataram
+84375,O** 2*** J****** H****,2|Lombok|Hotel|Mataram
+84380,H**** C**** W****,4|Lombok|Hotel|Mataram
+84387,I**** H**** by P******** L*****,3|Lombok|Hotel|Mataram
+84412,S*** ON 1*** K******,2|Lombok|Hotel|Mataram
+84419,P*** I**** H**** S****,2|Lombok|Hotel|Mataram
+84460,O** 1*** H****** H*******,2|Lombok|Bed & breakfast|Lombok
+84473,A***** B*******,1|Lombok|Hotel|Lombok
+84484,K*** C*** H****,2|Lombok|Hotel|Kuta Lombok
+84494,F***** B**** H****,2|Lombok|Hotel|pujut
+84517,W***** R****** V**** S****** R*********,1|Lombok|Hotel|Lombok Timur
+84537,A*** K******** U** S******* 26 B*********,0|Balikpapan|Hotel|Balikpapan
+84544,I*** B*********,3|Balikpapan|Hotel|Balikpapan City Center
+84554,H**** M***** B*********,3|Balikpapan|Hotel|Balikpapan
+84563,S** F******** H****,0|Balikpapan|Hotel|Balikpapan
+84570,S**** B******* B*********,4|Balikpapan|Hotel|Balikpapan City Center
+84578,S**** O** 7** N** A****** G**** H**** S******,2|Balikpapan|Guest House|Balikpapan
+84622,U******** H**** G***** S** I** B********* by R*******,3|Balikpapan|Hotel|Balikpapan
+84637,I**** I** R*********,1|Balikpapan|Hotel|Balikpapan Selatan
+84643,H** M****** G**** H****,0|Balikpapan|Hotel|Balikpapan Selatan
+84652,O** 9** A*** P**** R********,2|Balikpapan|Hotel|Balikpapan
+84660,H***** P**** H****,0|Balikpapan|Hotel|Balikpapan Selatan
+84664,O** 2*** M** G**** H**** S******,2|Balikpapan|Hotel|Balikpapan
+84669,O** 1*** H**** P****** H******,2|Kutai|Hotel|Kutai
+84673,O** 2*** H**** G**** Y***,2|Kutai|Hotel|Kutai
+84674,G**** E*** S*********,3|Tenggarong|Hotel|Timbau
+84698,R*** G**** H**** S******,2|Samarinda|Hotel|Samarinda Ulu
+84710,O** 3*** D***** G**** H**** S******,2|Samarinda|Hotel|Samarinda
+84717,A*** P**** P*** Kh K***** 35 S********,0|Samarinda|Hotel|Samarinda
+84734,I*** S********,3|Samarinda|Hotel|Samarinda City Center
+84735,JB H**** S********,0|Samarinda|Hotel|Samarinda
+84763,G**** P******* K*** H****,0|Tanjung Selor|Hotel|Tanjung Selor
+84764,C**** H**** T****** S****,2|Tanjung Selor|Hotel|Tanjung Selor
+84772,S****** G**** H****,0|Sumbawa|Hotel|Sumbawa
+84774,H**** R***** K**** K********** S****** R*********,1|Kutai|Hotel|Kutai
+84791,H**** A*** S*******,1|Samarinda|Hotel|Samarinda
+84792,Q H**** S*******,1|Kutai|Hotel|Kutai
+84795,H**** R**** V******* S*******,0|Sangatta|Hotel|Sangatta
+84808,A*** S******** P******* D********* 4 T******,2|Tarakan|Hotel|Tarakan
+84809,S**** K*** H*******,2|Tarakan|Hotel|Tarakan
+84815,L******** H**** T******,0|Tarakan|Hotel|Tarakan
+84821,N*** M****** R*****,3|Berau|Hotel|Maratua
+84825,M***** B***,0|BIMA|Hotel|BIMA
+84829,R******* n*** P**** B*** M*****,2|Mamuju|Hotel|Mamuju
+84837,P********* B*********,2|Majene|Hotel|Majene
+84844,H******* RN n*** T**** B**** R****** P*******,1|Polewali Mandar|Hotel|Polewali
+84845,L******* H****,0|Mamuju|Hotel|Mamuju
+84851,O** 3*** H**** G**** S***** P*** M*******,2|Makassar|Bed & breakfast|City Centre
+84852,T** R**** M*******,5|Makassar|Hotel|Mariso
+84864,R******* P*** @ G**** P****** H****,3|Makassar|Hotel|Makassar
+84870,P** H****,2|Makassar|Capsule Hotel|Ujung pandang
+84871,O** 9**** A** G*********,2|Makassar|Hotel|Makassar
+84874,H****** I** P******** M*******,3|Makassar|Hotel|Wajo
+84894,R******* S****** n*** J**** S**** O**,2|Makassar|Hotel|Makassar
+84921,M*** M*******,3|Makassar|Hotel|Wajo
+84956,H******* K*****,3|Makassar|Hotel|Makassar
+84962,M******* H**** M******* (******** R** P***** M********,2|Makassar|Hotel|Ujung pandang
+84968,A***** A****** H****,3|Makassar|Hotel|Bontoala
+84969,(*** u*** H**** A***** M*******,2|Makassar|Hotel|Makassar
+84980,S**** H*******,3|Makassar|Bed & breakfast|Makassar
+84985,O** 3** G**** P****** H****,3|Makassar|Hotel|Makassar
+84988,A*** E** U**** P****** L********* S***** N*** M*******,0|Makassar|Hotel|Makassar
+85006,R******* @ R****** n*** AP P********,1|Makassar|Hotel|Makassar
+85015,P********* M*******,3|Makassar|Guest House|Makassar
+85027,H**** A**** M*******,1|Makassar|Hotel|City Centre
+85040,A*** P********** B******** R*** S****** M*******,0|Makassar|Hotel|Makassar
+85041,R******* @ P******** S*****,2|Makassar|Hotel|Panakkukang
+85058,O** 8** M******* G**** H****,2|Makassar|Hotel|Rappocini
+85067,H**** P*** I** P********** M*******,1|Makassar|Hotel|Panakkukang
+85081,A***** P********** M*******,2|Makassar|Hotel|Panakkukang
+85095,F******* H******* S****** M******* R*********,2|Makassar|Hotel|Makassar
+85104,R******* n*** M*** P********** 3,2|Makassar|Hotel|Panakkukang
+85105,G**** T*** M*******,3|Makassar|Hotel|Panakkukang
+85110,S*** ON 1*** W**** B***** T********,2|Makassar|Hostel/Backpacker accommodation|Panakkukang
+85112,A***** D****** H**** By Z***,1|Makassar|Hotel|Panakkukang
+85127,O** 3*** H******* A***** S******,2|Makassar|Hotel|Makassar
+85128,J****** H**** M*******,3|Makassar|Hotel|Makassar
+85135,O** 9**** P***** V******,2|Makassar|Bed & breakfast|Makassar
+85153,H**** P****** M*******,3|Makassar|Hotel|Ujung pandang
+85154,L***** B*** L***** By Z***,1|Makassar|Hotel|Malino
+85163,O** 3** H**** D**** N******** 2,2|Makassar|Hostel/Backpacker accommodation|Pantai Losari
+85175,R******* @ G**** C******** M****,2|Makassar|Hotel|Makassar
+85184,R******* n*** M****** H***** A****,2|Pare-pare|Guest House|Soreang
+85191,MS H**** P******,1|Pinrang|Hotel|Pinrang
+85206,R******* P*** @ A*** R*** H****,3|Palu|Guest House|Palu Barat
+85210,H******* A****** S****** M*****,1|Gowa|Hotel|Tinggimoncong
+85224,P***** N****** 1 M***** By Z***,2|Makassar|Bed & breakfast|Malino
+85255,G****** I** P***,0|Palu|Hotel|Palu
+85257,S****** K***** - H*****,2|Labuan Bajo|Hostel/Backpacker accommodation|Labuan Bajo
+85259,F**** H******* S****** P*** R*********,2|Palu|Hotel|Palu
+85266,H**** M******* L***** B***,2|Labuan Bajo|Hotel|Labuan Bajo
+85285,R******* n*** M******** W******** P***,2|Palu|Hotel|Palu
+85301,A*** B***** T**** M************ 21 P***,3|Palu|Hotel|Palu
+85310,R******* S****** n*** M****** S** Al J***** A****** P*** 2,2|Palu|Apartment|Birobuli Selatan
+85319,F****** H******* P*** R*********,2|Palu|Hotel|Palu
+85362,R******* n*** T******* D********* P*****,1|Palopo|Hotel|Palopo
+85372,H***** H**** B***,3|Bone|Hotel|Tanette Riattang Barat
+85374,B******* H**** S****** MM B*** R*********,2|Bone|Hotel|Tanette Riattang Barat
+85378,B*** B**** B********,3|Bira|Resort|Bira
+85381,A*****,3|Makassar|Hotel|Makassar
+85383,S******** H******* B***,1|Bulukumba|Hotel|Bulukumba
+85390,S**** A******** R***** - H*****,1|Sumba|Hostel/Backpacker accommodation|Desa Wula
+85395,W**** A****** K***** U****,2|Kolaka|Hotel|Kolaka
+85399,MJ G**** H**** P**** K*** M*****,1|Malili|Hotel|Malili
+85424,R******* P*** @ H**** S******* K******,3|Kendari|Guest House|Kendari
+85433,V**** H**** K******,2|Kendari|Hotel|Madonga
+85434,R******* n*** T**** K*** K******,2|Kendari|Guest House|City Center
+85435,H**** M**** K****** R*********,2|Kendari|Hotel|Kendari
+85442,A*** S****** K****** B**** E** S***** 1A,0|Kendari|Hotel|Kendari
+85448,S*** B******* H****,0|Kendari|Hotel|Kendari
+85454,R******* n*** K****** B**** 2,2|Kendari|Hotel|City Center
+85482,R******* n*** T*** G********,2|Gorontalo|Hotel|Kota Timur
+85493,A*** K*** S****** B*** U**** 7 G********,1|Gorontalo|Hotel|Limba U I
+85505,P***** R*****,2|Makassar|Hotel|Makassar
+85510,R******* P*** @ H**** P***** T****,3|Kupang|Guest House|Kec. Kelapa Lima
+85512,K****** H**** K*****,3|Kupang|Hotel|Kota Lama Kupang
+85516,S**** O** 1*** G****** H****,2|Kupang|Hostel/Backpacker accommodation|Oebobo
+85534,O** 1*** D***** A** I**,2|Kupang|Hostel/Backpacker accommodation|Kelapa Lima
+85539,L***** M** H*******,2|Kupang|Hotel|Kupang
+85543,G**** H**** T**** D***,2|Kupang|Hotel|Kupang
+85553,R******* N*** L***** B**** T**** W*******,2|Wakatobi|Hotel|Kaledupa
+85560,S******** H**** K*********,3|Kotamobagu|Hotel|Kotamobagu
+85563,J**** L*** R*****,3|Sulawesi|Hotel|Sulawesi
+85574,O** 2*** B***** G**** H****,2|Manado|Hotel|Malalayang
+85585,O** 2*** P**** K**** R****,2|Manado|Hostel/Backpacker accommodation|Malalayang
+85596,H**** F******,0|Manado|Hotel|Manado
+85608,P***** B******** H****,2|Manado|Hotel|Sario
+85614,G**** W*** M****** M*****,4|Manado|Hotel|kota manado
+85617,H**** S***** M*****,2|Manado|Bed & breakfast|Sario
+85619,B** B******** H**** M*****,3|Manado|Hotel|Sario
+85640,C*** de W**** H**** a** R****,3|Manado|Hotel|Manado
+85646,S**** K******,3|Manado|Hotel|Wenang
+85652,V**** R***** By Z***,2|Manado|Villa|Malalayang
+85655,G**** S****** M*****,2|Manado|Hotel|Wenang
+85660,G*** C****** M*****,3|Manado|Hotel|Wenang
+85696,H**** T**** A******,1|Flores|Hotel|Atambua
+85698,T**** A****** H****,0|Flores|Hotel|Atambua
+85701,R******* P*** n*** T******** K****** D** m*****,3|Manado|Hotel|Mapanget
+85706,T** S***** M*****,4|Manado|Hotel|kota manado
+85710,L***** P**** H****,2|Manado|Hotel|kota manado
+85715,O** 1*** M***** A****** H*******,2|Manado|Bed & breakfast|kota manado
+85739,R******* n*** T**** K*** T******,2|Ternate|Guest House|Ternate
+85751,O** 1*** C***** G**** H****,2|Ambon|Bed & breakfast|Ambon
+85761,O** 2*** A**** G**** H**** S******,2|Ambon|Hotel|Ambon
+85764,G***** I** A**** R*********,2|Ambon|Hotel|Ambon
+85781,B***** H**** A****,1|Ambon|Hotel|Sirimau
+85800,A**** A**** M*****,3|Ambon|Hotel|Sirimau
+85804,W***** V****,2|Raja Ampat|Guest House|Waisai
+85815,B****** H**** S*****,3|Sorong|Hotel|Sorong Manoi
+85818,S**** B******* S*****,4|Sorong|Hotel|Sorong Manoi
+85839,A**** B*** P****,3|Biak|Hotel|Mandala
+85852,E***** H****,2|Merauke|Hotel|Bambu Pemali
+85877,R******* @ A****** K******,2|Jayapura|Hotel|Abepura
+85878,R******* @ K****** T**** H****,2|Jayapura|Hotel|Jayapura
+85882,F** H**** J*******,3|Jayapura|Hotel|Gurabesi

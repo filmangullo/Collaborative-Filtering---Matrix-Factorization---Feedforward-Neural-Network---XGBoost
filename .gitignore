@@ -1,6 +1,7 @@
 /dataset_hotels/with_50_percent_data/a_mf_ratings.csv
 /dataset_hotels/with_60_percent_data/a_mf_ratings.csv
 /dataset_hotels/a_mf_ratings.csv
+/dataset_hotels/b_ffnn_ratings.csv
 /dataset_hotels/b_ffnn_ratings_x1.csv
 /dataset_hotels/b_ffnn_ratings_x2.csv
 /dataset_hotels/b_ffnn_ratings_x3.csv
@@ -8,6 +9,7 @@
 /dataset_hotels/b_ffnn_ratings_x5.csv
 /dataset_hotels/b_ffnn_ratings_x6.csv
 /dataset_movielens/a_mf_ratings.csv
+/dataset_movielens/b_ffnn_ratings.csv
 /dataset_movielens/b_ffnn_ratings_x1.csv
 /dataset_movielens/b_ffnn_ratings_x2.csv
 /dataset_movielens/b_ffnn_ratings_x3.csv

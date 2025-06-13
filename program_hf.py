@@ -20,15 +20,42 @@ if len(sys.argv) < 2:
 
 dataset_choice = sys.argv[1]
 
-if dataset_choice == "dummy":
-    file_dir = "dataset_dummy/"
-elif dataset_choice == "movie":
-    file_dir = "dataset_movielens/"
-elif dataset_choice == "hotel":
-    file_dir = "dataset_hotels/"
-else:
+# Konfigurasi direktori dan nama file
+dataset_config = {
+    "dummy": {
+        "dir": "dataset_dummy/",
+        "file_special": "b_ffnn_ratings.csv",
+        "file_default": "b_ffnn_ratings.csv"
+    },
+    "movie": {
+        "dir": "dataset_movielens/",
+        "file_special": "b_ffnn_ratings_x6.csv",
+        "file_default": "b_ffnn_ratings.csv"
+    },
+    "hotel": {
+        "dir": "dataset_hotels/",
+        "file_special": "hotel_x6.csv",
+        "file_default": "hotel.csv"
+    }
+}
+
+# Validasi dataset
+if dataset_choice not in dataset_config:
     print("Unknown dataset.")
     sys.exit(1)
+
+# Ambil konfigurasi
+config = dataset_config[dataset_choice]
+file_dir = config["dir"]
+file_special_path = os.path.join(file_dir, config["file_special"])
+file_default_path = os.path.join(file_dir, config["file_default"])
+
+# Pilih nama file yang akan digunakan (bukan path lengkap)
+if os.path.exists(file_special_path):
+    input_path = config["file_special"]
+else:
+    input_path = config["file_default"]
+
 
 def compute_features(file_dir, input_path, output_path, rating_column="actual_rating"):
     start_time = time.time()
@@ -117,7 +144,7 @@ def compute_features(file_dir, input_path, output_path, rating_column="actual_ra
 
 compute_features(
     file_dir=file_dir,
-    input_path="b_ffnn_ratings_x4.csv",
+    input_path=input_path,
     output_path="c_hf_ratings.csv",
     rating_column='ffnn_predicted_rating'
 )
