@@ -1,0 +1,208 @@
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                              MATRIX FACTORIZATION                              
+                                      and                                       
+           FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON           
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+--------------------------------------------------------------------------------
+                                   LOAD DATA                                    
+--------------------------------------------------------------------------------
+Total Item: 16292
+Total Rating  : 16940
+--------------------------------------------------------------------------------
+                                 DATA SPLITTING                                 
+--------------------------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+--------------------------------------------------------------------------------
+                                DATA PREPARATION                                
+--------------------------------------------------------------------------------
+========== ONE-HOT ENCODED FEATURES ==========
+          id  0  1  2  3  4  ...  sangkanhurip  sedati  sekotong  senggigi  sukaraja  trawas
+0      69602  0  1  0  0  0  ...             0       0         0         0         0       0
+1      69603  0  0  0  0  0  ...             0       0         0         0         0       0
+2      69604  1  0  0  0  0  ...             0       0         0         0         0       0
+3      69605  0  0  0  0  1  ...             0       0         0         0         0       0
+4      69606  1  0  0  0  0  ...             0       0         0         0         0       0
+...      ... .. .. .. .. ..  ...           ...     ...       ...       ...       ...     ...
+16287  85889  0  0  0  1  0  ...             0       0         0         0         0       0
+16288  85890  0  0  0  1  0  ...             0       0         0         0         0       0
+16289  85891  0  0  0  1  0  ...             0       0         0         0         0       0
+16290  85892  0  0  0  0  1  ...             0       0         0         0         0       0
+16291  85893  0  0  1  0  0  ...             0       0         0         0         0       0
+
+[16292 rows x 1252 columns]
+
+Dimensi data akhir (item + fitur): (16292, 1252)
+
+
+========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========
+itemId  69602  69603  69604  69605  69606  ...  85889  85890  85891  85892  85893
+userId                                     ...                                   
+1         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+2         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+3         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+4         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+5         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+...       ...    ...    ...    ...    ...  ...    ...    ...    ...    ...    ...
+8581      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8583      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8584      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8586      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8588      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+
+[7056 rows x 16292 columns]
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 64
+Learning rate                 : 0.04
+Regularization parameter      : 0.04
+Jumlah epoch / training       : 40
+
+
+Hyperparameter MLP:
+Struktur Hidden Layer     : [128, 64, 32]
+Learning Rate             : 0.005
+Batch Size                : 64
+Jumlah epoch / training   : 55
+Early Stopping (Patience) : 15
+
+
+Epoch 1/55
+203/203 [==============================] - 1s 2ms/step - loss: 2.3801 - mae: 1.2896 - val_loss: 1.7881 - val_mae: 1.1425
+Epoch 2/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.4263 - mae: 0.9798 - val_loss: 1.2869 - val_mae: 0.9211
+Epoch 3/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.8617 - mae: 0.7223 - val_loss: 1.1297 - val_mae: 0.8319
+Epoch 4/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.5387 - mae: 0.5683 - val_loss: 0.9222 - val_mae: 0.7331
+Epoch 5/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.3859 - mae: 0.4809 - val_loss: 0.7884 - val_mae: 0.6810
+Epoch 6/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.3002 - mae: 0.4211 - val_loss: 0.7793 - val_mae: 0.6545
+Epoch 7/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.2478 - mae: 0.3832 - val_loss: 0.7033 - val_mae: 0.6220
+Epoch 8/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.2069 - mae: 0.3496 - val_loss: 0.7100 - val_mae: 0.6224
+Epoch 9/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1836 - mae: 0.3275 - val_loss: 0.6855 - val_mae: 0.6094
+Epoch 10/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1603 - mae: 0.3054 - val_loss: 0.6843 - val_mae: 0.5943
+Epoch 11/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1422 - mae: 0.2870 - val_loss: 0.6687 - val_mae: 0.6038
+Epoch 12/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1279 - mae: 0.2701 - val_loss: 0.6791 - val_mae: 0.5917
+Epoch 13/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1153 - mae: 0.2549 - val_loss: 0.6468 - val_mae: 0.5839
+Epoch 14/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1079 - mae: 0.2468 - val_loss: 0.6616 - val_mae: 0.5916
+Epoch 15/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.1007 - mae: 0.2398 - val_loss: 0.6399 - val_mae: 0.5861
+Epoch 16/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0971 - mae: 0.2345 - val_loss: 0.6448 - val_mae: 0.5727
+Epoch 17/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0874 - mae: 0.2196 - val_loss: 0.6379 - val_mae: 0.5740
+Epoch 18/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0786 - mae: 0.2088 - val_loss: 0.6368 - val_mae: 0.5583
+Epoch 19/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0739 - mae: 0.2023 - val_loss: 0.6446 - val_mae: 0.5839
+Epoch 20/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0743 - mae: 0.2023 - val_loss: 0.6429 - val_mae: 0.5713
+Epoch 21/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0693 - mae: 0.1944 - val_loss: 0.6557 - val_mae: 0.5788
+Epoch 22/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0882 - mae: 0.2179 - val_loss: 0.6220 - val_mae: 0.5672
+Epoch 23/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0780 - mae: 0.2070 - val_loss: 0.6334 - val_mae: 0.5695
+Epoch 24/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0578 - mae: 0.1760 - val_loss: 0.6168 - val_mae: 0.5569
+Epoch 25/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0491 - mae: 0.1621 - val_loss: 0.6080 - val_mae: 0.5543
+Epoch 26/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0461 - mae: 0.1570 - val_loss: 0.6228 - val_mae: 0.5566
+Epoch 27/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0444 - mae: 0.1547 - val_loss: 0.6169 - val_mae: 0.5562
+Epoch 28/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0431 - mae: 0.1505 - val_loss: 0.6117 - val_mae: 0.5586
+Epoch 29/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0417 - mae: 0.1489 - val_loss: 0.6333 - val_mae: 0.5607
+Epoch 30/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0402 - mae: 0.1457 - val_loss: 0.6096 - val_mae: 0.5498
+Epoch 31/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0401 - mae: 0.1456 - val_loss: 0.6153 - val_mae: 0.5583
+Epoch 32/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0400 - mae: 0.1460 - val_loss: 0.5970 - val_mae: 0.5499
+Epoch 33/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0399 - mae: 0.1456 - val_loss: 0.6023 - val_mae: 0.5563
+Epoch 34/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0399 - mae: 0.1441 - val_loss: 0.6096 - val_mae: 0.5523
+Epoch 35/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0378 - mae: 0.1407 - val_loss: 0.6062 - val_mae: 0.5563
+Epoch 36/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0639 - mae: 0.1789 - val_loss: 0.6187 - val_mae: 0.5715
+Epoch 37/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0518 - mae: 0.1653 - val_loss: 0.6091 - val_mae: 0.5521
+Epoch 38/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0394 - mae: 0.1430 - val_loss: 0.5859 - val_mae: 0.5438
+Epoch 39/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0301 - mae: 0.1234 - val_loss: 0.5847 - val_mae: 0.5485
+Epoch 40/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0267 - mae: 0.1172 - val_loss: 0.5869 - val_mae: 0.5444
+Epoch 41/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0255 - mae: 0.1146 - val_loss: 0.5707 - val_mae: 0.5342
+Epoch 42/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0245 - mae: 0.1121 - val_loss: 0.5787 - val_mae: 0.5388
+Epoch 43/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0236 - mae: 0.1083 - val_loss: 0.5799 - val_mae: 0.5398
+Epoch 44/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0258 - mae: 0.1129 - val_loss: 0.5826 - val_mae: 0.5372
+Epoch 45/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0280 - mae: 0.1183 - val_loss: 0.5724 - val_mae: 0.5351
+Epoch 46/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0301 - mae: 0.1222 - val_loss: 0.5733 - val_mae: 0.5390
+Epoch 47/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0309 - mae: 0.1246 - val_loss: 0.5684 - val_mae: 0.5465
+Epoch 48/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0310 - mae: 0.1235 - val_loss: 0.5767 - val_mae: 0.5359
+Epoch 49/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0308 - mae: 0.1239 - val_loss: 0.5672 - val_mae: 0.5364
+Epoch 50/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0290 - mae: 0.1189 - val_loss: 0.5703 - val_mae: 0.5367
+Epoch 51/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0265 - mae: 0.1136 - val_loss: 0.5646 - val_mae: 0.5349
+Epoch 52/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0261 - mae: 0.1137 - val_loss: 0.5825 - val_mae: 0.5410
+Epoch 53/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0264 - mae: 0.1146 - val_loss: 0.5706 - val_mae: 0.5393
+Epoch 54/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0254 - mae: 0.1110 - val_loss: 0.5780 - val_mae: 0.5381
+Epoch 55/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.0258 - mae: 0.1123 - val_loss: 0.5626 - val_mae: 0.5394
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.3241
+MSE : 0.5585
+RMSE: 0.7473
+
+Total kombinasi user-item diuji : 114956352
+Diproses oleh model            : 114956352
+Memiliki rating aktual         : 16678
+           userId  itemId  actual_rating  ffnn_predicted_rating
+0               1   69602            0.0                    3.0
+1               1   69603            0.0                    3.0
+2               1   69604            0.0                    1.0
+3               1   69605            0.0                    1.0
+4               1   69606            0.0                    1.0
+...           ...     ...            ...                    ...
+114956347    8588   85889            0.0                    1.0
+114956348    8588   85890            0.0                    1.0
+114956349    8588   85891            0.0                    1.0
+114956350    8588   85892            0.0                    1.0
+114956351    8588   85893            0.0                    1.0
+
+[114956352 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_hotels/b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 150833.70 detik
