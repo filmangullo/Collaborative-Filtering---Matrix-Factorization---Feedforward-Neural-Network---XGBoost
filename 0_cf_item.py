@@ -10,8 +10,16 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 # -----------------------------
 @st.cache_data
 def load_data():
-    # Jika CSV kamu sudah memiliki header, hapus parameter names=[]
-    return pd.read_csv("dataset_movielens/ratings.csv", names=["userId", "itemId", "rating", "timestamp"])
+    # Load dataset
+    df = pd.read_csv("dataset_hotels/ratings.csv", names=["userId", "itemId", "rating"])
+
+    # Pastikan rating berupa float
+    df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
+
+    # Ambil hanya rating tertinggi jika user memberi lebih dari satu rating ke item yang sama
+    df = df.groupby(['userId', 'itemId'], as_index=False)['rating'].max()
+
+    return df
 
 # -----------------------------
 # 2. Buat Item-User Matrix
@@ -32,9 +40,19 @@ def compute_item_similarity(matrix):
 # -----------------------------
 def predict_ratings_item_based(userId, matrix, sim_df):
     user_ratings = matrix.T.loc[userId]
+    
+    if user_ratings.sum() == 0:
+        # User belum punya rating sama sekali
+        return pd.Series(0, index=matrix.index)
+
+    # Hitung prediksi
     weighted_sum = sim_df.dot(user_ratings)
     sim_sum = sim_df.dot((user_ratings > 0).astype(int))
+    
+    # Hindari divide-by-zero dan hasil mendekati 0
     pred_ratings = weighted_sum / (sim_sum + 1e-9)
+    pred_ratings = pred_ratings.replace([np.inf, -np.inf], 0).fillna(0)
+    
     return pred_ratings
 
 # -----------------------------
@@ -84,10 +102,10 @@ st.dataframe(top_recommendations_df)
 
 
 # Evaluasi model
-if st.checkbox("Tampilkan Evaluasi MAE, MSE, RMSE"):
-    with st.spinner("Menghitung evaluasi..."):
-        mae, mse, rmse, r2 = evaluate_model(item_user_matrix, item_similarity_df)
-        st.metric("MAE", f"{mae:.4f}")
-        st.metric("MSE", f"{mse:.4f}")
-        st.metric("RMSE", f"{rmse:.4f}")
-        st.metric("R2", f"{r2:.4f}")
+st.subheader("📊 Evaluasi Model (Seluruh Data)")
+with st.spinner("Menghitung evaluasi..."):
+    mae, mse, rmse, r2 = evaluate_model(item_user_matrix, item_similarity_df)
+    st.metric("MAE", f"{mae:.4f}")
+    st.metric("MSE", f"{mse:.4f}")
+    st.metric("RMSE", f"{rmse:.4f}")
+    st.metric("R2", f"{r2:.4f}")

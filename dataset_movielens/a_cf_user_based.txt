@@ -1,0 +1,13 @@
+👥 User-Based Collaborative Filtering
+
+MAE
+0.5676
+
+MSE
+0.5735
+
+RMSE
+0.7573
+
+R2
+0.4723 
