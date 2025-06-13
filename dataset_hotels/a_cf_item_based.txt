@@ -1,0 +1,15 @@
+🍿 Item-Based Collaborative Filtering
+
+📊 Evaluasi Model (Seluruh Data)
+
+MAE
+0.6185
+
+MSE
+0.7077
+
+RMSE
+0.8413
+
+R2
+0.6788 
