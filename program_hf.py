@@ -1,10 +1,12 @@
 import pandas as pd
+from tqdm import tqdm
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy.sparse import csr_matrix
 import time
 import sys
 import os
+tqdm.pandas()
 
 width_title = 80
 start_time = time.time()
@@ -132,8 +134,8 @@ def compute_features(file_dir, input_path, output_path, rating_column="actual_ra
         return round(np.dot(sim_scores, ratings[mask]) / sim_scores.sum(), 1)
 
     print("📐 Menghitung prediksi berbasis user dan item serupa...")
-    df['similar_users_rating'] = df[['userId', 'itemId']].apply(predict_sim_user, axis=1)
-    df['similar_items_rating'] = df[['userId', 'itemId']].apply(predict_sim_item, axis=1)
+    df['similar_users_rating'] = df[['userId', 'itemId']].progress_apply(predict_sim_user, axis=1)
+    df['similar_items_rating'] = df[['userId', 'itemId']].progress_apply(predict_sim_item, axis=1)
 
     print("💾 Menyimpan hasil akhir...")
     df.to_csv(output_file, index=False)
