@@ -47,13 +47,25 @@ feature_cols = [
 X = df_filtered[feature_cols]
 y = df_filtered['actual_rating']
 
-# ----------------------------
-# 2. Train XGBoost Regressor
-# ----------------------------
+# -------------------------------------
+# 2. Tuning Hyperparameter Pada XGBoost 
+# -------------------------------------
+n_estimators=588,
+learning_rate=0.9,
+max_depth=9,
+min_child_weight=5,
+subsample=0.8,
+colsample_bytree=0.9,
+gamma=0.1,
+reg_alpha=0.01,
+reg_lambda=1.0,
+random_state=21
+
+
 # n_estimators       => Jumlah pohon yang dibuat (boosting rounds)
 # learning_rate      => Seberapa besar pengaruh tiap pohon baru terhadap model akhir
 # max_depth          => Maksimal kedalaman setiap pohon
-# min_child_weight   => Minimum bobot yang dibutuhkan untuk membuat daun baru
+# min_child_weight   => Jumlah total bobot minimum (jumlah data) pada satu node agar dapat di-split / Minimum bobot yang dibutuhkan untuk membuat daun baru
 # subsample          => Persentase data yang digunakan per pohon (prevent overfitting)
 # colsample_bytree   => Persentase fitur yang digunakan per pohon
 # gamma              => Minimum loss reduction untuk split
@@ -74,24 +86,27 @@ y = df_filtered['actual_rating']
 #     reg_lambda=1.0,
 #     random_state=42
 # )
+# ----------------------------
+# 3. Train XGBoost Regressor
+# ----------------------------
 model = XGBRegressor(
-    n_estimators=588,
-    learning_rate=0.9,
-    max_depth=9,
-    min_child_weight=5,
-    subsample=0.8,
-    colsample_bytree=0.9,
-    gamma=0.1,
-    reg_alpha=0.01,
-    reg_lambda=1.0,
-    random_state=21
+    n_estimators=n_estimators,
+    learning_rate=learning_rate,
+    max_depth=max_depth,
+    min_child_weight=min_child_weight,
+    subsample=subsample,
+    colsample_bytree=colsample_bytree,
+    gamma=gamma,
+    reg_alpha=reg_alpha,
+    reg_lambda=reg_lambda,
+    random_state=random_state
 )
 model.fit(X, y)
 
 y_pred_raw  = np.round(model.predict(X), 1)
 y_pred = np.round(np.where(y_pred_raw < 1.0, 1.0, y_pred_raw), 1)
 # ----------------------------
-# 3. Evaluation
+# 4. Evaluation
 # ----------------------------
 rmse = np.sqrt(mean_squared_error(y, y_pred))
 r2 = r2_score(y, y_pred)
@@ -107,7 +122,7 @@ st.dataframe(df_filtered)
 df["xgb_predicted_rating"] = model.predict(df[feature_cols])
 
 # ----------------------------
-# 4. Plot Actual vs Predicted
+# 5. Plot Actual vs Predicted
 # ----------------------------
 st.markdown("### 📈 Actual vs Predicted Rating")
 fig, ax = plt.subplots()
@@ -125,7 +140,7 @@ st.pyplot(fig)
 
 
 # ----------------------------
-# 5. Rekomendasi Top-N
+# 6. Rekomendasi Top-N
 # ----------------------------
 st.markdown("### 🔍 Rekomendasi Top-N Item per User")
 selected_user = st.selectbox("Pilih User ID", sorted(df['userId'].unique()))
