@@ -1,0 +1,93 @@
+----------------------------------------------------------------
+   Matrix Factorization via Stochastic Gradient Descent (SGD)   
+----------------------------------------------------------------
+Train Data Presentation: 89.97%
+Test Data Presentation: 10.03%
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 64
+Learning rate                 : 0.03
+Regularization parameter      : 0.03
+Jumlah epoch / training       : 50
+
+
+Epoch 1/50, MAE: 3.1669, MSE: 12.1546, RMSE: 3.4863
+Epoch 2/50, MAE: 3.1637, MSE: 12.1299, RMSE: 3.4828
+Epoch 3/50, MAE: 3.1602, MSE: 12.1016, RMSE: 3.4787
+Epoch 4/50, MAE: 3.1559, MSE: 12.0674, RMSE: 3.4738
+Epoch 5/50, MAE: 3.1506, MSE: 12.0243, RMSE: 3.4676
+Epoch 6/50, MAE: 3.1439, MSE: 11.9688, RMSE: 3.4596
+Epoch 7/50, MAE: 3.1353, MSE: 11.8961, RMSE: 3.4491
+Epoch 8/50, MAE: 3.1240, MSE: 11.8000, RMSE: 3.4351
+Epoch 9/50, MAE: 3.1091, MSE: 11.6725, RMSE: 3.4165
+Epoch 10/50, MAE: 3.0893, MSE: 11.5036, RMSE: 3.3917
+Epoch 11/50, MAE: 3.0630, MSE: 11.2812, RMSE: 3.3587
+Epoch 12/50, MAE: 3.0284, MSE: 10.9919, RMSE: 3.3154
+Epoch 13/50, MAE: 2.9833, MSE: 10.6230, RMSE: 3.2593
+Epoch 14/50, MAE: 2.9254, MSE: 10.1649, RMSE: 3.1882
+Epoch 15/50, MAE: 2.8528, MSE: 9.6142, RMSE: 3.1007
+Epoch 16/50, MAE: 2.7642, MSE: 8.9754, RMSE: 2.9959
+Epoch 17/50, MAE: 2.6594, MSE: 8.2605, RMSE: 2.8741
+Epoch 18/50, MAE: 2.5390, MSE: 7.4885, RMSE: 2.7365
+Epoch 19/50, MAE: 2.4049, MSE: 6.6845, RMSE: 2.5854
+Epoch 20/50, MAE: 2.2599, MSE: 5.8790, RMSE: 2.4247
+Epoch 21/50, MAE: 2.1077, MSE: 5.1057, RMSE: 2.2596
+Epoch 22/50, MAE: 1.9526, MSE: 4.3960, RMSE: 2.0967
+Epoch 23/50, MAE: 1.7994, MSE: 3.7718, RMSE: 1.9421
+Epoch 24/50, MAE: 1.6529, MSE: 3.2421, RMSE: 1.8006
+Epoch 25/50, MAE: 1.5161, MSE: 2.8030, RMSE: 1.6742
+Epoch 26/50, MAE: 1.3909, MSE: 2.4420, RMSE: 1.5627
+Epoch 27/50, MAE: 1.2779, MSE: 2.1437, RMSE: 1.4641
+Epoch 28/50, MAE: 1.1768, MSE: 1.8936, RMSE: 1.3761
+Epoch 29/50, MAE: 1.0864, MSE: 1.6804, RMSE: 1.2963
+Epoch 30/50, MAE: 1.0056, MSE: 1.4958, RMSE: 1.2230
+Epoch 31/50, MAE: 0.9329, MSE: 1.3339, RMSE: 1.1550
+Epoch 32/50, MAE: 0.8673, MSE: 1.1907, RMSE: 1.0912
+Epoch 33/50, MAE: 0.8076, MSE: 1.0635, RMSE: 1.0313
+Epoch 34/50, MAE: 0.7530, MSE: 0.9504, RMSE: 0.9749
+Epoch 35/50, MAE: 0.7030, MSE: 0.8500, RMSE: 0.9220
+Epoch 36/50, MAE: 0.6570, MSE: 0.7613, RMSE: 0.8725
+Epoch 37/50, MAE: 0.6147, MSE: 0.6833, RMSE: 0.8266
+Epoch 38/50, MAE: 0.5757, MSE: 0.6149, RMSE: 0.7841
+Epoch 39/50, MAE: 0.5398, MSE: 0.5550, RMSE: 0.7450
+Epoch 40/50, MAE: 0.5068, MSE: 0.5027, RMSE: 0.7090
+Epoch 41/50, MAE: 0.4765, MSE: 0.4567, RMSE: 0.6758
+Epoch 42/50, MAE: 0.4487, MSE: 0.4162, RMSE: 0.6451
+Epoch 43/50, MAE: 0.4231, MSE: 0.3802, RMSE: 0.6166
+Epoch 44/50, MAE: 0.3995, MSE: 0.3480, RMSE: 0.5899
+Epoch 45/50, MAE: 0.3778, MSE: 0.3191, RMSE: 0.5649
+Epoch 46/50, MAE: 0.3579, MSE: 0.2929, RMSE: 0.5412
+Epoch 47/50, MAE: 0.3394, MSE: 0.2692, RMSE: 0.5189
+Epoch 48/50, MAE: 0.3222, MSE: 0.2477, RMSE: 0.4977
+Epoch 49/50, MAE: 0.3063, MSE: 0.2281, RMSE: 0.4776
+Epoch 50/50, MAE: 0.2914, MSE: 0.2104, RMSE: 0.4586
+
+
+Evaluasi pada Data Test:
+MAE : 2.2050
+MSE : 9.0090
+RMSE: 3.0015
+
+Total prediksi: 1672870
+Total user: 1277
+Total item: 1310
+
+Hasil dengan filtering vektorisasi:
+         userId  itemId  actual_rating  mf_predicted_rating
+0             2   69641            0.0                  1.0
+1             2   69642            0.0                  1.0
+2             2   69651            0.0                  1.0
+3             2   69654            0.0                  1.0
+4             2   69655            0.0                  1.0
+...         ...     ...            ...                  ...
+1672865    8587   85818            0.0                  1.0
+1672866    8587   85839            0.0                  1.0
+1672867    8587   85852            0.0                  1.0
+1672868    8587   85877            0.0                  1.0
+1672869    8587   85878            0.0                  1.0
+
+[1672870 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_hotels/with_10_percent_data/a_mf_ratings.csv
+Total waktu eksekusi (vectorized): 0.04 detik.
