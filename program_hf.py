@@ -34,8 +34,8 @@ dataset_config = {
     },
     "hotel": {
         "dir": "dataset_hotels/",
-        "file_special": "hotel_x6.csv",
-        "file_default": "hotel.csv"
+        "file_special": "b_ffnn_ratings_x6.csv",
+        "file_default": "b_ffnn_ratings.csv"
     }
 }
 
