@@ -41,7 +41,7 @@ if dataset_choice == "dummy":
 elif dataset_choice == "movie":
     file_dir = "dataset_movielens/"
 elif dataset_choice == "hotel":
-    file_dir = "dataset_hotels/"
+    file_dir = "dataset_hotels/with_10_percent_data/"
 else:
     print("Unknown dataset.")
     sys.exit(1)
