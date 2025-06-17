@@ -41,7 +41,7 @@ if dataset_choice == "dummy":
 elif dataset_choice == "movie":
     file_dir = "dataset_movielens/"
 elif dataset_choice == "hotel":
-    file_dir = "dataset_hotels/"
+    file_dir = "dataset_hotels/with_10_percent_data/"
 else:
     print("Unknown dataset.")
     sys.exit(1)
@@ -128,8 +128,8 @@ print(f"\n")
 # 4. Tuning Hyperparameter Matrix Factorization
 # ---------------------------------------------
 k = 64            # latent factors
-alpha = 0.002      # learning rate
-beta = 0.002       # regularization parameter
+alpha = 0.01      # learning rate
+beta = 0.01       # regularization parameter
 epochs_mf = 40    # early stopping
 
 print("Hyperparameter Matrix Factorization:")
@@ -171,10 +171,10 @@ gc.collect()
 # 4. Tuning Hyperparameter Feedforward Neural Network
 #    based Multi-Layer Perceptron
 # ----------------------------------------------------
-hidden_layer=[128, 64, 32] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
-learning_rate=0.005          #Kecepatan pembelajaran
+hidden_layer=[256, 128, 64, 32, 16, 8] #Struktur jaringan (jumlah layer) dengan value adalah Jumlah Neuron
+learning_rate=0.005           #Kecepatan pembelajaran
 
-batch_size=64                #Jumlah data per batch
+batch_size=256                #Jumlah data per batch
 epochs_mlp=55                #Total maksimum iterasi
 patience=15                  #Toleransi stagnasi saat training
 

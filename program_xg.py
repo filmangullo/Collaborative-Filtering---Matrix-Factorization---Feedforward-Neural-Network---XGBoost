@@ -4,7 +4,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 from xgboost import XGBRegressor
-from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # ----------------------------
 # 1. Load Dataset
@@ -23,7 +23,7 @@ if dataset_choice == "dummy":
 elif dataset_choice == "movie":
     file_path = "dataset_movielens/c_hf_ratings.csv"
 elif dataset_choice == "hotel":
-    file_path = "dataset_hotels/final_feature_dataset.csv"
+    file_path = "dataset_hotels/c_hf_ratings.csv"
 else:
     print("Unknown dataset.")
     sys.exit(1)
@@ -47,19 +47,19 @@ feature_cols = [
 X = df_filtered[feature_cols]
 y = df_filtered['actual_rating']
 
-# ----------------------------
-# 2. Train XGBoost Regressor
-# ----------------------------
-# n_estimators       => Jumlah pohon yang dibuat (boosting rounds)
-# learning_rate      => Seberapa besar pengaruh tiap pohon baru terhadap model akhir
-# max_depth          => Maksimal kedalaman setiap pohon
-# min_child_weight   => Minimum bobot yang dibutuhkan untuk membuat daun baru
-# subsample          => Persentase data yang digunakan per pohon (prevent overfitting)
-# colsample_bytree   => Persentase fitur yang digunakan per pohon
-# gamma              => Minimum loss reduction untuk split
-# reg_alpha          => L1 regularization (mengontrol kompleksitas model)
-# reg_lambda         => L2 regularization
-# random_state       => Reproducibility (hasil tetap setiap kali jalan)
+# -------------------------------------
+# 2. Tuning Hyperparameter Pada XGBoost 
+# -------------------------------------
+n_estimators = 600
+learning_rate = 0.5
+max_depth = 9
+min_child_weight = 5
+subsample = 0.8
+colsample_bytree = 0.8
+gamma = 0.1
+reg_alpha = 0.01
+reg_lambda = 1.0
+random_state = 42
 
 # Nilai Default
 # model = XGBRegressor(
@@ -74,29 +74,60 @@ y = df_filtered['actual_rating']
 #     reg_lambda=1.0,
 #     random_state=42
 # )
+
+# Nilai Terbaik
+# n_estimators = 588
+# learning_rate = 0.9
+# max_depth = 9
+# min_child_weight = 5
+# subsample = 0.8
+# colsample_bytree = 0.9
+# gamma = 0.1
+# reg_alpha = 0.01
+# reg_lambda = 1.0
+# random_state = 21
+
+# n_estimators       => Jumlah pohon yang dibuat (boosting rounds)
+# learning_rate      => Seberapa besar pengaruh tiap pohon baru terhadap model akhir
+# max_depth          => Maksimal kedalaman setiap pohon
+# min_child_weight   => Jumlah total bobot minimum (jumlah data) pada satu node agar dapat di-split / Minimum bobot yang dibutuhkan untuk membuat daun baru
+# subsample          => Persentase data yang digunakan per pohon (prevent overfitting)
+# colsample_bytree   => Persentase fitur yang digunakan per pohon
+# gamma              => Minimum loss reduction untuk split
+# reg_alpha          => L1 regularization (mengontrol kompleksitas model)
+# reg_lambda         => L2 regularization
+# random_state       => Reproducibility (hasil tetap setiap kali jalan)
+
+
+# ----------------------------
+# 3. Train XGBoost Regressor
+# ----------------------------
 model = XGBRegressor(
-    n_estimators=588,
-    learning_rate=0.9,
-    max_depth=9,
-    min_child_weight=5,
-    subsample=0.8,
-    colsample_bytree=0.9,
-    gamma=0.1,
-    reg_alpha=0.01,
-    reg_lambda=1.0,
-    random_state=21
+    n_estimators=n_estimators,
+    learning_rate=learning_rate,
+    max_depth=max_depth,
+    min_child_weight=min_child_weight,
+    subsample=subsample,
+    colsample_bytree=colsample_bytree,
+    gamma=gamma,
+    reg_alpha=reg_alpha,
+    reg_lambda=reg_lambda,
+    random_state=random_state
 )
+
 model.fit(X, y)
 
 y_pred_raw  = np.round(model.predict(X), 1)
 y_pred = np.round(np.where(y_pred_raw < 1.0, 1.0, y_pred_raw), 1)
 # ----------------------------
-# 3. Evaluation
+# 4. Evaluation
 # ----------------------------
+mae = mean_absolute_error(y, y_pred)
 rmse = np.sqrt(mean_squared_error(y, y_pred))
 r2 = r2_score(y, y_pred)
 
 st.markdown("### 📊 Evaluation Metrics")
+st.write(f"**MAE**: {mae:.4f}")
 st.write(f"**RMSE**: {rmse:.4f}")
 st.write(f"**R² Score**: {r2:.4f}")
 
@@ -107,25 +138,25 @@ st.dataframe(df_filtered)
 df["xgb_predicted_rating"] = model.predict(df[feature_cols])
 
 # ----------------------------
-# 4. Plot Actual vs Predicted
+# 5. Plot Actual vs Predicted
 # ----------------------------
 st.markdown("### 📈 Actual vs Predicted Rating")
 fig, ax = plt.subplots()
-ax.scatter(y, y_pred, alpha=0.1)
+ax.scatter(y, y_pred, alpha=0.01)
 ax.plot([y.min(), y.max()], [y.min(), y.max()], 'r--')
 ax.set_xlabel("Actual Rating")
 ax.set_ylabel("Predicted Rating")
 ax.set_title("Perbandingan Actual vs Predicted")
 
 # Tambahkan ticks lebih rapat
-ax.set_xticks(np.arange(1, 5.0, 0.4))
-ax.set_yticks(np.arange(1, 5.0, 0.4))
+ax.set_xticks(np.arange(1, 6.0, 0.5))
+ax.set_yticks(np.arange(1, 6.0, 0.5))
 
 st.pyplot(fig)
 
 
 # ----------------------------
-# 5. Rekomendasi Top-N
+# 6. Rekomendasi Top-N
 # ----------------------------
 st.markdown("### 🔍 Rekomendasi Top-N Item per User")
 selected_user = st.selectbox("Pilih User ID", sorted(df['userId'].unique()))
