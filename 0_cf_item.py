@@ -11,7 +11,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 @st.cache_data
 def load_data():
     # Load dataset
-    df = pd.read_csv("dataset_dummy/ratings.csv", names=["userId", "itemId", "rating"])
+    df = pd.read_csv("dataset_hotels/ratings.csv", names=["userId", "itemId", "rating"])
 
     # Pastikan rating berupa float
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
