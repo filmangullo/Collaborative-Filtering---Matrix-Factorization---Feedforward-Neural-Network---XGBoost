@@ -186,11 +186,6 @@ MAE : 0.6204
 MSE : 0.6899
 RMSE: 0.8306
 
-📊 Evaluasi Model MLP
-MAE : 0.0722
-MSE : 0.0188
-RMSE: 0.1372
-
 Total kombinasi user-item diuji : 5942620
 Diproses oleh model            : 5942620
 Memiliki rating aktual         : 100836
