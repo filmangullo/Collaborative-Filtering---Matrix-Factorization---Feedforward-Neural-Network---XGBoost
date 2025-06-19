@@ -1,0 +1,190 @@
+--------------------------------------------------------------------------------
+              OPTIMIZATION OF HYBRID-BASED COLLABORATIVE FILTERING              
+                                     USING                                      
+         MATRIX FACTORIZATION, FEEDFORWARD NEURAL NETWORK, AND XGBOOST          
+                           TO IMPROVE RECOMMENDATIONS                           
+--------------------------------------------------------------------------------
+Select Dataset:
+1. Dummny
+2. Film (MovieLens)
+3. Hotel (PT. XYZ)
+Choose dataset (1, 2 or 3): 3
+Select the program you want to run:
+1. Rating Prediction: Matrix Factorization and Feedforward Neural Network
+2. Generate : Handcrafted Features
+3. Do Recommendation : XGBoost
+Please select one of the following options: 1, 2, or 3: 1
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+                              MATRIX FACTORIZATION                              
+                                      and                                       
+           FEEDFORWARD NEURAL NETWORK BASED ON MULTI-LAYER PERCEPTRON           
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+--------------------------------------------------------------------------------
+                                   LOAD DATA                                    
+--------------------------------------------------------------------------------
+Total Item: 16292
+Total Rating  : 16940
+--------------------------------------------------------------------------------
+                                 DATA SPLITTING                                 
+--------------------------------------------------------------------------------
+Persentase data latih: 90.00%
+Persentase data uji  : 10.00%
+
+
+--------------------------------------------------------------------------------
+                                DATA PREPARATION                                
+--------------------------------------------------------------------------------
+========== ONE-HOT ENCODED FEATURES ==========
+          id  0  1  2  3  ...  sedati  sekotong  senggigi  sukaraja  trawas
+0      69602  0  1  0  0  ...       0         0         0         0       0
+1      69603  0  0  0  0  ...       0         0         0         0       0
+2      69604  1  0  0  0  ...       0         0         0         0       0
+3      69605  0  0  0  0  ...       0         0         0         0       0
+4      69606  1  0  0  0  ...       0         0         0         0       0
+...      ... .. .. .. ..  ...     ...       ...       ...       ...     ...
+16287  85889  0  0  0  1  ...       0         0         0         0       0
+16288  85890  0  0  0  1  ...       0         0         0         0       0
+16289  85891  0  0  0  1  ...       0         0         0         0       0
+16290  85892  0  0  0  0  ...       0         0         0         0       0
+16291  85893  0  0  1  0  ...       0         0         0         0       0
+
+[16292 rows x 1252 columns]
+
+Dimensi data akhir (item + fitur): (16292, 1252)
+
+
+========== USER-ITEM RATING MATRIX (PIVOT TABLE)  ==========
+itemId  69602  69603  69604  69605  69606  ...  85889  85890  85891  85892  85893
+userId                                     ...                                   
+1         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+2         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+3         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+4         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+5         NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+...       ...    ...    ...    ...    ...  ...    ...    ...    ...    ...    ...
+8581      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8583      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8584      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8586      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+8588      NaN    NaN    NaN    NaN    NaN  ...    NaN    NaN    NaN    NaN    NaN
+
+[7056 rows x 16292 columns]
+
+
+Hyperparameter Matrix Factorization:
+Latent factors / Dimensi laten: 64
+Learning rate                 : 0.005
+Regularization parameter      : 0.005
+Jumlah epoch / training       : 45
+
+
+Hyperparameter MLP:
+Struktur Hidden Layer     : [256, 128, 64]
+Learning Rate             : 0.001
+Batch Size                : 64
+Jumlah epoch / training   : 55
+Early Stopping (Patience) : 15
+
+
+Epoch 1/55
+203/203 [==============================] - 1s 3ms/step - loss: 2.8504 - val_loss: 2.1212
+Epoch 2/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.9968 - val_loss: 2.1303
+Epoch 3/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.9708 - val_loss: 2.1567
+Epoch 4/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.9528 - val_loss: 2.1520
+Epoch 5/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.9360 - val_loss: 2.1609
+Epoch 6/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.9134 - val_loss: 2.1726
+Epoch 7/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.9075 - val_loss: 2.1556
+Epoch 8/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.8990 - val_loss: 2.1874
+Epoch 9/55
+203/203 [==============================] - 1s 3ms/step - loss: 1.8634 - val_loss: 2.1757
+Epoch 10/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.7895 - val_loss: 2.0678
+Epoch 11/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.7196 - val_loss: 2.0610
+Epoch 12/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.6754 - val_loss: 2.1071
+Epoch 13/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.6484 - val_loss: 2.0780
+Epoch 14/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.6260 - val_loss: 2.1074
+Epoch 15/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.6060 - val_loss: 2.0696
+Epoch 16/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.5938 - val_loss: 2.0666
+Epoch 17/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.5657 - val_loss: 2.1054
+Epoch 18/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.5487 - val_loss: 2.0854
+Epoch 19/55
+203/203 [==============================] - 1s 3ms/step - loss: 1.5180 - val_loss: 2.1492
+Epoch 20/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.4856 - val_loss: 2.1492
+Epoch 21/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.4421 - val_loss: 2.0573
+Epoch 22/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.3867 - val_loss: 2.0628
+Epoch 23/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.3410 - val_loss: 2.0186
+Epoch 24/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.2953 - val_loss: 2.1031
+Epoch 25/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.2564 - val_loss: 2.0919
+Epoch 26/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.2266 - val_loss: 2.0591
+Epoch 27/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.2004 - val_loss: 2.0620
+Epoch 28/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.1696 - val_loss: 2.0800
+Epoch 29/55
+203/203 [==============================] - 1s 3ms/step - loss: 1.1424 - val_loss: 2.1380
+Epoch 30/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.1143 - val_loss: 2.0674
+Epoch 31/55
+203/203 [==============================] - 0s 2ms/step - loss: 1.0957 - val_loss: 2.0899
+Epoch 32/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.0606 - val_loss: 2.0860
+Epoch 33/55
+203/203 [==============================] - 1s 2ms/step - loss: 1.0265 - val_loss: 2.1041
+Epoch 34/55
+203/203 [==============================] - 1s 2ms/step - loss: 0.9924 - val_loss: 2.0626
+Epoch 35/55
+203/203 [==============================] - 1s 2ms/step - loss: 0.9593 - val_loss: 2.0897
+Epoch 36/55
+203/203 [==============================] - 0s 2ms/step - loss: 0.9224 - val_loss: 2.0308
+Epoch 37/55
+203/203 [==============================] - 1s 2ms/step - loss: 0.8878 - val_loss: 2.0284
+Epoch 38/55
+203/203 [==============================] - 1s 2ms/step - loss: 0.8517 - val_loss: 2.0669
+
+📊 Evaluasi Model MLP (MF + feature + Swish):
+MAE : 0.9829
+MSE : 1.4724
+RMSE: 1.2134
+
+Total kombinasi user-item diuji : 114956352
+Diproses oleh model            : 114956352
+Memiliki rating aktual         : 16677
+           userId  itemId  actual_rating  ffnn_predicted_rating
+0               1   69602            0.0                    3.0
+1               1   69603            0.0                    4.0
+2               1   69604            0.0                    3.0
+3               1   69605            0.0                    5.0
+4               1   69606            0.0                    3.0
+...           ...     ...            ...                    ...
+114956347    8588   85889            0.0                    4.0
+114956348    8588   85890            0.0                    4.0
+114956349    8588   85891            0.0                    2.0
+114956350    8588   85892            0.0                    5.0
+114956351    8588   85893            0.0                    2.0
+
+[114956352 rows x 4 columns]
+
+📁 Hasil prediksi disimpan ke: dataset_hotels/b_ffnn_ratings.csv
+⏱️ Waktu yang dibutuhkan: 153651.11 detik
