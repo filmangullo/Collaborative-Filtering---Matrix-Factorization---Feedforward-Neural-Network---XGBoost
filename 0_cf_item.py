@@ -2,110 +2,111 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.metrics import r2_score 
-from sklearn.metrics import mean_absolute_error, mean_squared_error
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 
 # -----------------------------
 # 1. Load Dataset
 # -----------------------------
 @st.cache_data
 def load_data():
-    # Load dataset
-    df = pd.read_csv("dataset_dummy/ratings.csv", names=["userId", "itemId", "rating"])
-
-    # Pastikan rating berupa float
+    df = pd.read_csv("dataset_hotels/ratings.csv", names=["userId", "itemId", "rating"])
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
-
-    # Ambil hanya rating tertinggi jika user memberi lebih dari satu rating ke item yang sama
     df = df.groupby(['userId', 'itemId'], as_index=False)['rating'].max()
-
     return df
 
 # -----------------------------
 # 2. Buat Item-User Matrix
 # -----------------------------
 def create_item_user_matrix(df):
-    df['rating'] = pd.to_numeric(df['rating'], errors='coerce')  # pastikan rating adalah float
-    return df.pivot_table(index="itemId", columns="userId", values="rating").fillna(0)
+    matrix = df.pivot_table(index="itemId", columns="userId", values="rating")
+    return matrix.fillna(0)
 
 # -----------------------------
-# 3. Hitung Item Similarity
+# 3. Hitung Kemiripan Antar Item
 # -----------------------------
 def compute_item_similarity(matrix):
     similarity = cosine_similarity(matrix)
     return pd.DataFrame(similarity, index=matrix.index, columns=matrix.index)
 
 # -----------------------------
-# 4. Prediksi Rating untuk User
+# 4. Prediksi Rating untuk User (Item-Based)
 # -----------------------------
-def predict_ratings_item_based(userId, matrix, sim_df):
-    user_ratings = matrix.T.loc[userId]
-    
-    if user_ratings.sum() == 0:
-        # User belum punya rating sama sekali
-        return pd.Series(0, index=matrix.index)
+def predict_ratings_item_based(user_id, matrix_T, similarity_df):
+    if user_id not in matrix_T.columns:
+        return pd.Series([], dtype=np.float64)
 
-    # Hitung prediksi
-    weighted_sum = sim_df.dot(user_ratings)
-    sim_sum = sim_df.dot((user_ratings > 0).astype(int))
-    
-    # Hindari divide-by-zero dan hasil mendekati 0
-    pred_ratings = weighted_sum / (sim_sum + 1e-9)
-    pred_ratings = pred_ratings.replace([np.inf, -np.inf], 0).fillna(0)
-    
-    return pred_ratings
+    user_ratings = matrix_T[user_id]
+    rated_items = user_ratings[user_ratings > 0]
+
+    weighted_scores = similarity_df[rated_items.index] @ rated_items
+    similarity_sums = similarity_df[rated_items.index].abs().sum(axis=1)
+
+    predicted_ratings = weighted_scores / (similarity_sums + 1e-9)
+    return predicted_ratings
 
 # -----------------------------
 # 5. Evaluasi Model
 # -----------------------------
-def evaluate_model(matrix, sim_df):
+def evaluate_model(matrix_T, similarity_df):
     actual, predicted = [], []
-
-    for user in matrix.columns:
-        user_ratings = matrix.T.loc[user]
-        pred_ratings = predict_ratings_item_based(user, matrix, sim_df)
+    for user in matrix_T.columns:
+        user_ratings = matrix_T[user]
+        pred_ratings = predict_ratings_item_based(user, matrix_T, similarity_df)
         for item in user_ratings[user_ratings > 0].index:
             actual.append(user_ratings[item])
             predicted.append(pred_ratings[item])
-
+    
     mae = mean_absolute_error(actual, predicted)
     mse = mean_squared_error(actual, predicted)
     rmse = np.sqrt(mse)
-    r2 = r2_score(actual, predicted)  # tambahan ini
+    r2 = r2_score(actual, predicted)
     return mae, mse, rmse, r2
 
 # -----------------------------
 # STREAMLIT UI
 # -----------------------------
-st.title("🍿 Item-Based Collaborative Filtering")
+st.title("📦 Item-Based Collaborative Filtering")
 
+# Load dan proses data
 df = load_data()
 item_user_matrix = create_item_user_matrix(df)
 item_similarity_df = compute_item_similarity(item_user_matrix)
 
-userIds = list(item_user_matrix.columns)
-selected_user = st.selectbox("Pilih User ID", userIds)
+# Transpose untuk akses per user (userId jadi kolom)
+matrix_T = item_user_matrix
 
-# Prediksi dan Rekomendasi
-predicted_ratings = predict_ratings_item_based(selected_user, item_user_matrix, item_similarity_df)
-rated_items = item_user_matrix.T.loc[selected_user]
-recommendations = predicted_ratings.drop(rated_items[rated_items > 0].index)
+# Pilih user
+user_ids = matrix_T.columns.tolist()
+selected_user = st.selectbox("Pilih User ID", user_ids)
+
+# Prediksi rating untuk user
+predicted_ratings = predict_ratings_item_based(selected_user, matrix_T, item_similarity_df)
+rated_items = matrix_T[selected_user]
+unrated_predictions = predicted_ratings.drop(rated_items[rated_items > 0].index)
+
+# Debug info
+nonzero = np.count_nonzero(matrix_T)
+total = matrix_T.size
+sparsity = 1.0 - (nonzero / total)
+
+st.markdown("### ℹ️ Debugging Info")
+st.write("Rating oleh User", selected_user, ":", rated_items[rated_items > 0])
+st.write("Jumlah item yang tidak dirating:", len(unrated_predictions))
+st.write(f"Sparsity Matrix: {sparsity:.2%}")
+
+# Tampilkan rekomendasi
 top_n = st.slider("Jumlah Rekomendasi", 1, 10, 5)
-top_recommendations = recommendations.sort_values(ascending=False).head(top_n)
+top_recommendations = unrated_predictions.sort_values(ascending=False).head(top_n)
 
-st.subheader(f"Rekomendasi untuk User {selected_user}")
-top_recommendations_df = top_recommendations.reset_index().rename(columns={selected_user: "Predicted Rating"})
-top_recommendations_df.columns = top_recommendations_df.columns.astype(str)
-st.dataframe(top_recommendations_df)
-
-
-
+st.subheader(f"🎯 Rekomendasi untuk User {selected_user}")
+st.dataframe(top_recommendations.reset_index().rename(columns={selected_user: "Final Score Prediction"}))
 
 # Evaluasi model
-st.subheader("📊 Evaluasi Model (Seluruh Data)")
-with st.spinner("Menghitung evaluasi..."):
-    mae, mse, rmse, r2 = evaluate_model(item_user_matrix, item_similarity_df)
-    st.metric("MAE", f"{mae:.4f}")
-    st.metric("MSE", f"{mse:.4f}")
-    st.metric("RMSE", f"{rmse:.4f}")
-    st.metric("R2", f"{r2:.4f}")
+st.subheader("📊 Evaluasi Model")
+with st.spinner("Menghitung metrik evaluasi..."):
+    mae, mse, rmse, r2 = evaluate_model(matrix_T, item_similarity_df)
+
+st.metric("MAE", f"{mae:.4f}")
+st.metric("MSE", f"{mse:.4f}")
+st.metric("RMSE", f"{rmse:.4f}")
+st.metric("R²", f"{r2:.4f}")
