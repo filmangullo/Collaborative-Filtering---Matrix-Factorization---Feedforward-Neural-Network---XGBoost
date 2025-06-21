@@ -50,9 +50,15 @@ y = df_filtered['actual_rating']
 # -------------------------------------
 # 2. Tuning Hyperparameter Pada XGBoost 
 # -------------------------------------
+<<<<<<< HEAD
+n_estimators = 900
+learning_rate = 0.5
+max_depth = 9
+=======
 n_estimators = 1000
 learning_rate = 0.5
 max_depth = 10
+>>>>>>> cc1a8292c2331b912d4cda488a93af2822fb9e7a
 min_child_weight = 5
 subsample = 0.8
 colsample_bytree = 0.8
