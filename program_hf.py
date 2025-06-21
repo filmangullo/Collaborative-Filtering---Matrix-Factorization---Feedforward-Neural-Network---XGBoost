@@ -26,7 +26,7 @@ dataset_choice = sys.argv[1]
 dataset_config = {
     "dummy": {
         "dir": "dataset_dummy/",
-        "file_special": "b_ffnn_ratings.csv",
+        "file_special": "b_ffnn_ratings_x.csv",
         "file_default": "b_ffnn_ratings.csv"
     },
     "movie": {

@@ -50,9 +50,15 @@ y = df_filtered['actual_rating']
 # -------------------------------------
 # 2. Tuning Hyperparameter Pada XGBoost 
 # -------------------------------------
+<<<<<<< HEAD
 n_estimators = 900
 learning_rate = 0.5
 max_depth = 9
+=======
+n_estimators = 1000
+learning_rate = 0.5
+max_depth = 10
+>>>>>>> cc1a8292c2331b912d4cda488a93af2822fb9e7a
 min_child_weight = 5
 subsample = 0.8
 colsample_bytree = 0.8
@@ -164,7 +170,8 @@ top_n = st.slider("Top-N Recommendation", 1, 100, 10)
 
 def get_top_n(df, user_id, n=5):
     user_df = df[df['userId'] == user_id]
-    return user_df.sort_values(by='xgb_predicted_rating', ascending=False).head(n)[['itemId', 'actual_rating', 'xgb_predicted_rating']]
+    return user_df.sort_values(by='xgb_predicted_rating', ascending=False).head(n)[['itemId', 'xgb_predicted_rating']]
 
 recommended_items = get_top_n(df, selected_user, top_n)
 st.dataframe(recommended_items)
+
