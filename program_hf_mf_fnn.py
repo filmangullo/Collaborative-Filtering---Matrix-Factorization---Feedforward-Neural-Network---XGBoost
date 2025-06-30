@@ -147,6 +147,6 @@ def compute_features(file_dir, input_path, output_path, rating_column="actual_ra
 compute_features(
     file_dir=file_dir,
     input_path=input_path,
-    output_path="c_hf_ratings_mf_fnn.csv",
+    output_path="c_hf_ratings_mf_ffnn.csv",
     rating_column='ffnn_predicted_rating'
 )

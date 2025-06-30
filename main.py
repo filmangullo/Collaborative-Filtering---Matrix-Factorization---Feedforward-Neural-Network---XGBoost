@@ -34,18 +34,15 @@ def main():
 
     print("Select the program you want to run:")
     print("1. Rating Prediction: Matrix Factorization and Feedforward Neural Network")
-    print("2. Generate : Handcrafted Features (MF based SVD)")
-    print("3. Generate : Handcrafted Features (MF,FNN based MLP)")
-    print("4. Do Recommendation : XGBoost")
-    program_choice = str(input("Please select one of the following options: 1, 2, 3 or 4: ")).strip()
+    print("2. Generate : Handcrafted Features")
+    print("3. Do Recommendation : XGBoost")
+    program_choice = str(input("Please select one of the following options: 1, 2, or 3: ")).strip()
 
     if program_choice == '1':
         subprocess.call([sys.executable, "program_mf_ffnn.py", dataset])
     elif program_choice == '2':
-        subprocess.call([sys.executable, "program_hf_mf.py", dataset])
+        subprocess.call([sys.executable, "program_hf.py", dataset])
     elif program_choice == '3':
-        subprocess.call([sys.executable, "program_hf_mf_fnn.py", dataset])
-    elif program_choice == '4':
         print("\nLaunching Streamlit app for XGBoost recommendation...")
         subprocess.call(["streamlit", "run", "program_xg.py", dataset])
     else:
