@@ -1,0 +1,37 @@
+--------------------------------------------------------------------------------
+              OPTIMIZATION OF HYBRID-BASED COLLABORATIVE FILTERING
+                                     USING
+         MATRIX FACTORIZATION, FEEDFORWARD NEURAL NETWORK, AND XGBOOST
+                           TO IMPROVE RECOMMENDATIONS
+--------------------------------------------------------------------------------
+Select Dataset:
+1. Dummny
+2. Film (MovieLens)
+3. Hotel (PT. XYZ)
+Choose dataset (1, 2 or 3): 2
+Select the program you want to run:
+1. Rating Prediction: Matrix Factorization and Feedforward Neural Network
+2. Generate : Handcrafted Features (MF based SVD)
+3. Generate : Handcrafted Features (MF,FNN based MLP)
+4. Do Recommendation : XGBoost
+Please select one of the following options: 1, 2, 3 or 4: 2
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+                              HANDCRAFTED FEATURES
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+🔃 Membaca dataset...
+📊 Statistik dasar...
+Total rating : 5721170
+Total user   : 610
+Total item   : 9379
+🧠 Menghitung fitur rata-rata...
+🤖 Membangun user-item sparse matrix...
+🤖 Membangun item-user sparse matrix...
+📐 Menghitung prediksi berbasis user dan item serupa...
+100%|██████████████████████████████████████████████████████████████████████| 5721190/5721190 [14:30<00:00, 6572.54it/s]
+100%|██████████████████████████████████████████████████████████████████████| 5721190/5721190 [22:09<00:00, 4302.13it/s]
+💾 Menyimpan hasil akhir...
+
+✅ Fitur handcrafted disimpan ke: c_hf_ratings_mf.csv
+Total waktu eksekusi : 2321.91 detik.
