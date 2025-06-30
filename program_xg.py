@@ -19,11 +19,11 @@ if len(sys.argv) < 2:
 dataset_choice = sys.argv[1]
 
 if dataset_choice == "dummy":
-    file_path = "dataset_dummy/c_hf_ratings.csv"
+    file_path = "dataset_dummy/c_hf_ratings_mf_ffnn.csv"
 elif dataset_choice == "movie":
-    file_path = "dataset_movielens/c_hf_ratings.csv"
+    file_path = "dataset_movielens/c_hf_ratings_mf_ffnn.csv"
 elif dataset_choice == "hotel":
-    file_path = "dataset_hotels/c_hf_ratings.csv"
+    file_path = "dataset_hotels/c_hf_ratings_mf_ffnn.csv"
 else:
     print("Unknown dataset.")
     sys.exit(1)
