@@ -23,6 +23,14 @@ df_rc = df_r['userId'].value_counts()
 max_ratings = df_rc.max()
 min_ratings = df_rc.min()
 
+# === Sparsity (kelangkaan rating pada matriks user-item) ===
+R = len(df_r)                         # total rating
+M = df_r['userId'].nunique()          # jumlah user
+N = df_i['id'].nunique()              # jumlah movie (katalog)
+
+sparsity = 1 - (R / (M * N)) if (M * N) else float('nan')
+density  = 1 - sparsity               # alternatif: tingkat kepadatan rating
+
 print(f"\n🏨 Hotel Dataset")
 print(df_i)
 print(f"\n⭐ Hotel Ratings Dataset")
@@ -39,3 +47,6 @@ print(f"\n👤 Total user: {df_u}\n")
 
 print(f"👤⭐ Jumlah Paling Banyak user memberikan rating : {max_ratings}")
 print(f"👤⭐ Jumlah Paling Sedikit user memberikan rating : {min_ratings}")
+
+print(f"\n🧮 Sparsity (1 - R/(M×N)) : {sparsity:.6f}  ({sparsity*100:.2f}%)")
+print(f"🧮 Density  (R/(M×N))     : {density:.6f}  ({density*100:.2f}%)")
