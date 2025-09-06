@@ -332,6 +332,7 @@ y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
 y_pred_discrete = y_pred_discrete.astype(float) 
 
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.metrics import r2_score
 # ----------------------------
 # 9. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
@@ -344,21 +345,16 @@ y_pred_valid_corrected = np.array([
 # Evaluasi tanpa koreksi
 mae = mean_absolute_error(y_test_valid, y_pred_valid)
 mse = mean_squared_error(y_test_valid, y_pred_valid)
+r2 = r2_score(y_test_valid, y_pred_valid)
 rmse = np.sqrt(mse)
 
 print("\n📊 Evaluasi Model MLP (MF + feature + Swish):")
 print(f"MAE : {mae:.4f}")
 print(f"MSE : {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
+print(f"R2: {r2:.4f}")
 
-mae_corr = mean_absolute_error(y_test_valid, y_pred_valid_corrected)
-mse_corr = mean_squared_error(y_test_valid, y_pred_valid_corrected)
-rmse_corr = np.sqrt(mse_corr)
 
-# print("\n📊 Evaluasi Model MLP")
-# print(f"MAE : {mae_corr:.4f}")
-# print(f"MSE : {mse_corr:.4f}")
-# print(f"RMSE: {rmse_corr:.4f}")
 
 print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
 print(f"Diproses oleh model            : {len(y_pred_list)}")
