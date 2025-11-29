@@ -15,7 +15,7 @@ from sklearn.metrics import (
 # -----------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("dataset_dummy/ratings.csv", names=["userId", "itemId", "rating"])
+    df = pd.read_csv("dataset_movielens/ratings.csv", names=["userId", "itemId", "rating"])
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
     df = df.groupby(['userId', 'itemId'], as_index=False)['rating'].max()
     return df
@@ -145,11 +145,11 @@ else:
 # Evaluasi model
 st.subheader("📊 Evaluasi Model")
 with st.spinner("Menghitung metrik evaluasi..."):
-    mae, mse, rmse, r2, precision, recall = evaluate_model(matrix_T, item_similarity_df, threshold=1.0)
+    mae, mse, rmse, r2, precision, recall = evaluate_model(matrix_T, item_similarity_df, threshold=3.0)
 
 st.metric("MAE", f"{mae:.4f}")
 st.metric("MSE", f"{mse:.4f}")
 st.metric("RMSE", f"{rmse:.4f}")
 st.metric("R²", f"{r2:.4f}")
-st.metric("Precision (rating ≥ 1)", f"{precision:.4f}")
-st.metric("Recall (rating ≥ 1)", f"{recall:.4f}")
+st.metric("Precision (rating ≥ 3)", f"{precision:.4f}")
+st.metric("Recall (rating ≥ 3)", f"{recall:.4f}")

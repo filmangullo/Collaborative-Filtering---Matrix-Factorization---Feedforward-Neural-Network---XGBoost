@@ -15,7 +15,7 @@ from sklearn.metrics import (
 # -----------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("dataset_dummy/ratings.csv", names=["userId", "itemId", "rating"])
+    df = pd.read_csv("dataset_hotels/ratings.csv", names=["userId", "itemId", "rating"])
     df['rating'] = pd.to_numeric(df['rating'], errors='coerce')
     df = df.groupby(['userId', 'itemId'], as_index=False)['rating'].max()
     return df
