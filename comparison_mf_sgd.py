@@ -197,8 +197,8 @@ print("Evaluasi pada Data Test:")
 print(f"MAE       : {test_mae:.4f}")
 print(f"MSE       : {test_mse:.4f}")
 print(f"RMSE      : {test_rmse:.4f}")
-print(f"Precision : {test_precision:.4f} (rating >= 4)")
-print(f"Recall    : {test_recall:.4f} (rating >= 4)")
+print(f"Precision : {test_precision:.4f} (rating >= 3)")
+print(f"Recall    : {test_recall:.4f} (rating >= 3)")
 
 # ----------------------------
 # 8. Contoh Otomatis prediksi (semua kombinasi user-item)
@@ -227,28 +227,28 @@ predictions_df = pd.DataFrame(predictions)
 # ----------------------------
 # 10. Simpan prediksi ke CSV
 # ----------------------------
-print("\nTotal prediksi:", len(predictions_df))
-print(f"Total user: {num_users}")
-print(f"Total item: {num_items}")
+# print("\nTotal prediksi:", len(predictions_df))
+# print(f"Total user: {num_users}")
+# print(f"Total item: {num_items}")
 
-# =========================================
-# Pendekatan 1: Filtering Vektorisasi
-# =========================================
-start_time_vect = time.time()
+# # =========================================
+# # Pendekatan 1: Filtering Vektorisasi
+# # =========================================
+# start_time_vect = time.time()
 
-# Menggunakan filtering vektorisasi untuk memilih baris yang sesuai
-result_df_vect = predictions_df[
-    predictions_df["userId"].isin(user_ids) &
-    predictions_df["itemId"].isin(item_ids)
-].copy()
+# # Menggunakan filtering vektorisasi untuk memilih baris yang sesuai
+# result_df_vect = predictions_df[
+#     predictions_df["userId"].isin(user_ids) &
+#     predictions_df["itemId"].isin(item_ids)
+# ].copy()
 
-end_time_vect = time.time()
-elapsed_time_vect = end_time_vect - start_time_vect
+# end_time_vect = time.time()
+# elapsed_time_vect = end_time_vect - start_time_vect
 
-print("\nHasil dengan filtering vektorisasi:")
-print(result_df_vect.head())  # tampilkan sebagian saja biar tidak kebanjiran output
+# print("\nHasil dengan filtering vektorisasi:")
+# print(result_df_vect.head())  # tampilkan sebagian saja biar tidak kebanjiran output
 
-output_path_vect = file_dir + "a_mf_ratings.csv"
-result_df_vect.to_csv(output_path_vect, index=False)
-print(f"\n📁 Hasil prediksi disimpan ke: {output_path_vect}")
-print(f"Total waktu eksekusi (vectorized): {elapsed_time_vect:.2f} detik.")
+# output_path_vect = file_dir + "a_mf_ratings.csv"
+# result_df_vect.to_csv(output_path_vect, index=False)
+# print(f"\n📁 Hasil prediksi disimpan ke: {output_path_vect}")
+# print(f"Total waktu eksekusi (vectorized): {elapsed_time_vect:.2f} detik.")
