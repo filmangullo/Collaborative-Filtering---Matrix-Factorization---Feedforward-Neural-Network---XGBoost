@@ -331,8 +331,7 @@ y_pred_discrete = np.clip(np.round(y_pred), 1, 5)
 # (jika Anda mau pakai float: 
 y_pred_discrete = y_pred_discrete.astype(float) 
 
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.metrics import r2_score
+from sklearn.metrics import (mean_squared_error, mean_absolute_error, r2_score, precision_score, recall_score)
 # ----------------------------
 # 9. Evaluasi Metrik (hanya untuk data yang ada rating aktual)
 # ----------------------------
@@ -354,7 +353,22 @@ print(f"MSE : {mse:.4f}")
 print(f"RMSE: {rmse:.4f}")
 print(f"R2: {r2:.4f}")
 
+# Evaluasi Precision & Recall (rating relevan >= threshold)
+threshold = 5.0  # rating yang dianggap "suka"
 
+# Ambil hanya prediksi yang punya rating aktual (pakai mask yang sudah dibuat)
+y_pred_discrete_valid = y_pred_discrete[mask]
+
+# Konversi ke label biner: 1 = relevan, 0 = tidak relevan
+y_true_binary = (y_test_valid >= threshold).astype(int)
+y_pred_binary = (y_pred_discrete_valid >= threshold).astype(int)
+
+precision = precision_score(y_true_binary, y_pred_binary, zero_division=0)
+recall = recall_score(y_true_binary, y_pred_binary, zero_division=0)
+
+print("\n📊 Evaluasi Klasifikasi (berdasarkan threshold rating):")
+print(f"Precision (rating >= {threshold}): {precision:.4f}")
+print(f"Recall    (rating >= {threshold}): {recall:.4f}")
 
 print(f"\nTotal kombinasi user-item diuji : {len(all_combinations)}")
 print(f"Diproses oleh model            : {len(y_pred_list)}")
@@ -364,23 +378,23 @@ print(f"Memiliki rating aktual         : {len(y_test_valid)}")
 # ----------------------------
 # 10. Simpan ke CSV
 # ----------------------------
-pred_df = pd.DataFrame([
-    {
-        "userId": uid,
-        "itemId": iid,
-        "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
-        "ffnn_predicted_rating": float(y_pred_discrete[idx])
-    }
-    for idx, (uid, iid, actual) in enumerate(y_pred_list)
-])
+# pred_df = pd.DataFrame([
+#     {
+#         "userId": uid,
+#         "itemId": iid,
+#         "actual_rating": round(actual, 1) if not np.isnan(actual) else 0.0,
+#         "ffnn_predicted_rating": float(y_pred_discrete[idx])
+#     }
+#     for idx, (uid, iid, actual) in enumerate(y_pred_list)
+# ])
 
-end_time = time.time()
-elapsed_time = end_time - start_time
+# end_time = time.time()
+# elapsed_time = end_time - start_time
 
-print(pred_df)
+# print(pred_df)
 
-output_path = file_dir + "b_ffnn_ratings.csv"
-pred_df.to_csv(output_path, index=False, float_format='%.1f')
+# output_path = file_dir + "b_ffnn_ratings.csv"
+# pred_df.to_csv(output_path, index=False, float_format='%.1f')
 
-print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
-print(f"⏱️ Waktu yang dibutuhkan: {elapsed_time:.2f} detik")
+# print(f"\n📁 Hasil prediksi disimpan ke: {output_path}")
+# print(f"⏱️ Waktu yang dibutuhkan: {elapsed_time:.2f} detik")

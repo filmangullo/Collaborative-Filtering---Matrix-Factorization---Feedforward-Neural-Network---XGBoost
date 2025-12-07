@@ -20,13 +20,13 @@ print(f"----------------------------------------------------------------")
 # ----------------------------
 # 1. Load dan split dataset
 # ----------------------------
-file_dir = "dataset_dummy/"
+file_dir = "dataset_hotels/"
 
 # Load dataset ratings
 ratings = pd.read_csv(file_dir + "ratings.csv")  # pastikan file ratings.csv ada di direktori yang sama
 
 # Membagi data menjadi data latih dan data uji
-train_data, test_data = train_test_split(ratings, test_size=0.1, random_state=42)
+train_data, test_data = train_test_split(ratings, test_size=0.2, random_state=42)
 
 # Menghitung total jumlah data
 total_data = len(ratings)
@@ -57,8 +57,8 @@ item_ids = R_df.columns.tolist()
 # Hyperparameter Matrix Factorization
 num_users, num_items = R.shape
 k = 64       # latent factors
-alpha = 0.04 # learning rate
-beta = 0.04  # regularization parameter
+alpha = 0.005 # learning rate
+beta = 0.3  # regularization parameter
 epochs = 45  # jumlah epoch
 
 print("Hyperparameter Matrix Factorization:")
@@ -111,8 +111,8 @@ def train_mf(R, U, V, alpha, beta, epochs):
                     V[j, :] += alpha * (eij * U[i, :] - beta * V[j, :])
 
                     # Optional: batasi nilai untuk stabilitas
-                    U[i, :] = np.clip(U[i, :], -5, 5)
-                    V[j, :] = np.clip(V[j, :], -5, 5)
+                    U[i, :] = np.clip(U[i, :], 1, 5)
+                    V[j, :] = np.clip(V[j, :], 1, 5)
 
         # Cek NaN
         if np.isnan(U).any() or np.isnan(V).any():
@@ -190,15 +190,15 @@ test_mae, test_mse, test_rmse, test_precision, test_recall = evaluate_on_test(
     item_ids,
     U,
     V,
-    threshold=3.0,  # rating >= 4 dianggap "suka"
+    threshold=4.0,  # rating >= 4 dianggap "suka"
 )
 
 print("Evaluasi pada Data Test:")
 print(f"MAE       : {test_mae:.4f}")
 print(f"MSE       : {test_mse:.4f}")
 print(f"RMSE      : {test_rmse:.4f}")
-print(f"Precision : {test_precision:.4f} (rating >= 3)")
-print(f"Recall    : {test_recall:.4f} (rating >= 3)")
+print(f"Precision : {test_precision:.4f} (rating >= 4)")
+print(f"Recall    : {test_recall:.4f} (rating >= 4)")
 
 # ----------------------------
 # 8. Contoh Otomatis prediksi (semua kombinasi user-item)
