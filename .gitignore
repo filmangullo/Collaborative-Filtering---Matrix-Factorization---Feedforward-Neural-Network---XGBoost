@@ -28,3 +28,5 @@
 /dataset_movielens/c_hf_ratings_mf.csv
 /dataset_movielens/c_hf_ratings.csv
 /tfenv
+/venv
+/.venv
